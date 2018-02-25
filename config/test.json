@@ -1,0 +1,7 @@
+{
+  "db": {
+    "connection": {
+      "database": "maco_bot_test"
+    }
+  }
+}

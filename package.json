@@ -1,5 +1,5 @@
 {
-  "name": "shnoodo",
+  "name": "maco bot",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "migrate-all-latest": "NODE_ENV=test knex migrate:latest && knex migrate:latest",
     "migrate-all-redo": "npm run migrate-all-rollback && npm run migrate-all-latest",
     "heroku-postbuild": "node_modules/.bin/knex migrate:latest && cd client/ && npm install && npm run build",
-    "heroku-update-prod-env-vars": "sed 's/#[^(\"|'')]*$//;s/^#.*$//' .env.production | xargs heroku config:set --app=shnoodo"
+    "heroku-update-prod-env-vars": "sed 's/#[^(\"|'')]*$//;s/^#.*$//' .env.production | xargs heroku config:set --app=maco-bot"
   },
   "dependencies": {
     "ajv": "^6.1.1",

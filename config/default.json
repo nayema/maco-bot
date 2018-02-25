@@ -1,0 +1,8 @@
+{
+  "db": {
+    "client": "postgresql",
+    "connection": {
+      "database": "maco_bot_development"
+    }
+  }
+}
