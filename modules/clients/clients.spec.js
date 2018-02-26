@@ -28,7 +28,7 @@ describe('clients', () => {
       const client = { 'name': 'Some Client' }
 
       const response = await request(app)
-        .post(/clients/)
+        .post('/clients/')
         .set('Content-Type', 'application/json')
         .send(client)
 
@@ -38,6 +38,22 @@ describe('clients', () => {
       expect(clientsResponse).toEqual(expect.objectContaining({
         'name': 'Some Client'
       }))
+    })
+  })
+
+  describe('when removing a client', () => {
+    it('removes', async () => {
+      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
+      const client = { 'id': 999 }
+
+      const response = await request(app)
+        .delete('/clients/')
+        .set('Content-Type', 'application/json')
+        .send(client)
+
+      expect(response.statusCode).toBe(200)
+      const clients = await Client.query().count()
+      expect(clients[0]['count']).toEqual('0')
     })
   })
 })

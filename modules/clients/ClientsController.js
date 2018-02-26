@@ -12,6 +12,14 @@ class ClientsController {
     })
     return res.send(client)
   }
+
+  static async removeClient (req, res) {
+    await Client
+      .query()
+      .delete()
+      .where('id', '=', req.body['id'])
+    return res.end()
+  }
 }
 
 module.exports = ClientsController
