@@ -13,6 +13,14 @@ class ProductsController {
       })
     return res.send(product)
   }
+
+  static async remove (req, res) {
+    await Product
+      .query()
+      .delete()
+      .where('id', req.body['id'])
+    return res.end()
+  }
 }
 
 module.exports = ProductsController

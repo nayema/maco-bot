@@ -44,4 +44,24 @@ describe('products', () => {
       }))
     })
   })
+
+  describe('when removing a product', () => {
+    it('removes', async () => {
+      await Product.query().insert({
+        'id': 999,
+        'name': 'Some Product',
+        'client_id': client.id
+      })
+      const product = { 'id': 999 }
+
+      const response = await request(app)
+        .delete('/products/')
+        .set('Content-Type', 'application/json')
+        .send(product)
+
+      expect(response.statusCode).toBe(200)
+      const products = await Product.query().count()
+      expect(products[0]['count']).toEqual('0')
+    })
+  })
 })
