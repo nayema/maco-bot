@@ -45,7 +45,8 @@ describe('products', () => {
       const products = await Product.query()
       expect(products[0]).toHaveProperty('id')
       expect(products[0]).toEqual(expect.objectContaining({
-        'name': 'Some Product', 'client_id': client.id
+        'name': 'Some Product',
+        'client_id': client.id
       }))
     })
   })

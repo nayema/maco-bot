@@ -1,4 +1,5 @@
 const Product = require('./Product')
+const Client = require('./Client')
 
 class ProductsController {
   static async getAll (req, res) {
@@ -7,7 +8,9 @@ class ProductsController {
   }
 
   static async add (req, res) {
-    const product = await Product.query().insert({
+    const product = await Product
+      .query()
+      .insert({
         'name': req.body['name'],
         'client_id': req.body['client_id']
       })
