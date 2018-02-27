@@ -2,7 +2,7 @@ const Product = require('./Product')
 
 class ProductsController {
   static async getAll (req, res) {
-    const products = await Product.query()
+    const products = await Product.query().eager('client')
     return res.send(products)
   }
 
