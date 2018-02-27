@@ -56,4 +56,22 @@ describe('clients', () => {
       expect(clients[0]['count']).toEqual('0')
     })
   })
+
+  describe('when updating an existing client', () => {
+    it('updates', async () => {
+      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
+      const client = { 'id': 999, 'name': 'Some Updated Client' }
+
+      const response = await request(app)
+        .put('/clients')
+        .set('Content-Type', 'application/json')
+        .send(client)
+
+      expect(response.statusCode).toBe(200)
+      const clients = await Client.query().where('id', '=', 999)
+      expect(clients[0]).toEqual(expect.objectContaining({
+        'name': 'Some Updated Client'
+      }))
+    })
+  })
 })

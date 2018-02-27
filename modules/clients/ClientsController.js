@@ -7,9 +7,13 @@ class ClientsController {
   }
 
   static async addClient (req, res) {
-    const client = await Client.query().insert({
-      'name': req.body['name']
-    })
+    console.log(req.body)
+    console.log(req.body['name'])
+    const client = await Client
+      .query()
+      .insert({
+        'name': req.body['name']
+      })
     return res.send(client)
   }
 
@@ -17,7 +21,16 @@ class ClientsController {
     await Client
       .query()
       .delete()
-      .where('id', '=', req.body['id'])
+      .where('id', req.body['id'])
+    return res.end()
+  }
+
+  static async updateClient (req, res) {
+    console.log(req.body)
+    await Client
+      .query()
+      .update({ 'name': req.body['name'] })
+      .where('id', req.body['id'])
     return res.end()
   }
 }
