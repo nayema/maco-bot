@@ -33,7 +33,7 @@ describe('clients', () => {
         .send(client)
 
       expect(response.statusCode).toBe(200)
-      const clients = response.body
+      const clients = await Client.query()
       expect(clients[0]).toHaveProperty('id')
       expect(clients[0]).toEqual(expect.objectContaining({
         'name': 'Some Client'
@@ -63,7 +63,7 @@ describe('clients', () => {
       const client = { 'id': 999, 'name': 'Some Updated Client' }
 
       const response = await request(app)
-        .put('/clients')
+        .put('/clients/')
         .set('Content-Type', 'application/json')
         .send(client)
 

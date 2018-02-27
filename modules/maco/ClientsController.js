@@ -7,9 +7,7 @@ class ClientsController {
   }
 
   static async add (req, res) {
-    const client = await Client
-      .query()
-      .insert({
+    const client = await Client.query().insert({
         'name': req.body['name']
       })
     return res.send(client)
