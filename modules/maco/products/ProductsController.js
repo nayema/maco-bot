@@ -1,5 +1,5 @@
 const Product = require('./Product')
-const Client = require('./Client')
+const Client = require('../clients/Client')
 
 class ProductsController {
   static async getAll (req, res) {
@@ -21,6 +21,17 @@ class ProductsController {
     await Product
       .query()
       .delete()
+      .where('id', req.body['id'])
+    return res.end()
+  }
+
+  static async update (req, res) {
+    await Product
+      .query()
+      .update({
+        'name': req.body['name'],
+        'client_id': req.body['client_id']
+      })
       .where('id', req.body['id'])
     return res.end()
   }

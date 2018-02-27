@@ -1,4 +1,4 @@
-const Model = require('../common/model')
+const Model = require('../../common/model')
 
 class Client extends Model {
   static get tableName () {

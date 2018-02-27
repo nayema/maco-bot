@@ -1,6 +1,6 @@
 import request from 'supertest'
 
-import app from '../../app'
+import app from '../../../app'
 import Client from './Client'
 
 describe('clients', () => {

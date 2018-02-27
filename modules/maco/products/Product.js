@@ -1,5 +1,5 @@
-const Model = require('../common/model')
-const Client = require('./Client')
+const Model = require('../../common/model')
+const Client = require('../clients/Client')
 
 class Product extends Model {
   static get tableName () {

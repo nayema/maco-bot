@@ -1,7 +1,7 @@
 import request from 'supertest'
 
-import app from '../../app'
-import Client from './Client'
+import app from '../../../app'
+import Client from '../clients/Client'
 import Product from './Product'
 
 describe('products', () => {
@@ -69,6 +69,37 @@ describe('products', () => {
       expect(response.statusCode).toBe(200)
       const products = await Product.query().count()
       expect(products[0]['count']).toEqual('0')
+    })
+  })
+
+  describe('when updating an existing product', () => {
+    it('updates', async () => {
+      const client = await createClient({ 'name': 'Some Client' })
+      const anotherClient = await createClient({
+        'name': 'Another Client'
+      })
+      await Product.query().insert({
+        'id': 999,
+        'name': 'Some Product',
+        'client_id': client.id
+      })
+      const product = {
+        'id': 999,
+        'name': 'Some Updated Product',
+        'client_id': anotherClient.id
+      }
+
+      const response = await request(app)
+        .put('/products/')
+        .set('Content-Type', 'application/json')
+        .send(product)
+
+      expect(response.statusCode).toBe(200)
+      const products = await Product.query()
+      expect(products[0]).toEqual(expect.objectContaining({
+        'name': 'Some Updated Product',
+        'client_id': anotherClient.id
+      }))
     })
   })
 
