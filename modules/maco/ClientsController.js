@@ -1,12 +1,12 @@
 const Client = require('./Client')
 
 class ClientsController {
-  static async getClients (req, res) {
+  static async getAll (req, res) {
     const clients = await Client.query()
     return res.send(clients)
   }
 
-  static async addClient (req, res) {
+  static async add (req, res) {
     const client = await Client
       .query()
       .insert({
@@ -15,7 +15,7 @@ class ClientsController {
     return res.send(client)
   }
 
-  static async removeClient (req, res) {
+  static async remove (req, res) {
     await Client
       .query()
       .delete()
@@ -23,7 +23,7 @@ class ClientsController {
     return res.end()
   }
 
-  static async updateClient (req, res) {
+  static async update (req, res) {
     await Client
       .query()
       .update({ 'name': req.body['name'] })

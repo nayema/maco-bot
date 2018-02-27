@@ -2,10 +2,13 @@ const express = require('express')
 const router = express.Router()
 
 const ClientsController = require('./ClientsController')
+const ProductsController = require('./ProductsController')
 
-router.get('/clients', ClientsController.getClients)
-router.post('/clients', ClientsController.addClient)
-router.delete('/clients', ClientsController.removeClient)
-router.put('/clients', ClientsController.updateClient)
+router.get('/clients', ClientsController.getAll)
+router.post('/clients', ClientsController.add)
+router.delete('/clients', ClientsController.remove)
+router.put('/clients', ClientsController.update)
+
+router.get('/products', ProductsController.getAll)
 
 module.exports = router
