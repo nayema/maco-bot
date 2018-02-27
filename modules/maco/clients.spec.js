@@ -33,9 +33,9 @@ describe('clients', () => {
         .send(client)
 
       expect(response.statusCode).toBe(200)
-      const clientsResponse = response.body
-      expect(clientsResponse).toHaveProperty('id')
-      expect(clientsResponse).toEqual(expect.objectContaining({
+      const clients = response.body
+      expect(clients[0]).toHaveProperty('id')
+      expect(clients[0]).toEqual(expect.objectContaining({
         'name': 'Some Client'
       }))
     })

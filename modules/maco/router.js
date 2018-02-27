@@ -10,5 +10,6 @@ router.delete('/clients', ClientsController.remove)
 router.put('/clients', ClientsController.update)
 
 router.get('/products', ProductsController.getAll)
+router.post('/products', ProductsController.add)
 
 module.exports = router

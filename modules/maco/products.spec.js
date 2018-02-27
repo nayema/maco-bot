@@ -26,4 +26,22 @@ describe('products', () => {
       }))
     })
   })
+
+  describe('when adding a new product', () => {
+    it('adds', async () => {
+      const product = { 'name': 'Some Product', 'client_id': client.id }
+
+      const response = await request(app)
+        .post('/products/')
+        .set('Content-Type', 'application/json')
+        .send(product)
+
+      expect(response.statusCode).toBe(200)
+      const products = await Product.query()
+      expect(products[0]).toHaveProperty('id')
+      expect(products[0]).toEqual(expect.objectContaining({
+        'name': 'Some Product', 'client_id': client.id
+      }))
+    })
+  })
 })
