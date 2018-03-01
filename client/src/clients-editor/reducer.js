@@ -32,6 +32,31 @@ const reducer = handleActions({
     clients: state.clients.concat([action.payload]),
     newClient: action.payload,
     clientAddingInProgress: false
+  }),
+  [actionTypes.EDIT_CLIENT]: (state, action) => ({
+    ...state,
+    clients: state.clients.map(oldClient =>
+      oldClient.id === action.payload.id ? { ...oldClient, isEditing: true, edit: oldClient } : oldClient
+    )
+  }),
+  [actionTypes.CHANGE_EDIT_CLIENT]: (state, action) => ({
+    ...state,
+    clients: state.clients.map(oldClient => oldClient.id === action.payload.id ? {
+      ...oldClient,
+      edit: { ...oldClient.edit, ...action.payload }
+    } : oldClient)
+  }),
+  [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    clients: state.clients.map(oldClient =>
+      oldClient.id === action.payload.id ? action.payload : oldClient
+    )
+  }),
+  [actionTypes.CANCEL_EDIT_CLIENT]: (state, action) => ({
+    ...state,
+    clients: state.clients.map(oldClient =>
+      oldClient.id === action.payload.id ? { ...oldClient, isEditing: false } : oldClient
+    )
   })
 }, initialState)
 
