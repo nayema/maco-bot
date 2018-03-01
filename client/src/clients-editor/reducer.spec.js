@@ -34,8 +34,45 @@ describe('reducer', () => {
       const nextState = reducer(previousState, loadClientsSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        loadingClients: false,
-        clients: clients
+        clients: clients,
+        loadingClients: false
+      }))
+    })
+  })
+
+  describe('when adding a new client', () => {
+    it('changes new client name', () => {
+      const previousState = { newClient: { name: '' } }
+      const changeNewClientAction = actionCreators.changeNewClient('name', 'Some New Client')
+
+      const nextState = reducer(previousState, changeNewClientAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        newClient: { name: 'Some New Client' }
+      }))
+    })
+
+    it('starts adding', () => {
+      const addClientStartedAction = actionCreators.addClientStarted()
+
+      const nextState = reducer(undefined, addClientStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        clientAddingInProgress: true
+      }))
+    })
+
+    it('succeeds adding', () => {
+      const previousState = { clients: [], clientAddingInProgress: true }
+      const client = { name: 'Some Client' }
+      const addClientSucceededAction = actionCreators.addClientSucceeded(client)
+
+      const nextState = reducer(previousState, addClientSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        clients: [client],
+        newClient: client,
+        clientAddingInProgress: false
       }))
     })
   })

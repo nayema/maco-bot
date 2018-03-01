@@ -18,6 +18,20 @@ const reducer = handleActions({
     ...state,
     loadingClients: false,
     clients: action.payload
+  }),
+  [actionTypes.CHANGE_NEW_CLIENT]: (state, action) => ({
+    ...state,
+    newClient: { ...state.newClient, ...action.payload }
+  }),
+  [actionTypes.ADD_CLIENT_STARTED]: (state) => ({
+    ...state,
+    clientAddingInProgress: true
+  }),
+  [actionTypes.ADD_CLIENT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    clients: state.clients.concat([action.payload]),
+    newClient: action.payload,
+    clientAddingInProgress: false
   })
 }, initialState)
 
