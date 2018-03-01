@@ -10,7 +10,15 @@ const initialState = {
 }
 
 const reducer = handleActions({
-
+  [actionTypes.LOAD_CLIENTS_STARTED]: (state) => ({
+    ...state,
+    loadingClients: true
+  }),
+  [actionTypes.LOAD_CLIENTS_SUCCEEDED]: (state, action) => ({
+    ...state,
+    loadingClients: false,
+    clients: action.payload
+  })
 }, initialState)
 
 export default reducer
