@@ -57,6 +57,10 @@ const reducer = handleActions({
     clients: state.clients.map(oldClient =>
       oldClient.id === action.payload.id ? { ...oldClient, isEditing: false } : oldClient
     )
+  }),
+  [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    clients: state.clients.filter((client) => client.id !== action.payload.id)
   })
 }, initialState)
 
