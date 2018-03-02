@@ -17,4 +17,4 @@ env:
   - TEST_DIR=./
   - TEST_DIR=./client
 
-script: cd $TEST_DIR && npm install && npm test
+script: cd $TEST_DIR && npm install && jest --runInBand
