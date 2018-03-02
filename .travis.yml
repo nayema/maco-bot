@@ -11,9 +11,10 @@ addons:
 
 before_script:
   - psql -c 'CREATE DATABASE "maco-bot-test";' -U postgres
-  - NODE_ENV= test knex migrate:latest
+  - knex migrate:latest
 
 env:
+  - NODE_ENV=test
   - TEST_DIR=./
   - TEST_DIR=./client
 
