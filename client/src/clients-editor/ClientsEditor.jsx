@@ -67,7 +67,6 @@ const ClientRow = ({ classes, client, editClient, changeEditClient, cancelEditCl
     <TableCell>
       <EditableField isEditing={client.isEditing} displayValue={client.name}>
         <Input
-          placeholder={client.name}
           onChange={(e) => changeEditClient(client.id, 'name', e.target.value)}
           value={client.edit && client.edit.name}
         />

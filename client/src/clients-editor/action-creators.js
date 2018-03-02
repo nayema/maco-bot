@@ -36,7 +36,7 @@ export const changeEditClient = createAction(
   (id, attribute, value) => ({ id, [attribute]: value })
 )
 
-export const cancelClientEdit = createAction(
+export const cancelEditClient = createAction(
   actionTypes.CANCEL_EDIT_CLIENT,
   (client) => (client)
 )

@@ -124,7 +124,7 @@ describe('reducer', () => {
     it('cancels', () => {
       const previousState = { clients: [{ id: 999, isEditing: true }] }
       const client = { id: 999 }
-      const cancelEditClientAction = actionCreators.cancelClientEdit(client)
+      const cancelEditClientAction = actionCreators.cancelEditClient(client)
 
       const nextState = reducer(previousState, cancelEditClientAction)
 

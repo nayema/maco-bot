@@ -41,22 +41,6 @@ describe('clients', () => {
     })
   })
 
-  describe('when removing a client', () => {
-    it('removes', async () => {
-      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
-      const client = { 'id': 999 }
-
-      const response = await request(app)
-        .delete('/clients/')
-        .set('Content-Type', 'application/json')
-        .send(client)
-
-      expect(response.statusCode).toBe(200)
-      const clients = await Client.query().count()
-      expect(clients[0]['count']).toEqual('0')
-    })
-  })
-
   describe('when updating an existing client', () => {
     it('updates', async () => {
       await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
@@ -72,6 +56,22 @@ describe('clients', () => {
       expect(clients[0]).toEqual(expect.objectContaining({
         'name': 'Some Updated Client'
       }))
+    })
+  })
+
+  describe('when removing a client', () => {
+    it('removes', async () => {
+      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
+      const client = { 'id': 999 }
+
+      const response = await request(app)
+        .delete('/clients/')
+        .set('Content-Type', 'application/json')
+        .send(client)
+
+      expect(response.statusCode).toBe(200)
+      const clients = await Client.query().count()
+      expect(clients[0]['count']).toEqual('0')
     })
   })
 })
