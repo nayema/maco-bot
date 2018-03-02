@@ -10,7 +10,7 @@ addons:
   postgresql: "9.4"
 
 before_script:
-  - psql -c 'CREATE DATABASE "maco-bot-test";' -U postgres
+  - psql -c 'CREATE DATABASE "maco_bot_test";' -U postgres
   - NODE_ENV=test knex migrate:latest
 
 env:
