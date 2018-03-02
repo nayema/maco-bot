@@ -1,4 +1,5 @@
 import React from 'react'
+import GithubCorner from 'react-github-corner'
 import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
@@ -15,6 +16,13 @@ const styles = () => ({
 
 const Title = ({ classes }) => (
   <div className={classes.root}>
+    <GithubCorner
+      href="https://github.com/nayema/maco-bot"
+      bannerColor="#FD6C6C"
+      octoColor="#fff"
+      size={80}
+      direction="right"
+    />
     <Typography variant="display3" gutterBottom className={classes.font}>
       Maco Bot
     </Typography>
