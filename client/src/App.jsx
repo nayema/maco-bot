@@ -3,7 +3,7 @@ import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
-import ClientsEditor from './modules/clients-editor/ClientsEditorContainer'
+import ClientsEditor from './modules/maco/ClientsEditorContainer'
 
 const styles = () => ({
   root: {

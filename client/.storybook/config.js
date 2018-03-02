@@ -1,7 +1,7 @@
 import { configure } from '@storybook/react'
 
 function loadStories () {
-  require('../src/modules/clients-editor/ClientsEditor.stories')
+  require('../src/modules/maco/ClientsEditor.stories')
 }
 
 configure(loadStories, module)
