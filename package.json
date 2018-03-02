@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "node_modules/.bin/jest --watch",
+    "test": "node_modules/.bin/jest --watch --runInBand", // TODO: Implement transactions, in order to get rid of --runInBand
     "dev": "PORT=3001 nodemon ./bin/www",
     "foreman-dev": "nf start --procfile Procfile.development",
     "migrate-all-rollback": "NODE_ENV=test knex migrate:rollback && knex migrate:rollback",
