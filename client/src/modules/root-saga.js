@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects'
 
-import * as clientsEditor from './clients-editor'
+import * as clientsEditor from './clients-editor/index'
 
 export default function * rootSaga () {
   yield all([
