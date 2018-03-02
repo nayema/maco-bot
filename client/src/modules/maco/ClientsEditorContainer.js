@@ -5,10 +5,10 @@ import * as actionCreators from './action-creators'
 import ClientsEditor from './ClientsEditor'
 
 const mapStateToProps = (state) => ({
-  clients: state.clientsEditor.clients,
-  newClient: state.clientsEditor.newClient,
-  loadingClients: state.clientsEditor.loadingClients,
-  clientAddingInProgress: state.clientsEditor.clientAddingInProgress
+  clients: state.maco.clients,
+  newClient: state.maco.newClient,
+  loadingClients: state.maco.loadingClients,
+  clientAddingInProgress: state.maco.clientAddingInProgress
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

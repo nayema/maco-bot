@@ -3,6 +3,8 @@ const path = require('path')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const jwt = require('express-jwt')
+const jwks = require('jwks-rsa')
 
 const app = express()
 
@@ -11,7 +13,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-app.use('/', require('./modules/maco'))
+const jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: process.env.JWKS_URI
+  }),
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: process.env.AUTH0_ISSUER,
+  algorithms: ['RS256']
+})
+
+app.use('/', jwtCheck, require('./modules/maco'))
 
 const router = express.Router()
 

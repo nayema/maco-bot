@@ -3,6 +3,7 @@ import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
+import Authentication from './modules/auth/AuthenticationContainer'
 import ClientsEditor from './modules/maco/ClientsEditorContainer'
 
 const styles = () => ({
@@ -16,6 +17,7 @@ const styles = () => ({
 const App = ({ classes }) => (
   <div className={classes.root}>
     <Title/>
+    <Authentication/>
     <Grid container spacing={16}>
       <Grid item xs>
         <ClientsEditor/>
