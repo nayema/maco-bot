@@ -2,7 +2,7 @@ import request from 'supertest'
 
 import app from '../../../app'
 import Client from './Client'
-// import testJwt from '../../common/test-jwt'
+import testJwt from '../../common/test-jwt'
 
 describe('clients', () => {
   beforeEach(async done => {
@@ -21,7 +21,7 @@ describe('clients', () => {
 
       const response = await request(app)
         .get('/clients/')
-      // .set('Authorization', 'Bearer ' + testJwt)
+      .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const clients = response.body
@@ -39,7 +39,7 @@ describe('clients', () => {
       const response = await request(app)
         .post('/clients/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)
@@ -59,7 +59,7 @@ describe('clients', () => {
       const response = await request(app)
         .put('/clients/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)
@@ -78,7 +78,7 @@ describe('clients', () => {
       const response = await request(app)
         .delete('/clients/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)

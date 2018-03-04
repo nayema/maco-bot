@@ -3,7 +3,7 @@ import request from 'supertest'
 import app from '../../../app'
 import Client from '../clients/Client'
 import Product from './Product'
-// import testJwt from '../../common/test-jwt'
+import testJwt from '../../common/test-jwt'
 
 describe('products', () => {
   beforeEach(async done => {
@@ -26,7 +26,7 @@ describe('products', () => {
 
       const response = await request(app)
         .get('/products/')
-      // .set('Authorization', 'Bearer ' + testJwt)
+      .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const products = response.body
@@ -48,7 +48,7 @@ describe('products', () => {
       const response = await request(app)
         .post('/products/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
@@ -79,7 +79,7 @@ describe('products', () => {
       const response = await request(app)
         .put('/products/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
@@ -104,7 +104,7 @@ describe('products', () => {
       const response = await request(app)
         .delete('/products/')
         .set('Content-Type', 'application/json')
-        // .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
