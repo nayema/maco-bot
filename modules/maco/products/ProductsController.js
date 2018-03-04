@@ -1,5 +1,4 @@
 const Product = require('./Product')
-const Client = require('../clients/Client')
 
 class ProductsController {
   static async getAll (req, res) {

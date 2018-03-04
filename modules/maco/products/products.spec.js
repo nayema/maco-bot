@@ -64,7 +64,7 @@ describe('products', () => {
   describe('when updating an existing product', () => {
     it('updates', async () => {
       const client = await createClient()
-      const anotherClient = await createClient({ 'name': 'Another Client' }) // TODO: Fix mystery guest smell
+      const anotherClient = await createClient({ 'name': 'Another Client' })
       await Product.query().insert({
         'id': 999,
         'name': 'Some Product',
@@ -83,10 +83,12 @@ describe('products', () => {
         .send(product)
 
       expect(response.statusCode).toBe(200)
-      const products = await Product.query()
+      const products = await Product.query().eager('client')
       expect(products[0]).toEqual(expect.objectContaining({
         'name': 'Some Updated Product',
-        'client_id': anotherClient.id
+        'client': expect.objectContaining({
+          'name': 'Another Client'
+        })
       }))
     })
   })
