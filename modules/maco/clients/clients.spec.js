@@ -21,7 +21,7 @@ describe('clients', () => {
 
       const response = await request(app)
         .get('/clients/')
-      .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const clients = response.body

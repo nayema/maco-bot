@@ -26,7 +26,7 @@ describe('products', () => {
 
       const response = await request(app)
         .get('/products/')
-      .set('Authorization', 'Bearer ' + testJwt)
+        .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const products = response.body
