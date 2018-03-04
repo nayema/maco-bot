@@ -50,7 +50,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
             required={undefined}
             rows={undefined}
             type="text"
-            value={undefined}
+            value="Some New Client"
           />
         </div>
       </td>
@@ -263,7 +263,7 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
             required={undefined}
             rows={undefined}
             type="text"
-            value={undefined}
+            value=""
           />
         </div>
       </td>
@@ -454,7 +454,7 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
             required={undefined}
             rows={undefined}
             type="text"
-            value={undefined}
+            value=""
           />
         </div>
       </td>
@@ -647,7 +647,7 @@ exports[`Storyshots Clients List with no clients 1`] = `
             required={undefined}
             rows={undefined}
             type="text"
-            value={undefined}
+            value=""
           />
         </div>
       </td>

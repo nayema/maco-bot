@@ -8,11 +8,13 @@ import ClientsEditor from './ClientsEditor'
 storiesOf('Clients List', ClientsEditor)
   .add('with no clients', () =>
     <ClientsEditor
+      newClient={{ 'name': '' }}
       clients={[]}
     />
   )
   .add('with loading all clients', () =>
     <ClientsEditor
+      newClient={{ 'name': '' }}
       clients={[{
         'id': 999,
         'name': 'Some Client'
@@ -48,6 +50,7 @@ storiesOf('Clients List', ClientsEditor)
   )
   .add('with editing an existing client', () =>
     <ClientsEditor
+      newClient={{ 'name': '' }}
       clients={[{
         'id': 999,
         'name': 'Some Client',
