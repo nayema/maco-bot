@@ -32,8 +32,9 @@ const AddClientRow = ({ classes, newClient, clientAddingInProgress, addClientSta
       <Input
         disabled={clientAddingInProgress}
         placeholder="New Client Name"
-        onChange={(e) => changeNewClient(e.target.value)}
-        onKeyPress={keyPress('enter', (e) => addClientStarted({ ...newClient, name: e.target.value }))}
+        onChange={(e) => changeNewClient('name', e.target.value)}
+        onKeyPress={keyPress('enter', (e) => addClientStarted({ ...newClient, 'name': e.target.value }))}
+        value={newClient['name']}
       />
     </TableCell>
     <TableCell className={classes.actionCell}>
@@ -68,7 +69,7 @@ const ClientRow = ({ classes, client, editClient, changeEditClient, cancelEditCl
       <EditableField isEditing={client.isEditing} displayValue={client.name}>
         <Input
           onChange={(e) => changeEditClient(client.id, 'name', e.target.value)}
-          value={client.edit && client.edit.name}
+          value={client.edit && client.edit['name']}
         />
       </EditableField>
     </TableCell>

@@ -27,10 +27,9 @@ const jwtCheck = jwt({
   algorithms: ['RS256']
 })
 
-app.use('/', jwtCheck, require('./modules/maco'))
+app.use('/maco', jwtCheck, require('./modules/maco'))
 
 const router = express.Router()
-
 app.use(express.static(path.join(__dirname, 'client/build')))
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))

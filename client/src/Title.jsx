@@ -18,7 +18,7 @@ const Title = ({ classes }) => (
   <div className={classes.root}>
     <GithubCorner
       href="https://github.com/nayema/maco-bot"
-      bannerColor="#FD6C6C"
+      bannerColor="rgba(224, 224, 224, 1)"
       octoColor="#fff"
       size={80}
       direction="right"

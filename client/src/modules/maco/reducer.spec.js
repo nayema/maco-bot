@@ -71,7 +71,7 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         clients: [client],
-        newClient: client,
+        newClient: { name: '' },
         clientAddingInProgress: false
       }))
     })

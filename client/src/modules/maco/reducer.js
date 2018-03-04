@@ -30,7 +30,7 @@ const reducer = handleActions({
   [actionTypes.ADD_CLIENT_SUCCEEDED]: (state, action) => ({
     ...state,
     clients: state.clients.concat([action.payload]),
-    newClient: action.payload,
+    newClient: initialState.newClient,
     clientAddingInProgress: false
   }),
   [actionTypes.EDIT_CLIENT]: (state, action) => ({

@@ -25,7 +25,7 @@ describe('products', () => {
       })
 
       const response = await request(app)
-        .get('/products/')
+        .get('/maco/products/')
         .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
@@ -46,7 +46,7 @@ describe('products', () => {
       const product = { 'name': 'Some Product', 'client_id': client.id }
 
       const response = await request(app)
-        .post('/products/')
+        .post('/maco/products/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
@@ -77,7 +77,7 @@ describe('products', () => {
       }
 
       const response = await request(app)
-        .put('/products/')
+        .put('/maco/products/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
@@ -104,7 +104,7 @@ describe('products', () => {
       const product = { 'id': 999 }
 
       const response = await request(app)
-        .delete('/products/')
+        .delete('/maco/products/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(product)

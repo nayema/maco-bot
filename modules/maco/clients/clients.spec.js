@@ -20,7 +20,7 @@ describe('clients', () => {
       await Client.query().insert({ 'name': 'Some Client' })
 
       const response = await request(app)
-        .get('/clients/')
+        .get('/maco/clients/')
         .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
@@ -37,7 +37,7 @@ describe('clients', () => {
       const client = { 'name': 'Some Client' }
 
       const response = await request(app)
-        .post('/clients/')
+        .post('/maco/clients/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
@@ -57,7 +57,7 @@ describe('clients', () => {
       const client = { 'id': 999, 'name': 'Some Updated Client' }
 
       const response = await request(app)
-        .put('/clients/')
+        .put('/maco/clients/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
@@ -76,7 +76,7 @@ describe('clients', () => {
       const client = { 'id': 999 }
 
       const response = await request(app)
-        .delete('/clients/')
+        .delete('/maco/clients/')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
