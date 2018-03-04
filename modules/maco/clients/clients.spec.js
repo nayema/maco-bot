@@ -5,12 +5,14 @@ import Client from './Client'
 // import testJwt from '../../common/test-jwt'
 
 describe('clients', () => {
-  beforeEach(async () => {
-    await Client.query().delete()
+  beforeEach(async done => {
+    await Client.raw('START TRANSACTION')
+    done()
   })
 
-  afterEach(async () => {
-    await Client.query().delete()
+  afterEach(async done => {
+    await Client.raw('ROLLBACK')
+    done()
   })
 
   describe('when getting all clients', () => {
@@ -19,7 +21,7 @@ describe('clients', () => {
 
       const response = await request(app)
         .get('/clients/')
-        // .set('Authorization', 'Bearer ' + testJwt)
+      // .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const clients = response.body
@@ -30,14 +32,14 @@ describe('clients', () => {
     })
   })
 
-  xdescribe('when adding a new client', () => {
+  describe('when adding a new client', () => {
     it('adds', async () => {
       const client = { 'name': 'Some Client' }
 
       const response = await request(app)
         .post('/clients/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)
@@ -49,7 +51,7 @@ describe('clients', () => {
     })
   })
 
-  xdescribe('when updating an existing client', () => {
+  describe('when updating an existing client', () => {
     it('updates', async () => {
       await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
       const client = { 'id': 999, 'name': 'Some Updated Client' }
@@ -57,7 +59,7 @@ describe('clients', () => {
       const response = await request(app)
         .put('/clients/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)
@@ -68,7 +70,7 @@ describe('clients', () => {
     })
   })
 
-  xdescribe('when removing a client', () => {
+  describe('when removing a client', () => {
     it('removes', async () => {
       await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
       const client = { 'id': 999 }
@@ -76,7 +78,7 @@ describe('clients', () => {
       const response = await request(app)
         .delete('/clients/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(client)
 
       expect(response.statusCode).toBe(200)

@@ -2,6 +2,10 @@
   "db": {
     "connection": {
       "database": "maco_bot_test"
+    },
+    "pool": {
+      "min": 1,
+      "max": 1
     }
   }
 }

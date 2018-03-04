@@ -3,15 +3,17 @@ import request from 'supertest'
 import app from '../../../app'
 import Client from '../clients/Client'
 import Product from './Product'
-import testJwt from '../../common/test-jwt'
+// import testJwt from '../../common/test-jwt'
 
-xdescribe('products', () => {
-  beforeEach(async () => {
-    await Product.raw('TRUNCATE products, clients')
+describe('products', () => {
+  beforeEach(async done => {
+    await Product.raw('START TRANSACTION')
+    done()
   })
 
-  afterEach(async () => {
-    await Product.raw('TRUNCATE products, clients')
+  afterEach(async done => {
+    await Product.raw('ROLLBACK')
+    done()
   })
 
   describe('when getting all products', () => {
@@ -24,7 +26,7 @@ xdescribe('products', () => {
 
       const response = await request(app)
         .get('/products/')
-        .set('Authorization', 'Bearer ' + testJwt)
+      // .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
       const products = response.body
@@ -40,13 +42,13 @@ xdescribe('products', () => {
 
   describe('when adding a new product', () => {
     it('adds', async () => {
-      const client = await createClient({ 'name': 'Some Client' })
+      const client = await createClient()
       const product = { 'name': 'Some Product', 'client_id': client.id }
 
       const response = await request(app)
         .post('/products/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
@@ -61,10 +63,8 @@ xdescribe('products', () => {
 
   describe('when updating an existing product', () => {
     it('updates', async () => {
-      const client = await createClient({ 'name': 'Some Client' })
-      const anotherClient = await createClient({
-        'name': 'Another Client'
-      })
+      const client = await createClient()
+      const anotherClient = await createClient({ 'name': 'Another Client' }) // TODO: Fix mystery guest smell
       await Product.query().insert({
         'id': 999,
         'name': 'Some Product',
@@ -79,7 +79,7 @@ xdescribe('products', () => {
       const response = await request(app)
         .put('/products/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
@@ -93,7 +93,7 @@ xdescribe('products', () => {
 
   describe('when removing a product', () => {
     it('removes', async () => {
-      const client = await createClient({ 'name': 'Some Client' })
+      const client = await createClient()
       await Product.query().insert({
         'id': 999,
         'name': 'Some Product',
@@ -104,7 +104,7 @@ xdescribe('products', () => {
       const response = await request(app)
         .delete('/products/')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
+        // .set('Authorization', 'Bearer ' + testJwt)
         .send(product)
 
       expect(response.statusCode).toBe(200)
