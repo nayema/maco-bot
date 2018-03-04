@@ -9,6 +9,10 @@ describe('clients', () => {
     await Client.query().delete()
   })
 
+  afterEach(async () => {
+    await Client.query().delete()
+  })
+
   describe('when getting all clients', () => {
     it('gets', async () => {
       await Client.query().insert({ 'name': 'Some Client' })

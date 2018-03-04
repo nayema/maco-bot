@@ -10,6 +10,10 @@ describe('products', () => {
     await Product.raw('TRUNCATE products, clients')
   })
 
+  afterEach(async () => {
+    await Product.raw('TRUNCATE products, clients')
+  })
+
   describe('when getting all products', () => {
     it('gets', async () => {
       const client = await createClient({ 'name': 'Some Client' })
