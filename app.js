@@ -25,7 +25,8 @@ const jwtCheck = jwt({
   algorithms: ['RS256']
 })
 
-app.use('/', jwtCheck, require('./modules/maco'))
+// app.use('/', jwtCheck, require('./modules/maco'))
+app.use('/', require('./modules/maco'))
 
 const router = express.Router()
 

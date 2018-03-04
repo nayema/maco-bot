@@ -5,7 +5,7 @@ import Client from '../clients/Client'
 import Product from './Product'
 import testJwt from '../../common/test-jwt'
 
-describe('products', () => {
+xdescribe('products', () => {
   beforeEach(async () => {
     await Product.raw('TRUNCATE products, clients')
   })
