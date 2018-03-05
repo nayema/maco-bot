@@ -32,6 +32,31 @@ const reducer = handleActions({
     products: state.products.concat([action.payload]),
     newProduct: initialState.newProduct,
     productAddingInProgress: false
+  }),
+  [actionTypes.EDIT_PRODUCT]: (state, action) => ({
+    ...state,
+    products: state.products.map(oldProduct =>
+      oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: true, edit: oldProduct } : oldProduct
+    )
+  }),
+  [actionTypes.CHANGE_EDIT_PRODUCT]: (state, action) => ({
+    ...state,
+    products: state.products.map(oldProduct => oldProduct.id === action.payload.id ? {
+      ...oldProduct,
+      edit: { ...oldProduct.edit, ...action.payload }
+    } : oldProduct)
+  }),
+  [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    products: state.products.map(oldProduct =>
+      oldProduct.id === action.payload.id ? action.payload : oldProduct
+    )
+  }),
+  [actionTypes.CANCEL_EDIT_PRODUCT]: (state, action) => ({
+    ...state,
+    products: state.products.map(oldProduct =>
+      oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: false } : oldProduct
+    )
   })
 }, initialState)
 

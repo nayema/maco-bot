@@ -75,4 +75,61 @@ describe('reducer', () => {
       }))
     })
   })
+
+  describe('when updating an existing product', () => {
+    it('starts', () => {
+      const previousState = { products: [{ id: 999, name: 'Some Product' }] }
+      const product = { id: 999 }
+      const editProductAction = actionCreators.editProduct(product)
+
+      const nextState = reducer(previousState, editProductAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: [{
+          id: 999,
+          name: 'Some Product',
+          isEditing: true,
+          edit: { id: 999, name: 'Some Product' }
+        }]
+      }))
+    })
+
+    it('changes product name', () => {
+      const previousState = { products: [{ id: 999 }] }
+      const changeEditAccountAction = actionCreators.changeEditProduct(999, 'name', 'Some Edited Product')
+
+      const nextState = reducer(previousState, changeEditAccountAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: [{
+          id: 999,
+          edit: { id: 999, name: 'Some Edited Product' }
+        }]
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { products: [{ id: 999, name: 'Some Product' }] }
+      const product = { id: 999, name: 'Some Updated Product' }
+      const updateProductSucceededAction = actionCreators.updateProductSucceeded(product)
+
+      const nextState = reducer(previousState, updateProductSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: [{ id: 999, name: 'Some Updated Product' }]
+      }))
+    })
+
+    it('cancels', () => {
+      const previousState = { products: [{ id: 999, isEditing: true }] }
+      const product = { id: 999 }
+      const cancelEditProductAction = actionCreators.cancelEditProduct(product)
+
+      const nextState = reducer(previousState, cancelEditProductAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: [{ id: 999, isEditing: false }]
+      }))
+    })
+  })
 })
