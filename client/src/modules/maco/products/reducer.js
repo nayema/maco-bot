@@ -18,6 +18,20 @@ const reducer = handleActions({
     ...state,
     products: action.payload,
     loadingProducts: false
+  }),
+  [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
+    ...state,
+    newProduct: { ...state.newProduct, ...action.payload }
+  }),
+  [actionTypes.ADD_PRODUCT_STARTED]: (state) => ({
+    ...state,
+    productAddingInProgress: true
+  }),
+  [actionTypes.ADD_PRODUCT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    products: state.products.concat([action.payload]),
+    newProduct: initialState.newProduct,
+    productAddingInProgress: false
   })
 }, initialState)
 

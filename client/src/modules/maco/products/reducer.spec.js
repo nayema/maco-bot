@@ -37,7 +37,42 @@ describe('reducer', () => {
         products: products,
         loadingProducts: false
       }))
+    })
+  })
 
+  describe('when adding a new product', () => {
+    it('changes new product name', () => {
+      const changeNewProductAction = actionCreators.changeNewProduct('name', 'Some New Product')
+
+      const nextState = reducer(undefined, changeNewProductAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        newProduct: expect.objectContaining({ name: 'Some New Product' })
+      }))
+    })
+
+    it('starts', () => {
+      const addProductStartedAction = actionCreators.addProductStarted()
+
+      const nextState = reducer(undefined, addProductStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        productAddingInProgress: true
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { products: [], productAddingInProgress: true }
+      const product = { name: 'Some Product' }
+      const addProductSucceededAction = actionCreators.addProductSucceeded(product)
+
+      const nextState = reducer(previousState, addProductSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: [product],
+        newProduct: { name: '', clientId: '', api: '', processTrain: '' },
+        productAddingInProgress: false
+      }))
     })
   })
 })

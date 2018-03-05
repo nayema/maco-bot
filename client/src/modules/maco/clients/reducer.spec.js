@@ -42,10 +42,9 @@ describe('reducer', () => {
 
   describe('when adding a new client', () => {
     it('changes new client name', () => {
-      const previousState = { newClient: { name: '' } }
       const changeNewClientAction = actionCreators.changeNewClient('name', 'Some New Client')
 
-      const nextState = reducer(previousState, changeNewClientAction)
+      const nextState = reducer(undefined, changeNewClientAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         newClient: { name: 'Some New Client' }
@@ -145,7 +144,6 @@ describe('reducer', () => {
       expect(nextState).toEqual(expect.objectContaining({
         clients: []
       }))
-
     })
   })
 })
