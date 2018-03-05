@@ -19,7 +19,7 @@ describe('reducer', () => {
     it('starts', () => {
       const loadProductsStartedAction = actionCreators.loadProductsStarted()
 
-      const nextState = (undefined, loadProductsStartedAction)
+      const nextState = reducer(undefined, loadProductsStartedAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         loadingProducts: true

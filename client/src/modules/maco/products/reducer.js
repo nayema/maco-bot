@@ -10,7 +10,10 @@ const initialState = {
 }
 
 const reducer = handleActions({
-
+  [actionTypes.LOAD_PRODUCTS_STARTED]: (state) => ({
+    ...state,
+    loadingProducts: true
+  })
 }, initialState)
 
 export default reducer
