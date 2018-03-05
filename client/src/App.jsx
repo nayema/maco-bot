@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
 import Authentication from './modules/auth/AuthenticationContainer'
-import ClientsEditor from './modules/maco/ClientsEditorContainer'
+import ClientsEditor from './modules/maco/clients/ClientsEditorContainer'
 
 const styles = () => ({
   root: {
