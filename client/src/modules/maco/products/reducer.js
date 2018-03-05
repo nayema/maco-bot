@@ -57,6 +57,10 @@ const reducer = handleActions({
     products: state.products.map(oldProduct =>
       oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: false } : oldProduct
     )
+  }),
+  [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state, action) => ({
+    ...state,
+    products: state.products.filter((product) => product.id !== action.payload.id)
   })
 }, initialState)
 

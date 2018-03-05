@@ -132,4 +132,18 @@ describe('reducer', () => {
       }))
     })
   })
+
+  describe('when removing a product', () => {
+    it('succeeds', () => {
+      const previousState = { products: [{ id: 999 }] }
+      const product = { id: 999 }
+      const removeProductSuceededAction = actionCreators.removeProductSucceeded(product)
+
+      const nextState = reducer(previousState, removeProductSuceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: []
+      }))
+    })
+  })
 })
