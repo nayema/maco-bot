@@ -13,6 +13,11 @@ const reducer = handleActions({
   [actionTypes.LOAD_PRODUCTS_STARTED]: (state) => ({
     ...state,
     loadingProducts: true
+  }),
+  [actionTypes.LOAD_PRODUCTS_SUCCEEDED]: (state, action) => ({
+    ...state,
+    products: action.payload,
+    loadingProducts: false
   })
 }, initialState)
 

@@ -25,5 +25,19 @@ describe('reducer', () => {
         loadingProducts: true
       }))
     })
+
+    it('succeeds', () => {
+      const previousState = { products: [], loadingProducts: true }
+      const products = [{ name: 'Some Product' }]
+      const loadProductsSucceededAction = actionCreators.loadProductsSucceeded(products)
+
+      const nextState = reducer(previousState, loadProductsSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        products: products,
+        loadingProducts: false
+      }))
+
+    })
   })
 })
