@@ -16,9 +16,15 @@ addons:
 before_script:
   - psql -c 'CREATE DATABASE "maco_bot_test";' -U postgres
   - knex migrate:latest
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 env:
   - TEST_DIR=./
   - TEST_DIR=./client
 
 script: cd $TEST_DIR && npm install && npm test
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
