@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as actionCreators from './action-creators'
+import * as auth from '../../modules/auth'
 import Authentication from './Authentication'
 
 const mapStateToProps = (state) => ({
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  loginRequestStarted: actionCreators.loginRequestStarted,
-  logoutRequestStarted: actionCreators.logoutRequestStarted
+  loginRequestStarted: auth.actionCreators.loginRequestStarted,
+  logoutRequestStarted: auth.actionCreators.logoutRequestStarted
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authentication)

@@ -3,7 +3,7 @@ import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
-import Authentication from './modules/auth/AuthenticationContainer'
+import Authentication from './views/auth-buttons/AuthenticationContainer'
 import ClientsEditor from './views/clients-editor/ClientsEditorContainer'
 import ProductsEditor from './views/products-editor/ProductsEditorContainer'
 
