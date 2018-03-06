@@ -1,11 +1,13 @@
 import { fork, all } from 'redux-saga/effects'
 
 import * as auth from './auth'
-import * as maco from './maco/clients/index'
+import * as clients from './clients'
+import * as products from './products'
 
 export default function * rootSaga () {
   yield all([
     fork(auth.sagas),
-    fork(maco.sagas)
+    fork(clients.sagas),
+    fork(products.sagas)
   ])
 }
