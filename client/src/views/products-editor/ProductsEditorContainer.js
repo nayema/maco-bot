@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as actionCreators from './action-creators'
+import * as products from '../../modules/products'
 import ProductsEditor from './ProductsEditor'
 
 const mapStateToProps = (state) => ({
@@ -13,13 +13,13 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  addProductStarted: actionCreators.addProductStarted,
-  changeNewProduct: actionCreators.changeNewProduct,
-  editProduct: (id) => actionCreators.editProduct({ id }),
-  changeEditProduct: actionCreators.changeEditProduct,
-  cancelEditProduct: (id) => actionCreators.cancelEditProduct({ id }),
-  updateProductStarted: actionCreators.updateProductStarted,
-  removeProductStarted: (id) => actionCreators.removeProductStarted({ id })
+  addProductStarted: products.actionCreators.addProductStarted,
+  changeNewProduct: products.actionCreators.changeNewProduct,
+  editProduct: (id) => products.actionCreators.editProduct({ id }),
+  changeEditProduct: products.actionCreators.changeEditProduct,
+  cancelEditProduct: (id) => products.actionCreators.cancelEditProduct({ id }),
+  updateProductStarted: products.actionCreators.updateProductStarted,
+  removeProductStarted: (id) => products.actionCreators.removeProductStarted({ id })
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsEditor)

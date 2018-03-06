@@ -4,8 +4,8 @@ import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
 import Authentication from './modules/auth/AuthenticationContainer'
-import ClientsEditor from './modules/clients/ClientsEditorContainer'
-import ProductsEditor from './modules/products/ProductsEditorContainer'
+import ClientsEditor from './views/clients-editor/ClientsEditorContainer'
+import ProductsEditor from './views/products-editor/ProductsEditorContainer'
 
 const styles = () => ({
   root: {
