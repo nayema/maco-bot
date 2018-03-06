@@ -4,8 +4,7 @@ import { withStyles } from 'material-ui/styles'
 
 import Title from './Title'
 import Authentication from './views/auth-buttons/AuthenticationContainer'
-import ClientsEditor from './views/clients-editor/ClientsEditorContainer'
-import ProductsEditor from './views/products-editor/ProductsEditorContainer'
+import ConfigurationTabs from './views/configuration-tabs/ConfigurationTabsContainer'
 
 const styles = () => ({
   root: {
@@ -21,8 +20,7 @@ const App = ({ classes }) => (
     <Authentication/>
     <Grid container spacing={16}>
       <Grid item xs>
-        <ClientsEditor/>
-        <ProductsEditor/>
+        <ConfigurationTabs/>
       </Grid>
     </Grid>
   </div>
