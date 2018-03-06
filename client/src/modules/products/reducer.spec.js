@@ -9,7 +9,7 @@ describe('reducer', () => {
 
     expect(nextState).toEqual(expect.objectContaining({
       products: [],
-      newProduct: { name: '', clientId: '', api: '', processTrain: '' },
+      newProduct: { name: '', clientId: '' },
       loadingProducts: false,
       productAddingInProgress: false
     }))
@@ -70,7 +70,7 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         products: [product],
-        newProduct: { name: '', clientId: '', api: '', processTrain: '' },
+        newProduct: { name: '', clientId: '' },
         productAddingInProgress: false
       }))
     })

@@ -49,22 +49,6 @@ const AddProductRow = ({ classes, clients, newProduct, productAddingInProgress, 
         {clients.map(client => <MenuItem key={client.id} value={client.id}>{client.name}</MenuItem>)}
       </Select>
     </TableCell>
-    <TableCell>
-      <Input // TODO: Convert to Select after importing apis
-        disabled={productAddingInProgress}
-        placeholder="Select API"
-        onChange={(e) => changeNewProduct('api', e.target.value)}
-        value={newProduct['api']}
-      />
-    </TableCell>
-    <TableCell>
-      <Input // TODO: Convert to Select after importing processTrains
-        disabled={productAddingInProgress}
-        placeholder="Select Process Train"
-        onChange={(e) => changeNewProduct('processTrain', e.target.value)}
-        value={newProduct['processTrain']}
-      />
-    </TableCell>
     <TableCell className={classes.actionCell}>
       <div className={classes.wrapper}>
         <Button
@@ -117,22 +101,6 @@ const ProductRow = ({ classes, clients, product, editProduct, changeEditProduct,
         </Select>
       </EditableField>
     </TableCell>
-    <TableCell>
-      <EditableField isEditing={product.isEditing} displayValue={product.api}>
-        <Input // TODO: Convert to Select after importing apis
-          onChange={(e) => changeEditProduct(product.id, 'api', e.target.value)}
-          value={product.edit && product.edit['api']}
-        />
-      </EditableField>
-    </TableCell>
-    <TableCell>
-      <EditableField isEditing={product.isEditing} displayValue={product.processTrain}>
-        <Input // TODO: Convert to Select after importing processTrains
-          onChange={(e) => changeEditProduct(product.id, 'processTrain', e.target.value)}
-          value={product.edit && product.edit['processTrain']}
-        />
-      </EditableField>
-    </TableCell>
     <TableCell className={classes.actionCell}>
       {
         product.isEditing ? <span>
@@ -153,8 +121,6 @@ const ProductsEditor = ({ classes, clients, newProduct, products, loadingProduct
       <TableRow>
         <TableCell>Name</TableCell>
         <TableCell>Client</TableCell>
-        <TableCell>API</TableCell>
-        <TableCell>Process Train</TableCell>
       </TableRow>
     </TableHead>
     <TableBody>
@@ -168,7 +134,7 @@ const ProductsEditor = ({ classes, clients, newProduct, products, loadingProduct
       />
       {loadingProducts && <LoadingProductsProgress loadingProducts={loadingProducts}/>}
       {products.map(product =>
-        <ProductRow // TODO: import apis and processTrains
+        <ProductRow
           key={product.id}
           classes={classes}
           product={product}
