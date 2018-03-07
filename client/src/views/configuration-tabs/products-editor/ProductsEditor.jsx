@@ -43,9 +43,6 @@ const AddProductRow = ({ classes, clients, newProduct, productAddingInProgress, 
         onChange={(e) => changeNewProduct('clientId', e.target.value)}
         value={newProduct['clientId']}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
         {clients.map(client => <MenuItem key={client.id} value={client.id}>{client.name}</MenuItem>)}
       </Select>
     </TableCell>
@@ -94,9 +91,6 @@ const ProductRow = ({ classes, clients, product, editProduct, changeEditProduct,
           onChange={(e) => changeEditProduct(product.id, 'clientId', e.target.value)}
           value={product.edit && product.edit['clientId']}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {clients.map(client => <MenuItem key={client.id} value={client.id}>{client.name}</MenuItem>)}
         </Select>
       </EditableField>
