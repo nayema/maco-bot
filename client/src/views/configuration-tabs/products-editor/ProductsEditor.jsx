@@ -88,7 +88,7 @@ const ProductRow = ({ classes, clients, product, editProduct, changeEditProduct,
     <TableCell>
       <EditableField
         isEditing={product.isEditing}
-        displayValue={clients.filter(client => client.id === product.clientId)[0] && clients.filter(client => client.id === product.clientId)[0].name}
+        displayValue={clients.filter(client => client.id === product.clientId)[0] && clients.filter(client => client.id === product.clientId)[0]['name']}
       >
         <Select
           onChange={(e) => changeEditProduct(product.id, 'clientId', e.target.value)}
@@ -137,6 +137,7 @@ const ProductsEditor = ({ classes, clients, newProduct, products, loadingProduct
         <ProductRow
           key={product.id}
           classes={classes}
+          clients={clients}
           product={product}
           editProduct={editProduct}
           changeEditProduct={changeEditProduct}
