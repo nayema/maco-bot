@@ -3,8 +3,8 @@ import { withStyles } from 'material-ui/styles'
 import Tabs, { Tab } from 'material-ui/Tabs'
 import Typography from 'material-ui/Typography'
 
-import ClientsEditor from './clients-editor/ClientsEditorContainer'
-import ProductsEditor from './products-editor/ProductsEditorContainer'
+import ClientsEditor from '../clients-editor/ClientsEditorContainer'
+import ProductsEditor from '../products-editor/ProductsEditorContainer'
 
 const TabContainer = (props) => (
   <Typography component="div" style={{ padding: 8 * 3 }}>
