@@ -13,7 +13,7 @@ const styles = () => ({
   }
 })
 
-const Title = ({ classes }) => (
+const GitHubCorner = ({ classes }) => (
   <div className={classes.root}>
     <GithubCorner
       href="https://github.com/nayema/maco-bot"
@@ -25,4 +25,4 @@ const Title = ({ classes }) => (
   </div>
 )
 
-export default withStyles(styles)(Title)
+export default withStyles(styles)(GitHubCorner)
