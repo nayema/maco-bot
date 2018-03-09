@@ -1,6 +1,5 @@
 import React from 'react'
 import GithubCorner from 'react-github-corner'
-import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 const styles = () => ({
@@ -23,9 +22,6 @@ const Title = ({ classes }) => (
       size={80}
       direction="right"
     />
-    <Typography variant="display3" gutterBottom className={classes.font}>
-      Maco Bot
-    </Typography>
   </div>
 )
 
