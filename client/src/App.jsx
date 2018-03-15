@@ -1,15 +1,11 @@
 import React from 'react'
-import { Route, Switch } from 'react-router'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import Link from 'redux-first-router-link'
 import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 
 import GitHubCorner from './GitHubCorner'
 import AuthenticationBar from './routes/auth-bar/AuthenticationBarContainer'
-import ConfigurationTabs from './routes/configuration-tabs/ConfigurationTabsContainer'
-import ClientsEditor from './routes/clients-editor/ClientsEditorContainer'
-import ProductsEditor from './routes/products-editor/ProductsEditorContainer'
+import PageContainer from './PageContainer'
 
 const styles = () => ({
   root: {
@@ -23,10 +19,6 @@ const styles = () => ({
   }
 })
 
-const ConnectedSwitch = connect(state => ({
-  location: state.location
-}))(Switch)
-
 const App = ({ classes }) => (
   <div className={classes.root}>
     <GitHubCorner/>
@@ -38,17 +30,10 @@ const App = ({ classes }) => (
       <Grid item xs>
         <Link to="/clients">Clients</Link>
       </Grid>
-      <Grid item xs>
-        <Link to="/products">Products</Link>
-      </Grid>
     </Grid>
     <Grid container spacing={16}>
       <Grid item xs>
-        <ConnectedSwitch>
-          <Route exact path="/" component={ConfigurationTabs}/>
-          <Route path="/clients" component={ClientsEditor}/>
-          <Route path="/products" component={ProductsEditor}/>
-        </ConnectedSwitch>
+        <PageContainer/>
       </Grid>
     </Grid>
   </div>

@@ -87,7 +87,7 @@ const ClientRow = ({ classes, client, editClient, changeEditClient, cancelEditCl
   </TableRow>
 )
 
-const ClientsEditor = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, editClient, changeEditClient, cancelEditClient, updateClientStarted, removeClientStarted }) => (
+const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, editClient, changeEditClient, cancelEditClient, updateClientStarted, removeClientStarted }) => (
   <Table className={classes.root}>
     <TableHead>
       <TableRow>
@@ -119,4 +119,4 @@ const ClientsEditor = ({ classes, newClient, clients, loadingClients, clientAddi
   </Table>
 )
 
-export default withStyles(styles)(ClientsEditor)
+export default withStyles(styles)(ClientsList)

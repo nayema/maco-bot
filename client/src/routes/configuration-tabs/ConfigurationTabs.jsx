@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui/styles'
 import Tabs, { Tab } from 'material-ui/Tabs'
 import Typography from 'material-ui/Typography'
 
-import ClientsEditor from '../clients-editor/ClientsEditorContainer'
+import ClientsList from '../clients/ClientsListContainer'
 import ProductsEditor from '../products-editor/ProductsEditorContainer'
 
 const TabContainer = (props) => (
@@ -30,7 +30,7 @@ const ConfigurationTabs = ({ classes, activeTabIndex, changeConfigTab }) => (
       <Tab label="Clients"/>
       <Tab label="Products"/>
     </Tabs>
-    {activeTabIndex === 0 && <TabContainer><ClientsEditor/></TabContainer>}
+    {activeTabIndex === 0 && <TabContainer><ClientsList/></TabContainer>}
     {activeTabIndex === 1 && <TabContainer><ProductsEditor/></TabContainer>}
   </div>
 )
