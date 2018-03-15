@@ -2,7 +2,7 @@
 
 exports[`Storyshots Clients List with adding a new client 1`] = `
 <table
-  className="MuiTable-root-135 ClientsEditor-root-131"
+  className="MuiTable-root-135 ClientsList-root-131"
 >
   <thead>
     <tr
@@ -56,11 +56,11 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144 ClientsEditor-actionCell-133"
+        className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144 ClientsList-actionCell-133"
         scope={undefined}
       >
         <div
-          className="ClientsEditor-wrapper-132"
+          className="ClientsList-wrapper-132"
         >
           <button
             className="MuiButtonBase-root-179 MuiButtonBase-disabled-180 MuiButton-root-164 MuiButton-flatPrimary-166 MuiButton-disabled-173"
@@ -86,7 +86,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
             </span>
           </button>
           <div
-            className="MuiCircularProgress-root-181 MuiCircularProgress-colorPrimary-182 ClientsEditor-buttonProgress-134"
+            className="MuiCircularProgress-root-181 MuiCircularProgress-colorPrimary-182 ClientsList-buttonProgress-134"
             role="progressbar"
             style={
               Object {
@@ -150,7 +150,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144 ClientsEditor-actionCell-133"
+        className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144 ClientsList-actionCell-133"
         scope={undefined}
       >
         <span>
@@ -215,7 +215,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
 
 exports[`Storyshots Clients List with editing an existing client 1`] = `
 <table
-  className="MuiTable-root-199 ClientsEditor-root-195"
+  className="MuiTable-root-199 ClientsList-root-195"
 >
   <thead>
     <tr
@@ -269,11 +269,11 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsEditor-actionCell-197"
+        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsList-actionCell-197"
         scope={undefined}
       >
         <div
-          className="ClientsEditor-wrapper-196"
+          className="ClientsList-wrapper-196"
         >
           <button
             className="MuiButtonBase-root-243 MuiButton-root-228 MuiButton-flatPrimary-230"
@@ -341,7 +341,7 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsEditor-actionCell-197"
+        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsList-actionCell-197"
         scope={undefined}
       >
         <span>
@@ -406,7 +406,7 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
 
 exports[`Storyshots Clients List with loading all clients 1`] = `
 <table
-  className="MuiTable-root-62 ClientsEditor-root-58"
+  className="MuiTable-root-62 ClientsList-root-58"
 >
   <thead>
     <tr
@@ -460,11 +460,11 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71 ClientsEditor-actionCell-60"
+        className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71 ClientsList-actionCell-60"
         scope={undefined}
       >
         <div
-          className="ClientsEditor-wrapper-59"
+          className="ClientsList-wrapper-59"
         >
           <button
             className="MuiButtonBase-root-106 MuiButton-root-91 MuiButton-flatPrimary-93"
@@ -534,7 +534,7 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71 ClientsEditor-actionCell-60"
+        className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71 ClientsList-actionCell-60"
         scope={undefined}
       >
         <span>
@@ -599,7 +599,7 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
 
 exports[`Storyshots Clients List with no clients 1`] = `
 <table
-  className="MuiTable-root-5 ClientsEditor-root-1"
+  className="MuiTable-root-5 ClientsList-root-1"
 >
   <thead>
     <tr
@@ -653,11 +653,11 @@ exports[`Storyshots Clients List with no clients 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-11 MuiTableCell-paddingDefault-16 MuiTableCell-typeBody-14 ClientsEditor-actionCell-3"
+        className="MuiTableCell-root-11 MuiTableCell-paddingDefault-16 MuiTableCell-typeBody-14 ClientsList-actionCell-3"
         scope={undefined}
       >
         <div
-          className="ClientsEditor-wrapper-2"
+          className="ClientsList-wrapper-2"
         >
           <button
             className="MuiButtonBase-root-49 MuiButton-root-34 MuiButton-flatPrimary-36"

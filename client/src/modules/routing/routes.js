@@ -3,7 +3,8 @@ import { connectRoutes } from 'redux-first-router'
 import * as actionTypes from './action-types'
 
 const routesMap = {
-  [actionTypes.GO_TO_HOME]: '/'
+  [actionTypes.GO_TO_HOME]: '/',
+  [actionTypes.GO_TO_CLIENTS_LIST]: '/clients'
 }
 
 function routes (history) {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import HomePage from './routes/HomePage'
+import Home from './routes/Home'
+import ClientsList from './routes/clients/ClientsListContainer'
 
 const PageComponent = ({ page }) => {
   const Page = pages[page]
@@ -9,7 +10,8 @@ const PageComponent = ({ page }) => {
 }
 
 const pages = {
-  homePage: HomePage
+  home: Home,
+  clientsList: ClientsList
 }
 
 const mapStateToProps = (state) => ({

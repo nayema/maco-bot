@@ -3,12 +3,15 @@ import { handleActions } from 'redux-actions'
 import * as actionTypes from './action-types'
 
 const initialState = {
-  page: 'homePage'
+  page: 'home'
 }
 
 const reducer = handleActions({
   [actionTypes.GO_TO_HOME]: () => ({
-    page: 'homePage'
+    page: 'home'
+  }),
+  [actionTypes.GO_TO_CLIENTS_LIST]: () => ({
+    page: 'clientsList'
   })
 }, initialState)
 

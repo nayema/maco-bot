@@ -3,17 +3,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import ClientsEditor from './ClientsEditor'
+import ClientsList from './ClientsList'
 
-storiesOf('Clients List', ClientsEditor)
+storiesOf('Clients List', ClientsList)
   .add('with no clients', () =>
-    <ClientsEditor
+    <ClientsList
       newClient={{ 'name': '' }}
       clients={[]}
     />
   )
   .add('with loading all clients', () =>
-    <ClientsEditor
+    <ClientsList
       newClient={{ 'name': '' }}
       clients={[{
         'id': 999,
@@ -29,7 +29,7 @@ storiesOf('Clients List', ClientsEditor)
     />
   )
   .add('with adding a new client', () =>
-    <ClientsEditor
+    <ClientsList
       newClient={{
         'id': 777,
         'name': 'Some New Client'
@@ -49,7 +49,7 @@ storiesOf('Clients List', ClientsEditor)
     />
   )
   .add('with editing an existing client', () =>
-    <ClientsEditor
+    <ClientsList
       newClient={{ 'name': '' }}
       clients={[{
         'id': 999,
