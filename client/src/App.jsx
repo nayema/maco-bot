@@ -5,9 +5,7 @@ import { withStyles } from 'material-ui/styles'
 
 import GitHubCorner from './GitHubCorner'
 import AuthenticationBar from './routes/auth-bar/AuthenticationBarContainer'
-import ConfigurationTabs from './routes/configuration-tabs/ConfigurationTabsContainer'
-import ClientsEditor from './routes/clients-editor/ClientsEditorContainer'
-import ProductsEditor from './routes/products-editor/ProductsEditorContainer'
+import PageContainer from './PageContainer'
 
 const styles = () => ({
   root: {
@@ -32,7 +30,7 @@ const App = ({ classes }) => (
     </Grid>
     <Grid container spacing={16}>
       <Grid item xs>
-        Hello
+        <PageContainer/>
       </Grid>
     </Grid>
   </div>

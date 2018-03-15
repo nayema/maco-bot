@@ -1,23 +1,15 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import { connectRoutes } from 'redux-first-router'
 import createSagaMiddleware from 'redux-saga'
 import createHistory from 'history/createBrowserHistory'
 
 import rootReducer from './modules/root-reducer'
 import rootSaga from './modules/root-saga'
+import * as routing from './modules/routing'
 
 const sagaMiddleware = createSagaMiddleware()
 const history = createHistory()
 
-const routesMap = {
-  HOME: '/'
-}
-
-const {
-  reducer: routingReducer,
-  middleware: routingMiddleware,
-  enhancer: routingEnhancer
-} = connectRoutes(history, routesMap)
+const { routingEnhancer, routingMiddleware, routingReducer } = routing.routes(history)
 
 const initialState = {}
 const enhancers = [routingEnhancer]
