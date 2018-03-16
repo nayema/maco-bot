@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Client Details with a client 1`] = `
+<div>
+  <h1>
+    Client
+  </h1>
+  <h2>
+    Name: 
+    Some Client
+  </h2>
+</div>
+`;
+
 exports[`Storyshots Clients List with adding a new client 1`] = `
 <table
   className="MuiTable-root-135 ClientsList-root-131"
@@ -120,94 +132,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
         aria-sort={null}
         className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144"
         scope={undefined}
-      >
-        <div
-          className="MuiInput-root-149 MuiInput-inkbar-151 MuiInput-underline-155"
-          onBlur={[Function]}
-          onFocus={[Function]}
-        >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-158"
-            defaultValue={undefined}
-            disabled={undefined}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder={undefined}
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value={undefined}
-          />
-        </div>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144 ClientsList-actionCell-133"
-        scope={undefined}
-      >
-        <span>
-          <button
-            className="MuiButtonBase-root-179 MuiButton-root-164 MuiButton-flatPrimary-166"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-165"
-            >
-              Update
-            </span>
-            <span
-              className="MuiTouchRipple-root-188"
-            />
-          </button>
-          <button
-            className="MuiButtonBase-root-179 MuiButton-root-164"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-165"
-            >
-              Cancel
-            </span>
-            <span
-              className="MuiTouchRipple-root-188"
-            />
-          </button>
-        </span>
-      </td>
+      />
     </tr>
   </tbody>
 </table>
@@ -215,15 +140,15 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
 
 exports[`Storyshots Clients List with editing an existing client 1`] = `
 <table
-  className="MuiTable-root-199 ClientsList-root-195"
+  className="MuiTable-root-192 ClientsList-root-188"
 >
   <thead>
     <tr
-      className="MuiTableRow-root-200 MuiTableRow-typeHead-201"
+      className="MuiTableRow-root-193 MuiTableRow-typeHead-194"
     >
       <th
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeHead-207"
+        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeHead-200"
         scope="col"
       >
         Name
@@ -232,15 +157,15 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
   </thead>
   <tbody>
     <tr
-      className="MuiTableRow-root-200"
+      className="MuiTableRow-root-193"
     >
       <td
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208"
+        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201"
         scope={undefined}
       >
         <div
-          className="MuiInput-root-213 MuiInput-inkbar-215 MuiInput-underline-219"
+          className="MuiInput-root-206 MuiInput-inkbar-208 MuiInput-underline-212"
           onBlur={[Function]}
           onFocus={[Function]}
           onKeyPress={[Function]}
@@ -250,7 +175,7 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
             aria-required={undefined}
             autoComplete={undefined}
             autoFocus={undefined}
-            className="MuiInput-input-222"
+            className="MuiInput-input-215"
             defaultValue={undefined}
             disabled={undefined}
             id={undefined}
@@ -269,14 +194,14 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
       </td>
       <td
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsList-actionCell-197"
+        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201 ClientsList-actionCell-190"
         scope={undefined}
       >
         <div
-          className="ClientsList-wrapper-196"
+          className="ClientsList-wrapper-189"
         >
           <button
-            className="MuiButtonBase-root-243 MuiButton-root-228 MuiButton-flatPrimary-230"
+            className="MuiButtonBase-root-236 MuiButton-root-221 MuiButton-flatPrimary-223"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -293,112 +218,25 @@ exports[`Storyshots Clients List with editing an existing client 1`] = `
             type="button"
           >
             <span
-              className="MuiButton-label-229"
+              className="MuiButton-label-222"
             >
               Add
             </span>
             <span
-              className="MuiTouchRipple-root-245"
+              className="MuiTouchRipple-root-238"
             />
           </button>
         </div>
       </td>
     </tr>
     <tr
-      className="MuiTableRow-root-200"
+      className="MuiTableRow-root-193"
     >
       <td
         aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208"
+        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201"
         scope={undefined}
-      >
-        <div
-          className="MuiInput-root-213 MuiInput-inkbar-215 MuiInput-underline-219"
-          onBlur={[Function]}
-          onFocus={[Function]}
-        >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-222"
-            defaultValue={undefined}
-            disabled={undefined}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder={undefined}
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value={undefined}
-          />
-        </div>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-205 MuiTableCell-paddingDefault-210 MuiTableCell-typeBody-208 ClientsList-actionCell-197"
-        scope={undefined}
-      >
-        <span>
-          <button
-            className="MuiButtonBase-root-243 MuiButton-root-228 MuiButton-flatPrimary-230"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-229"
-            >
-              Update
-            </span>
-            <span
-              className="MuiTouchRipple-root-245"
-            />
-          </button>
-          <button
-            className="MuiButtonBase-root-243 MuiButton-root-228"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-229"
-            >
-              Cancel
-            </span>
-            <span
-              className="MuiTouchRipple-root-245"
-            />
-          </button>
-        </span>
-      </td>
+      />
     </tr>
   </tbody>
 </table>
@@ -527,71 +365,7 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
         aria-sort={null}
         className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71"
         scope={undefined}
-      >
-        <span>
-          Some Client
-        </span>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71 ClientsList-actionCell-60"
-        scope={undefined}
-      >
-        <span>
-          <button
-            className="MuiButtonBase-root-106 MuiButton-root-91"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-92"
-            >
-              Edit
-            </span>
-            <span
-              className="MuiTouchRipple-root-108"
-            />
-          </button>
-          <button
-            className="MuiButtonBase-root-106 MuiButton-root-91 MuiButton-flatSecondary-94"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-92"
-            >
-              Remove
-            </span>
-            <span
-              className="MuiTouchRipple-root-108"
-            />
-          </button>
-        </span>
-      </td>
+      />
     </tr>
   </tbody>
 </table>

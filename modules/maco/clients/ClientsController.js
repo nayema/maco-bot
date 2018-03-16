@@ -7,10 +7,10 @@ class ClientsController {
   }
 
   static async getDetails (req, res) {
-    const client = await Client
+    const clients = await Client
       .query()
       .where('id', req.params['id'])
-    return res.send(client)
+    return res.send(clients[0])
   }
 
   static async add (req, res) {

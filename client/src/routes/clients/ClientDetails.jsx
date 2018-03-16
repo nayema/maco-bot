@@ -1,8 +1,9 @@
 import React from 'react'
 
-const ClientDetails = () =>
+const ClientDetails = ({ client, loadingClientDetails }) =>
   <div>
-    Client Details
+    <h1>Client</h1>
+    {client && <h2>Name: {client['name']}</h2>}
   </div>
 
 export default ClientDetails

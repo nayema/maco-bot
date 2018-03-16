@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Home from './routes/Home'
 import ClientsList from './routes/clients/ClientsListContainer'
-import ClientDetails from './routes/clients/ClientDetails'
+import ClientDetails from './routes/clients/ClientDetailsContainer'
 
 const NotFound = () =>
   <div>404 Page not found</div>

@@ -41,8 +41,8 @@ describe('clients', () => {
         .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
-      const clients = response.body
-      expect(clients[0]).toEqual(expect.objectContaining({
+      const client = response.body
+      expect(client).toEqual(expect.objectContaining({
         'id': 1,
         'name': 'Some Client'
       }))
