@@ -9,8 +9,10 @@ describe('reducer', () => {
 
     expect(nextState).toEqual(expect.objectContaining({
       clients: [],
+      clientDetails: null,
       newClient: { name: '' },
       loadingClients: false,
+      loadingClientDetails: false,
       clientAddingInProgress: false
     }))
   })
@@ -36,6 +38,31 @@ describe('reducer', () => {
       expect(nextState).toEqual(expect.objectContaining({
         clients: clients,
         loadingClients: false
+      }))
+    })
+  })
+
+  describe('when loading client details', () => {
+    it('starts', () => {
+      const loadClientDetailsStartedAction = actionCreators.loadClientDetailsStarted()
+
+      const nextState = reducer(undefined, loadClientDetailsStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        loadingClientDetails: true
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { clientDetails: null, loadingClientDetails: true }
+      const client = { name: 'Some Client' }
+      const loadClientDetailsSucceededAction = actionCreators.loadClientDetailsSucceeded(client)
+
+      const nextState = reducer(previousState, loadClientDetailsSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        clientDetails: client,
+        loadingClientDetails: false
       }))
     })
   })

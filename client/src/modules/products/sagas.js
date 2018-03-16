@@ -8,8 +8,8 @@ import * as auth from '../auth/index'
 function * getAll () { // TODO: Encapsulate authentication state
   if (localStorage.getItem('idToken')) {
     yield put(actionCreators.loadProductsStarted())
-    const tasks = yield call(repository.getAll)
-    yield put(actionCreators.loadProductsSucceeded(tasks))
+    const products = yield call(repository.getAll)
+    yield put(actionCreators.loadProductsSucceeded(products))
   }
 }
 

@@ -6,6 +6,13 @@ class ClientsController {
     return res.send(clients)
   }
 
+  static async getDetails (req, res) {
+    const client = await Client
+      .query()
+      .where('id', req.params['id'])
+    return res.send(client)
+  }
+
   static async add (req, res) {
     const client = await Client.query().insert({
         'name': req.body['name']

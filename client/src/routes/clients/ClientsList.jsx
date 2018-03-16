@@ -56,7 +56,7 @@ const AddClientRow = ({ classes, newClient, clientAddingInProgress, addClientSta
 const ClientRow = ({ classes, client }) => (
   <TableRow>
     <TableCell>
-      <Link to={`/clients/${client['name']}`}>{client['name']}</Link>
+      <Link to={`/clients/${client['id']}`}>{client['name']}</Link>
     </TableCell>
   </TableRow>
 )

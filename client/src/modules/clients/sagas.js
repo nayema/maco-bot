@@ -4,13 +4,20 @@ import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
 import * as repository from './repository'
 import * as auth from '../auth'
+import * as routing from '../routing'
 
 function * getAll () { // TODO: Encapsulate authentication state
   if (localStorage.getItem('idToken')) {
     yield put(actionCreators.loadClientsStarted())
-    const tasks = yield call(repository.getAll)
-    yield put(actionCreators.loadClientsSucceeded(tasks))
+    const clients = yield call(repository.getAll)
+    yield put(actionCreators.loadClientsSucceeded(clients))
   }
+}
+
+function * getDetails (action) {
+  yield put(actionCreators.loadClientDetailsStarted())
+  const clientDetails = yield call(repository.getDetails, action.payload)
+  yield put(actionCreators.loadClientDetailsSucceeded(clientDetails))
 }
 
 function * add (action) {
@@ -32,6 +39,10 @@ function * watchLoginRequestSucceeded () {
   yield takeEvery(auth.actionTypes.LOGIN_REQUEST_SUCCEEDED, getAll)
 }
 
+function * watchGoToClientDetails () {
+  yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
+}
+
 function * watchAdd () {
   yield takeEvery(actionTypes.ADD_CLIENT_STARTED, add)
 }
@@ -48,6 +59,7 @@ function * sagas () {
   yield all([
     fork(getAll),
     fork(watchLoginRequestSucceeded),
+    fork(watchGoToClientDetails),
     fork(watchAdd),
     fork(watchUpdate),
     fork(watchRemove)

@@ -9,6 +9,15 @@ export async function getAll () {
   return camelizeKeys(await response.json())
 }
 
+export async function getDetails (client) {
+  const response = await fetch(`/maco/clients/${client['id']}`, {
+    headers: new Headers({
+      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
+    })
+  })
+  return camelizeKeys(await response.json())
+}
+
 export async function add (client) {
   const response = await fetch('/maco/clients/', {
     headers: new Headers({
