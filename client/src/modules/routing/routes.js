@@ -4,7 +4,8 @@ import * as actionTypes from './action-types'
 
 const routesMap = {
   [actionTypes.GO_TO_HOME]: '/',
-  [actionTypes.GO_TO_CLIENTS_LIST]: '/clients'
+  [actionTypes.GO_TO_CLIENTS_LIST]: '/clients',
+  [actionTypes.GO_TO_CLIENT_DETAILS]: '/clients/:id'
 }
 
 function routes (history) {

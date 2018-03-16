@@ -12,6 +12,9 @@ const reducer = handleActions({
   }),
   [actionTypes.GO_TO_CLIENTS_LIST]: () => ({
     page: 'clientsList'
+  }),
+  [actionTypes.GO_TO_CLIENT_DETAILS]: () => ({
+    page: 'clientDetails'
   })
 }, initialState)
 

@@ -3,7 +3,7 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
 import * as repository from './repository'
-import * as auth from '../auth/index'
+import * as auth from '../auth'
 
 function * getAll () { // TODO: Encapsulate authentication state
   if (localStorage.getItem('idToken')) {
