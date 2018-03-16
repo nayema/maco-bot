@@ -12,10 +12,10 @@ function * onLoad () {
     try {
       yield call(authService.handleLoginRequest)
       yield put(actionCreators.loginRequestSucceeded(authService.getProfile(), authService.getIdToken()))
-      yield call(routing.actionCreators.goToHome)
+      yield put(routing.actionCreators.goToHome())
     } catch (error) {
       yield put(actionCreators.loginRequestErrored(error))
-      yield call(routing.actionCreators.goToHome)
+      yield put(routing.actionCreators.goToHome())
     }
   }
 }
