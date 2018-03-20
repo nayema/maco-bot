@@ -1,14 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Client Details with a client 1`] = `
-<div>
-  <h1>
-    Client
-  </h1>
-  <h2>
-    Name: 
-    Some Client
-  </h2>
+<div
+  className="ClientDetails-root-188"
+>
+  <div>
+    <h1
+      className="MuiTypography-root-189 MuiTypography-display3-191 MuiTypography-gutterBottom-206"
+    >
+      Some Client
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Client Details with editing client details 1`] = `
+<div
+  className="ClientDetails-root-254"
+>
+  <div>
+    <h1
+      className="MuiTypography-root-255 MuiTypography-display3-257 MuiTypography-gutterBottom-272"
+    >
+      Some Client
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Client Details with loading client details 1`] = `
+<div
+  className="ClientDetails-root-213"
+>
+  <div
+    className="MuiLinearProgress-root-214 MuiLinearProgress-primaryColor-215"
+    mode="query"
+    role="progressbar"
+  >
+    <div
+      className="MuiLinearProgress-bar-221 MuiLinearProgress-primaryColorBar-216 MuiLinearProgress-indeterminateBar1-226"
+      style={Object {}}
+    />
+    <div
+      className="MuiLinearProgress-bar-221 MuiLinearProgress-primaryColorBar-216 MuiLinearProgress-indeterminateBar2-227"
+      style={Object {}}
+    />
+  </div>
+  <div>
+    <h1
+      className="MuiTypography-root-230 MuiTypography-display3-232 MuiTypography-gutterBottom-247"
+    >
+      Some Client
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
 </div>
 `;
 
@@ -132,111 +224,11 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
         aria-sort={null}
         className="MuiTableCell-root-141 MuiTableCell-paddingDefault-146 MuiTableCell-typeBody-144"
         scope={undefined}
-      />
-    </tr>
-  </tbody>
-</table>
-`;
-
-exports[`Storyshots Clients List with editing an existing client 1`] = `
-<table
-  className="MuiTable-root-192 ClientsList-root-188"
->
-  <thead>
-    <tr
-      className="MuiTableRow-root-193 MuiTableRow-typeHead-194"
-    >
-      <th
-        aria-sort={null}
-        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeHead-200"
-        scope="col"
       >
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      className="MuiTableRow-root-193"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201"
-        scope={undefined}
-      >
-        <div
-          className="MuiInput-root-206 MuiInput-inkbar-208 MuiInput-underline-212"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
-        >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-215"
-            defaultValue={undefined}
-            disabled={undefined}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder="New Client Name"
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value=""
-          />
-        </div>
+        <a>
+          Some Client
+        </a>
       </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201 ClientsList-actionCell-190"
-        scope={undefined}
-      >
-        <div
-          className="ClientsList-wrapper-189"
-        >
-          <button
-            className="MuiButtonBase-root-236 MuiButton-root-221 MuiButton-flatPrimary-223"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-222"
-            >
-              Add
-            </span>
-            <span
-              className="MuiTouchRipple-root-238"
-            />
-          </button>
-        </div>
-      </td>
-    </tr>
-    <tr
-      className="MuiTableRow-root-193"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-198 MuiTableCell-paddingDefault-203 MuiTableCell-typeBody-201"
-        scope={undefined}
-      />
     </tr>
   </tbody>
 </table>
@@ -365,7 +357,11 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
         aria-sort={null}
         className="MuiTableCell-root-68 MuiTableCell-paddingDefault-73 MuiTableCell-typeBody-71"
         scope={undefined}
-      />
+      >
+        <a>
+          Some Client
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>
