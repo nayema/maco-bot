@@ -39,6 +39,10 @@ function * watchLoginRequestSucceeded () {
   yield takeEvery(auth.actionTypes.LOGIN_REQUEST_SUCCEEDED, getAll)
 }
 
+function * watchGoToClientsList () {
+  yield takeEvery(routing.actionTypes.GO_TO_CLIENTS_LIST, getAll)
+}
+
 function * watchGoToClientDetails () {
   yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
 }
@@ -59,6 +63,7 @@ function * sagas () {
   yield all([
     fork(getAll),
     fork(watchLoginRequestSucceeded),
+    fork(watchGoToClientsList),
     fork(watchGoToClientDetails),
     fork(watchAdd),
     fork(watchUpdate),

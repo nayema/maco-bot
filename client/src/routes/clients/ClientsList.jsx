@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'redux-first-router-link'
+import LinkContainer from 'redux-first-router-link'
 import keyPress from 'react-keypress'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
@@ -53,7 +53,7 @@ const AddClientRow = ({ classes, newClient, clientAddingInProgress, addClientSta
   </TableRow>
 )
 
-const ClientRow = ({ classes, client }) => (
+const ClientRow = ({ classes, client, Link }) => (
   <TableRow>
     <TableCell>
       <Link to={`/clients/${client['id']}`}>{client['name']}</Link>
@@ -69,7 +69,7 @@ const LoadingClientsProgress = () => (
   </TableRow>
 )
 
-const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient }) => (
+const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, Link = LinkContainer }) => (
   <Table className={classes.root}>
     <TableHead>
       <TableRow>
@@ -90,6 +90,7 @@ const ClientsList = ({ classes, newClient, clients, loadingClients, clientAdding
           key={client.id}
           classes={classes}
           client={client}
+          Link={Link}
         />
       )}
     </TableBody>

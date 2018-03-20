@@ -1,9 +1,10 @@
 import React from 'react'
-
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import ClientsList from './ClientsList'
+
+const Link = ({ children }) => <a>{children}</a>
 
 storiesOf('Clients List', ClientsList)
   .add('with no clients', () =>
@@ -22,10 +23,7 @@ storiesOf('Clients List', ClientsList)
       loadingClients={true}
       addClientStarted={action('add client started')}
       changeNewClient={action('change new client')}
-      editClient={action('edit client')}
-      changeEditClient={action('change edit client')}
-      cancelEditClient={action('cancel edit client')}
-      removeClientStarted={action('remove client started')}
+      Link={Link}
     />
   )
   .add('with adding a new client', () =>
@@ -36,32 +34,11 @@ storiesOf('Clients List', ClientsList)
       }}
       clients={[{
         'id': 999,
-        'name': 'Some Client',
-        'isEditing': true
+        'name': 'Some Client'
       }]}
       clientAddingInProgress={true}
       addClientStarted={action('add client started')}
       changeNewClient={action('change new client')}
-      editClient={action('edit client')}
-      changeEditClient={action('change edit client')}
-      cancelEditClient={action('cancel edit client')}
-      updateClientStarted={action('update client started')}
-    />
-  )
-  .add('with editing an existing client', () =>
-    <ClientsList
-      newClient={{ 'name': '' }}
-      clients={[{
-        'id': 999,
-        'name': 'Some Client',
-        'isEditing': true
-      }]}
-      changeNewClient={action('change new client')}
-      addClientStarted={action('add client started')}
-      editClient={action('edit client')}
-      changeEditClient={action('change edit client')}
-      cancelEditClient={action('cancel edit client')}
-      updateClientStarted={action('update client started')}
-      removeClientStarted={action('remove client started')}
+      Link={Link}
     />
   )
