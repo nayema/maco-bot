@@ -32,6 +32,23 @@ describe('clients', () => {
     })
   })
 
+  describe('when getting client details', () => {
+    it('gets', async () => {
+      await Client.query().insert({ 'id': 1, 'name': 'Some Client' })
+
+      const response = await request(app)
+        .get('/maco/clients/1')
+        .set('Authorization', 'Bearer ' + testJwt)
+
+      expect(response.statusCode).toBe(200)
+      const client = response.body
+      expect(client).toEqual(expect.objectContaining({
+        'id': 1,
+        'name': 'Some Client'
+      }))
+    })
+  })
+
   describe('when adding a new client', () => {
     it('adds', async () => {
       const client = { 'name': 'Some Client' }

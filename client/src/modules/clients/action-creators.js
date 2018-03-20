@@ -11,6 +11,15 @@ export const loadClientsSucceeded = createAction(
   (clients) => (clients)
 )
 
+export const loadClientDetailsStarted = createAction(
+  actionTypes.LOAD_CLIENT_DETAILS_STARTED
+)
+
+export const loadClientDetailsSucceeded = createAction(
+  actionTypes.LOAD_CLIENT_DETAILS_SUCCEEDED,
+  (client) => (client)
+)
+
 export const changeNewClient = createAction(
   actionTypes.CHANGE_NEW_CLIENT,
   (attribute, value) => ({ [attribute]: value })

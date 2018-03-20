@@ -1,9 +1,9 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
 
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
 import * as authService from './auth-service'
+import * as routing from '../routing'
 
 function * onLoad () {
   if (authService.isAuthenticated()) {
@@ -12,10 +12,10 @@ function * onLoad () {
     try {
       yield call(authService.handleLoginRequest)
       yield put(actionCreators.loginRequestSucceeded(authService.getProfile(), authService.getIdToken()))
-      yield put(push('/'))
+      yield put(routing.actionCreators.goToHome())
     } catch (error) {
       yield put(actionCreators.loginRequestErrored(error))
-      yield put(push('/'))
+      yield put(routing.actionCreators.goToHome())
     }
   }
 }

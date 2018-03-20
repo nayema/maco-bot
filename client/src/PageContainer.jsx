@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 
 import Home from './routes/Home'
 import ClientsList from './routes/clients/ClientsListContainer'
+import ClientDetails from './routes/clients/ClientDetailsContainer'
+
+const NotFound = () =>
+  <div>404 Page not found</div>
 
 const PageComponent = ({ page }) => {
   const Page = pages[page]
@@ -10,8 +14,10 @@ const PageComponent = ({ page }) => {
 }
 
 const pages = {
+  notFound: NotFound,
   home: Home,
-  clientsList: ClientsList
+  clientsList: ClientsList,
+  clientDetails: ClientDetails
 }
 
 const mapStateToProps = (state) => ({

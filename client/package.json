@@ -7,6 +7,7 @@
     "ajv-keywords": "^3.1.0",
     "auth0-lock": "^11.3.1",
     "classnames": "^2.2.5",
+    "formik": "^0.11.11",
     "history": "^4.7.2",
     "humps": "^2.0.1",
     "jwt-decode": "^2.2.0",
@@ -24,7 +25,8 @@
     "redux-first-router": "0.0.16-next",
     "redux-first-router-link": "^1.4.2",
     "redux-saga": "^0.16.0",
-    "typeface-roboto": "0.0.45"
+    "typeface-roboto": "0.0.45",
+    "yup": "^0.24.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,7 +46,6 @@
     "babel-core": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest-localstorage-mock": "^2.2.0",
-    "redux-mock-store": "^1.5.1"
+    "jest-localstorage-mock": "^2.2.0"
   }
 }

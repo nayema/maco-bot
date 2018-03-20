@@ -4,8 +4,10 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   clients: [],
+  clientDetails: null,
   newClient: { name: '' },
   loadingClients: false,
+  loadingClientDetails: false,
   clientAddingInProgress: false
 }
 
@@ -18,6 +20,15 @@ const reducer = handleActions({
     ...state,
     loadingClients: false,
     clients: action.payload
+  }),
+  [actionTypes.LOAD_CLIENT_DETAILS_STARTED]: (state) => ({
+    ...state,
+    loadingClientDetails: true
+  }),
+  [actionTypes.LOAD_CLIENT_DETAILS_SUCCEEDED]: (state, action) => ({
+    ...state,
+    loadingClientDetails: false,
+    clientDetails: action.payload
   }),
   [actionTypes.CHANGE_NEW_CLIENT]: (state, action) => ({
     ...state,

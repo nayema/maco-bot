@@ -1,4 +1,5 @@
 import React from 'react'
+import LinkContainer from 'redux-first-router-link'
 import keyPress from 'react-keypress'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
@@ -52,6 +53,14 @@ const AddClientRow = ({ classes, newClient, clientAddingInProgress, addClientSta
   </TableRow>
 )
 
+const ClientRow = ({ classes, client, Link }) => (
+  <TableRow>
+    <TableCell>
+      <Link to={`/clients/${client['id']}`}>{client['name']}</Link>
+    </TableCell>
+  </TableRow>
+)
+
 const LoadingClientsProgress = () => (
   <TableRow>
     <TableCell colSpan={2}>
@@ -60,34 +69,7 @@ const LoadingClientsProgress = () => (
   </TableRow>
 )
 
-const EditableField = ({ isEditing, displayValue, children }) =>
-  isEditing ? children : <span>{displayValue}</span>
-
-const ClientRow = ({ classes, client, editClient, changeEditClient, cancelEditClient, updateClientStarted, removeClientStarted }) => (
-  <TableRow>
-    <TableCell>
-      <EditableField isEditing={client.isEditing} displayValue={client.name}>
-        <Input
-          onChange={(e) => changeEditClient(client.id, 'name', e.target.value)}
-          value={client.edit && client.edit['name']}
-        />
-      </EditableField>
-    </TableCell>
-    <TableCell className={classes.actionCell}>
-      {
-        client.isEditing ? <span>
-          <Button color="primary" onClick={() => updateClientStarted(client.edit)}>Update</Button>
-          <Button onClick={() => cancelEditClient(client.id)}>Cancel</Button>
-        </span> : <span>
-          <Button onClick={() => editClient(client.id)}>Edit</Button>
-          <Button color="secondary" onClick={() => removeClientStarted(client.id)}>Remove</Button>
-        </span>
-      }
-    </TableCell>
-  </TableRow>
-)
-
-const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, editClient, changeEditClient, cancelEditClient, updateClientStarted, removeClientStarted }) => (
+const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, Link = LinkContainer }) => (
   <Table className={classes.root}>
     <TableHead>
       <TableRow>
@@ -108,11 +90,7 @@ const ClientsList = ({ classes, newClient, clients, loadingClients, clientAdding
           key={client.id}
           classes={classes}
           client={client}
-          editClient={editClient}
-          changeEditClient={changeEditClient}
-          cancelEditClient={cancelEditClient}
-          updateClientStarted={updateClientStarted}
-          removeClientStarted={removeClientStarted}
+          Link={Link}
         />
       )}
     </TableBody>

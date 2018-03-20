@@ -14,11 +14,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   addClientStarted: clients.actionCreators.addClientStarted,
   changeNewClient: clients.actionCreators.changeNewClient,
-  editClient: (id) => clients.actionCreators.editClient({ id }),
-  changeEditClient: clients.actionCreators.changeEditClient,
-  cancelEditClient: (id) => clients.actionCreators.cancelEditClient({ id }),
-  updateClientStarted: clients.actionCreators.updateClientStarted,
-  removeClientStarted: (id) => clients.actionCreators.removeClientStarted({ id })
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientsList)
