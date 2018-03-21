@@ -21,9 +21,10 @@ const styles = theme => ({
   }
 })
 
-const EditableTextField = ({ props, classes, client }) =>
+const EditableTextField = ({ props, classes, client, clientUpdatingInProgress }) =>
   <div>
     <TextField
+      disabled={clientUpdatingInProgress}
       inputProps={{ readOnly: !client.isEditing }}
       id="name"
       label="Name"
@@ -73,7 +74,6 @@ const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingI
 
 const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
 
-
 const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div className={classes.root}>
     {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
@@ -97,6 +97,7 @@ const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStar
               props={props}
               classes={classes}
               client={client}
+              clientUpdatingInProgress={clientUpdatingInProgress}
             />
           </form>
         )}
