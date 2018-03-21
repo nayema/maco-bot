@@ -36,18 +36,11 @@ export const addClientSucceeded = createAction(
 )
 
 export const editClient = createAction(
-  actionTypes.EDIT_CLIENT,
-  (client) => (client)
-)
-
-export const changeEditClient = createAction(
-  actionTypes.CHANGE_EDIT_CLIENT,
-  (id, attribute, value) => ({ id, [attribute]: value })
+  actionTypes.EDIT_CLIENT
 )
 
 export const cancelEditClient = createAction(
-  actionTypes.CANCEL_EDIT_CLIENT,
-  (client) => (client)
+  actionTypes.CANCEL_EDIT_CLIENT
 )
 
 export const updateClientStarted = createAction(
@@ -56,8 +49,7 @@ export const updateClientStarted = createAction(
 )
 
 export const updateClientSucceeded = createAction(
-  actionTypes.UPDATE_CLIENT_SUCCEEDED,
-  (client) => (client)
+  actionTypes.UPDATE_CLIENT_SUCCEEDED
 )
 
 export const removeClientStarted = createAction(

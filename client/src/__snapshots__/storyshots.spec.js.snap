@@ -1,104 +1,357 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Client Details with a client 1`] = `
+exports[`Storyshots Client Details when editing 1`] = `
+<div
+  className="ClientDetails-root-287"
+>
+  <div>
+    <form>
+      <h1
+        className="MuiTypography-root-290 MuiTypography-display3-292 MuiTypography-gutterBottom-307"
+      >
+        Some Client
+      </h1>
+      <div>
+        <span>
+          <button
+            className="MuiButtonBase-root-329 MuiButton-root-314 MuiButton-raised-319 MuiButton-raisedPrimary-321 ClientDetails-button-289"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-315"
+            >
+              Update
+            </span>
+            <span
+              className="MuiTouchRipple-root-331"
+            />
+          </button>
+          <button
+            className="MuiButtonBase-root-329 MuiButton-root-314 MuiButton-raised-319 ClientDetails-button-289"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-315"
+            >
+              Cancel
+            </span>
+            <span
+              className="MuiTouchRipple-root-331"
+            />
+          </button>
+        </span>
+      </div>
+      <div>
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-338 MuiFormControl-marginNormal-339 ClientDetails-textField-288"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <label
+            className="MuiFormLabel-root-348 MuiInputLabel-root-342 MuiInputLabel-formControl-343 MuiInputLabel-animated-346 MuiInputLabel-shrink-345"
+            data-shrink={true}
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <div
+            className="MuiInput-root-352 MuiInput-formControl-353 MuiInput-inkbar-354 MuiInput-underline-358"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              aria-required={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-361"
+              defaultValue={undefined}
+              disabled={false}
+              id="name"
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={false}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value="Some Client"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Client Details when loading 1`] = `
 <div
   className="ClientDetails-root-188"
 >
-  <div>
-    <h1
-      className="MuiTypography-root-189 MuiTypography-display3-191 MuiTypography-gutterBottom-206"
-    >
-      Some Client
-    </h1>
-    <form
-      onSubmit={[Function]}
-    >
-      <input
-        name="name"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-      <button
-        type="submit"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Client Details with editing client details 1`] = `
-<div
-  className="ClientDetails-root-254"
->
-  <div>
-    <h1
-      className="MuiTypography-root-255 MuiTypography-display3-257 MuiTypography-gutterBottom-272"
-    >
-      Some Client
-    </h1>
-    <form
-      onSubmit={[Function]}
-    >
-      <input
-        name="name"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-      <button
-        type="submit"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Client Details with loading client details 1`] = `
-<div
-  className="ClientDetails-root-213"
->
   <div
-    className="MuiLinearProgress-root-214 MuiLinearProgress-primaryColor-215"
+    className="MuiLinearProgress-root-191 MuiLinearProgress-primaryColor-192"
     mode="query"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar-221 MuiLinearProgress-primaryColorBar-216 MuiLinearProgress-indeterminateBar1-226"
+      className="MuiLinearProgress-bar-198 MuiLinearProgress-primaryColorBar-193 MuiLinearProgress-indeterminateBar1-203"
       style={Object {}}
     />
     <div
-      className="MuiLinearProgress-bar-221 MuiLinearProgress-primaryColorBar-216 MuiLinearProgress-indeterminateBar2-227"
+      className="MuiLinearProgress-bar-198 MuiLinearProgress-primaryColorBar-193 MuiLinearProgress-indeterminateBar2-204"
       style={Object {}}
     />
   </div>
+</div>
+`;
+
+exports[`Storyshots Client Details when updating 1`] = `
+<div
+  className="ClientDetails-root-367"
+>
   <div>
-    <h1
-      className="MuiTypography-root-230 MuiTypography-display3-232 MuiTypography-gutterBottom-247"
-    >
-      Some Client
-    </h1>
-    <form
-      onSubmit={[Function]}
-    >
-      <input
-        name="name"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-      <button
-        type="submit"
+    <form>
+      <h1
+        className="MuiTypography-root-370 MuiTypography-display3-372 MuiTypography-gutterBottom-387"
       >
-        Submit
-      </button>
+        Some Client
+      </h1>
+      <div>
+        <span>
+          <button
+            className="MuiButtonBase-root-409 MuiButtonBase-disabled-410 MuiButton-root-394 MuiButton-raised-399 MuiButton-raisedPrimary-401 MuiButton-disabled-403 ClientDetails-button-369"
+            disabled={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-395"
+            >
+              Update
+            </span>
+          </button>
+          <button
+            className="MuiButtonBase-root-409 MuiButtonBase-disabled-410 MuiButton-root-394 MuiButton-raised-399 MuiButton-disabled-403 ClientDetails-button-369"
+            disabled={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-395"
+            >
+              Cancel
+            </span>
+          </button>
+        </span>
+      </div>
+      <div>
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-411 MuiFormControl-marginNormal-412 ClientDetails-textField-368"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <label
+            className="MuiFormLabel-root-421 MuiInputLabel-root-415 MuiInputLabel-formControl-416 MuiInputLabel-animated-419 MuiInputLabel-shrink-418"
+            data-shrink={true}
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <div
+            className="MuiInput-root-425 MuiInput-disabled-430 MuiInput-formControl-426 MuiInput-inkbar-427 MuiInput-underline-431"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              aria-required={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-434 MuiInput-inputDisabled-436"
+              defaultValue={undefined}
+              disabled={true}
+              id="name"
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={false}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value="Some Client"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Client Details with a client 1`] = `
+<div
+  className="ClientDetails-root-207"
+>
+  <div>
+    <form>
+      <h1
+        className="MuiTypography-root-210 MuiTypography-display3-212 MuiTypography-gutterBottom-227"
+      >
+        Some Client
+      </h1>
+      <div>
+        <span>
+          <button
+            className="MuiButtonBase-root-249 MuiButton-root-234 MuiButton-raised-239 ClientDetails-button-209"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-235"
+            >
+              Edit
+            </span>
+            <span
+              className="MuiTouchRipple-root-251"
+            />
+          </button>
+          <button
+            className="MuiButtonBase-root-249 MuiButton-root-234 MuiButton-raised-239 MuiButton-raisedSecondary-242 ClientDetails-button-209"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label-235"
+            >
+              Remove
+            </span>
+            <span
+              className="MuiTouchRipple-root-251"
+            />
+          </button>
+        </span>
+      </div>
+      <div>
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-258 MuiFormControl-marginNormal-259 ClientDetails-textField-208"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <label
+            className="MuiFormLabel-root-268 MuiInputLabel-root-262 MuiInputLabel-formControl-263 MuiInputLabel-animated-266 MuiInputLabel-shrink-265"
+            data-shrink={true}
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <div
+            className="MuiInput-root-272 MuiInput-formControl-273 MuiInput-inkbar-274 MuiInput-underline-278"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              aria-required={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-281"
+              defaultValue={undefined}
+              disabled={false}
+              id="name"
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={true}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value="Some Client"
+            />
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>

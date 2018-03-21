@@ -1,44 +1,85 @@
 import React from 'react'
-import { Formik, Form, Field } from 'formik'
+import { Formik } from 'formik'
 import Typography from 'material-ui/Typography'
-import Input from 'material-ui/Input'
 import { LinearProgress } from 'material-ui/Progress'
 import Button from 'material-ui/Button'
+import TextField from 'material-ui/TextField'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
   root: {
     width: 'auto',
     margin: 'auto'
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200
+  },
+  button: {
+    margin: theme.spacing.unit
   }
 })
 
 const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
 
-const ClientDetails = ({ classes, client, loadingClientDetails, changeEditClient, updateClientStarted, cancelEditClient, editClient, removeClientStarted }) =>
+const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div className={classes.root}>
-    {loadingClientDetails && <LoadingClientDetailsProgress loadingClients={loadingClientDetails}/>}
+    {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
     {client && <div>
-      <Typography variant="display3" gutterBottom>{client['name']}</Typography>
       <Formik
-        initialValues={{ name: '' }}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            actions.setSubmitting(false)
-          }, 1000)
-        }}
+        initialValues={client}
+        onSubmit={(values) => updateClientStarted(values)}
         render={props => (
-          <form onSubmit={props.handleSubmit}>
-            <input
-              type="text"
-              onChange={props.handleChange}
-              onBlur={props.handleBlur}
-              value={props.values.name}
-              name="name"
-            />
-            {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-            <button type="submit">Submit</button>
+          <form>
+            <Typography variant="display3" gutterBottom>{client['name']}</Typography>
+            <div>
+              {
+                client.isEditing ? <span>
+                  <Button
+                    variant="raised"
+                    className={classes.button}
+                    color="primary"
+                    disabled={clientUpdatingInProgress}
+                    onClick={props.handleSubmit}>
+                    Update
+                  </Button>
+                  <Button
+                    variant="raised"
+                    className={classes.button}
+                    disabled={clientUpdatingInProgress}
+                    onClick={cancelEditClient}>
+                    Cancel
+                  </Button>
+                </span> : <span>
+                  <Button
+                    variant="raised"
+                    className={classes.button}
+                    onClick={editClient}>
+                    Edit
+                  </Button>
+                  <Button
+                    variant="raised"
+                    className={classes.button}
+                    color="secondary"
+                    onClick={() => removeClientStarted(client.id)}>
+                    Remove
+                  </Button>
+                </span>
+              }
+            </div>
+            <div>
+              <TextField
+                disabled={clientUpdatingInProgress}
+                inputProps={{ readOnly: !client.isEditing }}
+                id="name"
+                label="Name"
+                className={classes.textField}
+                value={props.values.name}
+                onChange={props.handleChange}
+                margin="normal"
+              />
+            </div>
           </form>
         )}
       />

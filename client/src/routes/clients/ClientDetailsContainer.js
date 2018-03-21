@@ -6,13 +6,13 @@ import ClientDetails from './ClientDetails'
 
 const mapStateToProps = (state) => ({
   client: state.clients.clientDetails,
-  loadingClientDetails: state.clients.loadingClientDetails
+  loadingClientDetails: state.clients.loadingClientDetails,
+  clientUpdatingInProgress: state.clients.clientUpdatingInProgress
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  changeEditClient: clients.actionCreators.changeEditClient,
-  editClient: (id) => clients.actionCreators.editClient({ id }),
-  cancelEditClient: (id) => clients.actionCreators.cancelEditClient({ id }),
+  editClient: clients.actionCreators.editClient,
+  cancelEditClient: clients.actionCreators.cancelEditClient,
   updateClientStarted: clients.actionCreators.updateClientStarted,
   removeClientStarted: (id) => clients.actionCreators.removeClientStarted({ id })
 }, dispatch)

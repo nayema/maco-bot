@@ -105,57 +105,39 @@ describe('reducer', () => {
 
   describe('when updating an existing client', () => {
     it('starts', () => {
-      const previousState = { clients: [{ id: 999, name: 'Some Client' }] }
-      const client = { id: 999 }
-      const editClientAction = actionCreators.editClient(client)
+      const previousState = { clientDetails: { id: 999, name: 'Some Client', isEditing: false } }
+      const editClientAction = actionCreators.editClient()
 
       const nextState = reducer(previousState, editClientAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        clients: [{
+        clientDetails: {
           id: 999,
           name: 'Some Client',
-          isEditing: true,
-          edit: { id: 999, name: 'Some Client' }
-        }]
-      }))
-    })
-
-    it('changes client name', () => {
-      const previousState = { clients: [{ id: 999 }] }
-      const changeEditAccountAction = actionCreators.changeEditClient(999, 'name', 'Some Edited Client')
-
-      const nextState = reducer(previousState, changeEditAccountAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        clients: [{
-          id: 999,
-          edit: { id: 999, name: 'Some Edited Client' }
-        }]
+          isEditing: true
+        }
       }))
     })
 
     it('succeeds', () => {
-      const previousState = { clients: [{ id: 999, name: 'Some Client' }] }
-      const client = { id: 999, name: 'Some Updated Client' }
-      const updateClientSucceededAction = actionCreators.updateClientSucceeded(client)
+      const previousState = { clientDetails: { id: 999, name: 'Some Client', isEditing: true } }
+      const updateClientSucceededAction = actionCreators.updateClientSucceeded()
 
       const nextState = reducer(previousState, updateClientSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        clients: [{ id: 999, name: 'Some Updated Client' }]
+        clientDetails: { id: 999, name: 'Some Client', isEditing: false }
       }))
     })
 
     it('cancels', () => {
-      const previousState = { clients: [{ id: 999, isEditing: true }] }
-      const client = { id: 999 }
-      const cancelEditClientAction = actionCreators.cancelEditClient(client)
+      const previousState = { clientDetails: { id: 999, isEditing: true } }
+      const cancelEditClientAction = actionCreators.cancelEditClient()
 
       const nextState = reducer(previousState, cancelEditClientAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        clients: [{ id: 999, isEditing: false }]
+        clientDetails: { id: 999, isEditing: false }
       }))
     })
   })
