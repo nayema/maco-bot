@@ -21,7 +21,18 @@ const styles = theme => ({
   }
 })
 
-const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
+const EditableTextField = ({ props, classes, client }) =>
+  <div>
+    <TextField
+      inputProps={{ readOnly: !client.isEditing }}
+      id="name"
+      label="Name"
+      className={classes.textField}
+      value={props.values['name']}
+      onChange={props.handleChange}
+      margin="normal"
+    />
+  </div>
 
 const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div>
@@ -60,6 +71,8 @@ const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingI
     }
   </div>
 
+const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
+
 
 const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div className={classes.root}>
@@ -70,7 +83,7 @@ const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStar
         onSubmit={(values) => updateClientStarted(values)}
         render={props => (
           <form>
-            <Typography variant="display3" gutterBottom>{client['name']}</Typography>
+            <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
             <UpdateCancelEditRemoveButtons
               props={props}
               classes={classes}
@@ -80,18 +93,11 @@ const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStar
               editClient={editClient}
               removeClientStarted={removeClientStarted}
             />
-            <div>
-              <TextField
-                disabled={clientUpdatingInProgress}
-                inputProps={{ readOnly: !client.isEditing }}
-                id="name"
-                label="Name"
-                className={classes.textField}
-                value={props.values.name}
-                onChange={props.handleChange}
-                margin="normal"
-              />
-            </div>
+            <EditableTextField
+              props={props}
+              classes={classes}
+              client={client}
+            />
           </form>
         )}
       />
