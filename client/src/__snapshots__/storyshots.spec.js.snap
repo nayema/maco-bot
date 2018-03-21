@@ -211,7 +211,7 @@ exports[`Storyshots Client Details when updating 1`] = `
             Name
           </label>
           <div
-            className="MuiInput-root-425 MuiInput-disabled-430 MuiInput-formControl-426 MuiInput-inkbar-427 MuiInput-underline-431"
+            className="MuiInput-root-425 MuiInput-formControl-426 MuiInput-inkbar-427 MuiInput-underline-431"
             onBlur={[Function]}
             onFocus={[Function]}
           >
@@ -220,9 +220,9 @@ exports[`Storyshots Client Details when updating 1`] = `
               aria-required={false}
               autoComplete={undefined}
               autoFocus={undefined}
-              className="MuiInput-input-434 MuiInput-inputDisabled-436"
+              className="MuiInput-input-434"
               defaultValue={undefined}
-              disabled={true}
+              disabled={false}
               id="name"
               name={undefined}
               onChange={[Function]}
