@@ -23,6 +23,44 @@ const styles = theme => ({
 
 const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
 
+const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
+  <div>
+    {
+      client.isEditing ? <span>
+          <Button
+            variant="raised"
+            className={classes.button}
+            color="primary"
+            disabled={clientUpdatingInProgress}
+            onClick={props.handleSubmit}>
+            Update
+          </Button>
+          <Button
+            variant="raised"
+            className={classes.button}
+            disabled={clientUpdatingInProgress}
+            onClick={cancelEditClient}>
+            Cancel
+          </Button>
+        </span> : <span>
+          <Button
+            variant="raised"
+            className={classes.button}
+            onClick={editClient}>
+            Edit
+          </Button>
+          <Button
+            variant="raised"
+            className={classes.button}
+            color="secondary"
+            onClick={() => removeClientStarted(client.id)}>
+            Remove
+          </Button>
+        </span>
+    }
+  </div>
+
+
 const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div className={classes.root}>
     {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
@@ -33,41 +71,15 @@ const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStar
         render={props => (
           <form>
             <Typography variant="display3" gutterBottom>{client['name']}</Typography>
-            <div>
-              {
-                client.isEditing ? <span>
-                  <Button
-                    variant="raised"
-                    className={classes.button}
-                    color="primary"
-                    disabled={clientUpdatingInProgress}
-                    onClick={props.handleSubmit}>
-                    Update
-                  </Button>
-                  <Button
-                    variant="raised"
-                    className={classes.button}
-                    disabled={clientUpdatingInProgress}
-                    onClick={cancelEditClient}>
-                    Cancel
-                  </Button>
-                </span> : <span>
-                  <Button
-                    variant="raised"
-                    className={classes.button}
-                    onClick={editClient}>
-                    Edit
-                  </Button>
-                  <Button
-                    variant="raised"
-                    className={classes.button}
-                    color="secondary"
-                    onClick={() => removeClientStarted(client.id)}>
-                    Remove
-                  </Button>
-                </span>
-              }
-            </div>
+            <UpdateCancelEditRemoveButtons
+              props={props}
+              classes={classes}
+              client={client}
+              clientUpdatingInProgress={clientUpdatingInProgress}
+              cancelEditClient={cancelEditClient}
+              editClient={editClient}
+              removeClientStarted={removeClientStarted}
+            />
             <div>
               <TextField
                 disabled={clientUpdatingInProgress}
