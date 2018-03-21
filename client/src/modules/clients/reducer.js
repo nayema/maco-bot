@@ -8,7 +8,8 @@ const initialState = {
   newClient: { name: '' },
   loadingClients: false,
   loadingClientDetails: false,
-  clientAddingInProgress: false
+  clientAddingInProgress: false,
+  clientUpdatingInProgress: false
 }
 
 const reducer = handleActions({
@@ -44,30 +45,18 @@ const reducer = handleActions({
     newClient: initialState.newClient,
     clientAddingInProgress: false
   }),
-  [actionTypes.EDIT_CLIENT]: (state, action) => ({
+  [actionTypes.EDIT_CLIENT]: (state) => ({
     ...state,
-    clients: state.clients.map(oldClient =>
-      oldClient.id === action.payload.id ? { ...oldClient, isEditing: true, edit: oldClient } : oldClient
-    )
+    clientDetails: { ...state.clientDetails, isEditing: true }
   }),
-  [actionTypes.CHANGE_EDIT_CLIENT]: (state, action) => ({
+  [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state) => ({
     ...state,
-    clients: state.clients.map(oldClient => oldClient.id === action.payload.id ? {
-      ...oldClient,
-      edit: { ...oldClient.edit, ...action.payload }
-    } : oldClient)
+    clientDetails: { ...state.clientDetails, isEditing: false },
+    clientUpdatingInProgress: false
   }),
-  [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state, action) => ({
+  [actionTypes.CANCEL_EDIT_CLIENT]: (state) => ({
     ...state,
-    clients: state.clients.map(oldClient =>
-      oldClient.id === action.payload.id ? action.payload : oldClient
-    )
-  }),
-  [actionTypes.CANCEL_EDIT_CLIENT]: (state, action) => ({
-    ...state,
-    clients: state.clients.map(oldClient =>
-      oldClient.id === action.payload.id ? { ...oldClient, isEditing: false } : oldClient
-    )
+    clientDetails: { ...state.clientDetails, isEditing: false }
   }),
   [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state, action) => ({
     ...state,
