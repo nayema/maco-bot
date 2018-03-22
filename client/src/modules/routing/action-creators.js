@@ -13,3 +13,7 @@ export const goToClientsList = createAction(
 export const goToClientDetails = createAction(
   actionTypes.GO_TO_CLIENT_DETAILS
 )
+
+export const goToProductDetails = createAction(
+  actionTypes.GO_TO_PRODUCT_DETAILS
+)

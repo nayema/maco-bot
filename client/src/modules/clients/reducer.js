@@ -49,6 +49,10 @@ const reducer = handleActions({
     ...state,
     clientDetails: { ...state.clientDetails, isEditing: true }
   }),
+  [actionTypes.UPDATE_CLIENT_STARTED]: (state) => ({
+    ...state,
+    clientUpdatingInProgress: true
+  }),
   [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state) => ({
     ...state,
     clientDetails: { ...state.clientDetails, isEditing: false },

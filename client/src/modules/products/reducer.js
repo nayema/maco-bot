@@ -4,9 +4,12 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   products: [],
-  newProduct: { name: '', clientId: '' },
+  productDetails: null,
+  newProduct: { name: '', clientId: null },
   loadingProducts: false,
-  productAddingInProgress: false
+  loadingProductDetails: false,
+  productAddingInProgress: false,
+  productUpdatingInProgress: false
 }
 
 const reducer = handleActions({
