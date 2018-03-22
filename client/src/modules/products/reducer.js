@@ -4,7 +4,7 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   products: [],
-  newProduct: { name: '', clientId: '' },
+  newProduct: { name: '', clientId: null },
   loadingProducts: false,
   productAddingInProgress: false
 }

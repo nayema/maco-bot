@@ -21,19 +21,16 @@ const styles = theme => ({
   }
 })
 
-const EditableTextField = ({ props, classes, client, clientUpdatingInProgress }) =>
-  <div>
-    <TextField
-      disabled={clientUpdatingInProgress}
-      inputProps={{ readOnly: !client.isEditing }}
-      id="name"
-      label="Name"
-      className={classes.textField}
-      value={props.values['name']}
-      onChange={props.handleChange}
-      margin="normal"
-    />
-  </div>
+const EditableTextField = ({ props, classes, fieldName, label, model, modelUpdateInProgress }) =>
+  <TextField
+    disabled={modelUpdateInProgress}
+    inputProps={{ readOnly: !model.isEditing }}
+    label={label}
+    className={classes.textField}
+    value={props.values[fieldName]}
+    onChange={props.handleChange}
+    margin="normal"
+  />
 
 const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div>
@@ -96,12 +93,17 @@ const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStar
             <EditableTextField
               props={props}
               classes={classes}
-              client={client}
-              clientUpdatingInProgress={clientUpdatingInProgress}
+              fieldName="name"
+              label="Name"
+              model={client}
+              modelUpdateInProgress={clientUpdatingInProgress}
             />
           </form>
         )}
       />
+      {/*<ProductsList*/}
+        {/*clientId={client.id}*/}
+      {/*/>*/}
     </div>
     }
   </div>
