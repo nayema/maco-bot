@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as products from '../../modules/products'
+import * as products from '../../../modules/products'
 import ProductsList from './ProductsList'
 
 const mapStateToProps = (state) => ({

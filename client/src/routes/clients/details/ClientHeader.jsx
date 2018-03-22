@@ -1,16 +1,11 @@
 import React from 'react'
 import { Formik } from 'formik'
 import Typography from 'material-ui/Typography'
-import { LinearProgress } from 'material-ui/Progress'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
-  root: {
-    width: 'auto',
-    margin: 'auto'
-  },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
@@ -26,6 +21,7 @@ const EditableTextField = ({ props, classes, fieldName, label, model, modelUpdat
     disabled={modelUpdateInProgress}
     inputProps={{ readOnly: !model.isEditing }}
     label={label}
+    id={fieldName}
     className={classes.textField}
     value={props.values[fieldName]}
     onChange={props.handleChange}
@@ -69,8 +65,6 @@ const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingI
     }
   </div>
 
-const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
-
 const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <Formik
     initialValues={client}
@@ -99,20 +93,4 @@ const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInPr
     )}
   />
 
-
-const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
-  <div className={classes.root}>
-    {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
-    {client && <ClientHeader
-      classes={classes}
-      client={client}
-      updateClientStarted={updateClientStarted}
-      clientUpdatingInProgress={clientUpdatingInProgress}
-      cancelEditClient={cancelEditClient}
-      editClient={editClient}
-      removeClientStarted={removeClientStarted}
-      />
-    }
-  </div>
-
-export default withStyles(styles)(ClientDetails)
+export default withStyles(styles)(ClientHeader)
