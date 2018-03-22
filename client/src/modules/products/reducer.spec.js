@@ -43,6 +43,31 @@ describe('reducer', () => {
     })
   })
 
+  describe('when loading product details', () => {
+    it('starts', () => {
+      const loadProductDetailsStartedAction = actionCreators.loadProductDetailsStarted()
+
+      const nextState = reducer(undefined, loadProductDetailsStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        loadingProductDetails: true
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { productDetails: null, loadingProductDetails: true }
+      const product = { name: 'Some Product', clientId: 999 }
+      const loadProductDetailsSucceededAction = actionCreators.loadProductDetailsSucceeded(product)
+
+      const nextState = reducer(previousState, loadProductDetailsSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        productDetails: product,
+        loadingProductDetails: false
+      }))
+    })
+  })
+
   describe('when adding a new product', () => {
     it('changes new product name', () => {
       const changeNewProductAction = actionCreators.changeNewProduct('name', 'Some New Product')
@@ -80,58 +105,50 @@ describe('reducer', () => {
   })
 
   describe('when updating an existing product', () => {
-    it('starts', () => {
-      const previousState = { products: [{ id: 999, name: 'Some Product' }] }
-      const product = { id: 999 }
-      const editProductAction = actionCreators.editProduct(product)
+    it('starts editing', () => {
+      const previousState = { productDetails: { id: 999, name: 'Some Product', isEditing: false } }
+      const editProductAction = actionCreators.editProduct()
 
       const nextState = reducer(previousState, editProductAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        products: [{
-          id: 999,
-          name: 'Some Product',
-          isEditing: true,
-          edit: { id: 999, name: 'Some Product' }
-        }]
+        productDetails: { id: 999, name: 'Some Product', isEditing: true, }
       }))
     })
 
-    it('changes product name', () => {
-      const previousState = { products: [{ id: 999 }] }
-      const changeEditAccountAction = actionCreators.changeEditProduct(999, 'name', 'Some Edited Product')
-
-      const nextState = reducer(previousState, changeEditAccountAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        products: [{
-          id: 999,
-          edit: { id: 999, name: 'Some Edited Product' }
-        }]
-      }))
-    })
-
-    it('succeeds', () => {
-      const previousState = { products: [{ id: 999, name: 'Some Product' }] }
-      const product = { id: 999, name: 'Some Updated Product' }
-      const updateProductSucceededAction = actionCreators.updateProductSucceeded(product)
-
-      const nextState = reducer(previousState, updateProductSucceededAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        products: [{ id: 999, name: 'Some Updated Product' }]
-      }))
-    })
-
-    it('cancels', () => {
-      const previousState = { products: [{ id: 999, isEditing: true }] }
-      const product = { id: 999 }
-      const cancelEditProductAction = actionCreators.cancelEditProduct(product)
+    it('cancels editing', () => {
+      const previousState = { productDetails: { id: 999, isEditing: true } }
+      const cancelEditProductAction = actionCreators.cancelEditProduct()
 
       const nextState = reducer(previousState, cancelEditProductAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        products: [{ id: 999, isEditing: false }]
+        productDetails: { id: 999, isEditing: false }
+      }))
+    })
+
+    it('starts updating', () => {
+      const changeEditAccountAction = actionCreators.updateProductStarted('Some Edited Product')
+
+      const nextState = reducer(undefined, changeEditAccountAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        productUpdatingInProgress: true
+      }))
+    })
+
+    it('succeeds updating', () => {
+      const previousState = {
+        productDetails: { id: 999, name: 'Some Product', isEditing: false },
+        productUpdatingInProgress: true
+      }
+      const updateProductSucceededAction = actionCreators.updateProductSucceeded()
+
+      const nextState = reducer(previousState, updateProductSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        productDetails: { id: 999, name: 'Some Product', isEditing: false },
+        productUpdatingInProgress: false
       }))
     })
   })
