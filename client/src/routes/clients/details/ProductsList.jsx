@@ -60,7 +60,7 @@ const AddProductRow = ({ classes, clientId, newProduct, productAddingInProgress,
 const ProductRow = ({ classes, product, Link }) => (
   <TableRow>
     <TableCell>
-      <Link to={`products/${product['id']}`}>{product['name']}</Link>
+      <Link to={`/products/${product['id']}`}>{product['name']}</Link>
     </TableCell>
   </TableRow>
 )
