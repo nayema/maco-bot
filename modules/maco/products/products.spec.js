@@ -40,6 +40,31 @@ describe('products', () => {
     })
   })
 
+  describe('when getting product details', () => {
+    it('gets', async () => {
+      const client = await createClient({ 'name': 'Some Client' })
+      await Product.query().insert({
+        'id': 1,
+        'name': 'Some Product',
+        client_id: client.id
+      })
+
+      const response = await request(app)
+        .get('/maco/products/1')
+        .set('Authorization', 'Bearer ' + testJwt)
+
+      expect(response.statusCode).toBe(200)
+      const product = response.body
+      expect(product).toEqual(expect.objectContaining({
+        'id': 1,
+        'name': 'Some Product',
+        'client': expect.objectContaining({
+          'name': 'Some Client'
+        })
+      }))
+    })
+  })
+
   describe('when adding a new product', () => {
     it('adds', async () => {
       const client = await createClient()
