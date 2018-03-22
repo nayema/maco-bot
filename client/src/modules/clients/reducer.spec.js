@@ -13,7 +13,8 @@ describe('reducer', () => {
       newClient: { name: '' },
       loadingClients: false,
       loadingClientDetails: false,
-      clientAddingInProgress: false
+      clientAddingInProgress: false,
+      clientUpdatingInProgress: false
     }))
   })
 

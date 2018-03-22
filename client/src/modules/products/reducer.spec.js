@@ -9,9 +9,12 @@ describe('reducer', () => {
 
     expect(nextState).toEqual(expect.objectContaining({
       products: [],
+      productDetails: null,
       newProduct: { name: '', clientId: null },
       loadingProducts: false,
-      productAddingInProgress: false
+      loadingProductDetails: false,
+      productAddingInProgress: false,
+      productUpdatingInProgress: false
     }))
   })
 
