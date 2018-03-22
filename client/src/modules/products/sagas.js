@@ -40,7 +40,7 @@ function * watchLoginRequestSucceeded () {
 }
 
 function * watchGoToProductDetails () {
-  yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
+  yield takeEvery(routing.actionTypes.GO_TO_PRODUCT_DETAILS, getDetails)
 }
 
 function * watchAdd () {

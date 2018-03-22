@@ -16,7 +16,8 @@ const LoadingProductDetailsProgress = () => <LinearProgress mode="query"/>
 const ProductDetails = ({ classes, product, loadingProductDetails }) =>
   <div className={classes.root}>
     {loadingProductDetails && <LoadingProductDetailsProgress loadingProductDetails={loadingProductDetails}/>}
-    {product && <div>HELLO
+    {product && <div>
+      {product['name']}
       {/*<ProductHeader/>*/}
     </div>}
   </div>
