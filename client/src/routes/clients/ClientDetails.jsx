@@ -71,40 +71,47 @@ const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingI
 
 const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
 
+const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
+  <Formik
+    initialValues={client}
+    onSubmit={(values) => updateClientStarted(values)}
+    render={props => (
+      <form>
+        <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
+        <UpdateCancelEditRemoveButtons
+          props={props}
+          classes={classes}
+          client={client}
+          clientUpdatingInProgress={clientUpdatingInProgress}
+          cancelEditClient={cancelEditClient}
+          editClient={editClient}
+          removeClientStarted={removeClientStarted}
+        />
+        <EditableTextField
+          props={props}
+          classes={classes}
+          fieldName="name"
+          label="Name"
+          model={client}
+          modelUpdateInProgress={clientUpdatingInProgress}
+        />
+      </form>
+    )}
+  />
+
+
 const ClientDetails = ({ classes, client, loadingClientDetails, updateClientStarted, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
   <div className={classes.root}>
     {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
-    {client && <div>
-      <Formik
-        initialValues={client}
-        onSubmit={(values) => updateClientStarted(values)}
-        render={props => (
-          <form>
-            <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-            <UpdateCancelEditRemoveButtons
-              props={props}
-              classes={classes}
-              client={client}
-              clientUpdatingInProgress={clientUpdatingInProgress}
-              cancelEditClient={cancelEditClient}
-              editClient={editClient}
-              removeClientStarted={removeClientStarted}
-            />
-            <EditableTextField
-              props={props}
-              classes={classes}
-              fieldName="name"
-              label="Name"
-              model={client}
-              modelUpdateInProgress={clientUpdatingInProgress}
-            />
-          </form>
-        )}
+    {client && <ClientHeader
+      classes={classes}
+      client={client}
+      updateClientStarted={updateClientStarted}
+      clientUpdatingInProgress={clientUpdatingInProgress}
+      cancelEditClient={cancelEditClient}
+      editClient={editClient}
+      removeClientStarted={removeClientStarted}
       />
-      {/*<ProductsList*/}
-        {/*clientId={client.id}*/}
-      {/*/>*/}
-    </div>
     }
   </div>
 
