@@ -72,7 +72,7 @@ exports[`Storyshots Client Header when editing 1`] = `
     <label
       className="MuiFormLabel-root-327 MuiInputLabel-root-321 MuiInputLabel-formControl-322 MuiInputLabel-animated-325 MuiInputLabel-shrink-324"
       data-shrink={true}
-      htmlFor={undefined}
+      htmlFor="name"
     >
       Name
     </label>
@@ -89,7 +89,7 @@ exports[`Storyshots Client Header when editing 1`] = `
         className="MuiInput-input-340"
         defaultValue={undefined}
         disabled={false}
-        id={undefined}
+        id="name"
         name={undefined}
         onChange={[Function]}
         onKeyDown={undefined}
@@ -172,7 +172,7 @@ exports[`Storyshots Client Header when updating 1`] = `
     <label
       className="MuiFormLabel-root-399 MuiInputLabel-root-393 MuiInputLabel-formControl-394 MuiInputLabel-animated-397 MuiInputLabel-shrink-396"
       data-shrink={true}
-      htmlFor={undefined}
+      htmlFor="name"
     >
       Name
     </label>
@@ -189,7 +189,7 @@ exports[`Storyshots Client Header when updating 1`] = `
         className="MuiInput-input-412 MuiInput-inputDisabled-414"
         defaultValue={undefined}
         disabled={true}
-        id={undefined}
+        id="name"
         name={undefined}
         onChange={[Function]}
         onKeyDown={undefined}
@@ -278,7 +278,7 @@ exports[`Storyshots Client Header with a client 1`] = `
     <label
       className="MuiFormLabel-root-248 MuiInputLabel-root-242 MuiInputLabel-formControl-243 MuiInputLabel-animated-246 MuiInputLabel-shrink-245"
       data-shrink={true}
-      htmlFor={undefined}
+      htmlFor="name"
     >
       Name
     </label>
@@ -295,7 +295,7 @@ exports[`Storyshots Client Header with a client 1`] = `
         className="MuiInput-input-261"
         defaultValue={undefined}
         disabled={false}
-        id={undefined}
+        id="name"
         name={undefined}
         onChange={[Function]}
         onKeyDown={undefined}
