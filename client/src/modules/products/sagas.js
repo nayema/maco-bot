@@ -4,6 +4,7 @@ import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
 import * as repository from './repository'
 import * as auth from '../auth'
+import * as routing from '../routing'
 
 function * getAll () { // TODO: Encapsulate authentication state
   if (localStorage.getItem('idToken')) {
@@ -11,6 +12,12 @@ function * getAll () { // TODO: Encapsulate authentication state
     const products = yield call(repository.getAll)
     yield put(actionCreators.loadProductsSucceeded(products))
   }
+}
+
+function * getDetails (action) {
+  yield put(actionCreators.loadProductDetailsStarted())
+  const productDetails = yield call(repository.getDetails, action.payload)
+  yield put(actionCreators.loadProductDetailsSucceeded(productDetails))
 }
 
 function * add (action) {
@@ -32,6 +39,10 @@ function * watchLoginRequestSucceeded () {
   yield takeEvery(auth.actionTypes.LOGIN_REQUEST_SUCCEEDED, getAll)
 }
 
+function * watchGoToProductDetails () {
+  yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
+}
+
 function * watchAdd () {
   yield takeEvery(actionTypes.ADD_PRODUCT_STARTED, add)
 }
@@ -48,6 +59,7 @@ function * sagas () {
   yield all([
     fork(getAll),
     fork(watchLoginRequestSucceeded),
+    fork(watchGoToProductDetails),
     fork(watchAdd),
     fork(watchUpdate),
     fork(watchRemove)

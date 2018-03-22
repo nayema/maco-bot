@@ -6,7 +6,8 @@ const routesMap = {
   [actionTypes.HANDLE_AUTH_CALLBACK]: '/callback',
   [actionTypes.GO_TO_HOME]: '/',
   [actionTypes.GO_TO_CLIENTS_LIST]: '/clients',
-  [actionTypes.GO_TO_CLIENT_DETAILS]: '/clients/:id'
+  [actionTypes.GO_TO_CLIENT_DETAILS]: '/clients/:id',
+  [actionTypes.GO_TO_PRODUCT_DETAILS]: '/products/:id'
 }
 
 function routes (history) {
