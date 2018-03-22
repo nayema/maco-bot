@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as clients from '../../../modules/clients'
+import * as clients from '../../modules/clients'
 import ClientHeader from './ClientHeader'
 
 const mapStateToProps = (state) => ({
