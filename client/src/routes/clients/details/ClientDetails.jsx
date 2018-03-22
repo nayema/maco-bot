@@ -3,6 +3,7 @@ import { LinearProgress } from 'material-ui/Progress'
 import { withStyles } from 'material-ui/styles'
 
 import ClientHeader from './ClientHeaderContainer'
+import ProductsList from './ProductsListContainer'
 
 const styles = theme => ({
   root: {
@@ -16,7 +17,10 @@ const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
 const ClientDetails = ({ classes, client, loadingClientDetails }) =>
   <div className={classes.root}>
     {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
-    {client && <ClientHeader/>}
+    {client && <div>
+      <ClientHeader/>
+      <ProductsList/>
+    </div>}
   </div>
 
 export default withStyles(styles)(ClientDetails)
