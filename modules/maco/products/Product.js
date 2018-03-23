@@ -1,5 +1,4 @@
 const Model = require('../../common/model')
-const Client = require('../clients/Client')
 
 class Product extends Model {
   static get tableName () {
@@ -7,6 +6,7 @@ class Product extends Model {
   }
 
   static get relationMappings () {
+    const Client = require('../clients/Client')
     return {
       client: {
         relation: Model.BelongsToOneRelation,

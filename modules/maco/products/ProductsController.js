@@ -9,8 +9,8 @@ class ProductsController {
   static async getDetails (req, res) {
     const products = await Product
       .query()
-      .where('id', req.params['id'])
       .eager('client')
+      .where('id', req.params['id'])
     return res.send(products[0])
   }
 
