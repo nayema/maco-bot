@@ -28,8 +28,8 @@ const reducer = handleActions({
   }),
   [actionTypes.LOAD_CLIENT_DETAILS_SUCCEEDED]: (state, action) => ({
     ...state,
-    loadingClientDetails: false,
-    clientDetails: action.payload
+    clientDetails: action.payload,
+    loadingClientDetails: false
   }),
   [actionTypes.CHANGE_NEW_CLIENT]: (state, action) => ({
     ...state,
