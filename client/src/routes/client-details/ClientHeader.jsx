@@ -28,10 +28,16 @@ const EditableTextField = ({ props, classes, fieldName, label, model, modelUpdat
     margin="normal"
   />
 
-const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
-  <div>
-    {
-      client.isEditing ? <span>
+const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
+  <Formik
+    initialValues={client}
+    onSubmit={(values) => updateClientStarted(values)}
+    render={props => (
+      <form>
+        <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
+        <div>
+          {
+            client.isEditing ? <span>
           <Button
             variant="raised"
             className={classes.button}
@@ -62,25 +68,8 @@ const UpdateCancelEditRemoveButtons = ({ props, classes, client, clientUpdatingI
             Remove
           </Button>
         </span>
-    }
-  </div>
-
-const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
-  <Formik
-    initialValues={client}
-    onSubmit={(values) => updateClientStarted(values)}
-    render={props => (
-      <form>
-        <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-        <UpdateCancelEditRemoveButtons
-          props={props}
-          classes={classes}
-          client={client}
-          clientUpdatingInProgress={clientUpdatingInProgress}
-          cancelEditClient={cancelEditClient}
-          editClient={editClient}
-          removeClientStarted={removeClientStarted}
-        />
+          }
+        </div>
         <EditableTextField
           props={props}
           classes={classes}
