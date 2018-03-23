@@ -15,6 +15,7 @@ function * getAll () { // TODO: Encapsulate authentication state
 }
 
 function * getDetails (action) {
+  console.log('get details called')
   yield put(actionCreators.loadClientDetailsStarted())
   const clientDetails = yield call(repository.getDetails, action.payload)
   yield put(actionCreators.loadClientDetailsSucceeded(clientDetails))
@@ -44,6 +45,7 @@ function * watchGoToClientsList () {
 }
 
 function * watchGoToClientDetails () {
+  console.log('called watch for details')
   yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
 }
 
@@ -61,7 +63,6 @@ function * watchRemove () {
 
 function * sagas () {
   yield all([
-    fork(getAll),
     fork(watchLoginRequestSucceeded),
     fork(watchGoToClientsList),
     fork(watchGoToClientDetails),

@@ -14,9 +14,10 @@ function routes (history) {
   const {
     enhancer: routingEnhancer,
     middleware: routingMiddleware,
-    reducer: routingReducer
-  } = connectRoutes(history, routesMap)
-  return { routingEnhancer, routingMiddleware, routingReducer }
+    reducer: routingReducer,
+    initialDispatch
+  } = connectRoutes(history, routesMap, { initialDispatch: false })
+  return { routingEnhancer, routingMiddleware, routingReducer, initialDispatch }
 }
 
 export default routes

@@ -57,7 +57,6 @@ function * watchRemove () {
 
 function * sagas () {
   yield all([
-    fork(getAll),
     fork(watchLoginRequestSucceeded),
     fork(watchGoToProductDetails),
     fork(watchAdd),
