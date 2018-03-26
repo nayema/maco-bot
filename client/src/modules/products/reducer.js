@@ -28,8 +28,8 @@ const reducer = handleActions({
   }),
   [actionTypes.LOAD_PRODUCT_DETAILS_SUCCEEDED]: (state, action) => ({
     ...state,
-    loadingProductDetails: false,
-    productDetails: action.payload
+    productDetails: action.payload,
+    loadingProductDetails: false
   }),
   [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
     ...state,
@@ -45,15 +45,9 @@ const reducer = handleActions({
     newProduct: initialState.newProduct,
     productAddingInProgress: false
   }),
-  [actionTypes.EDIT_PRODUCT]: (state, action) => ({
-    ...state,
-    products: state.products.map(oldProduct =>
-      oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: true, edit: oldProduct } : oldProduct
-    )
-  }),
   [actionTypes.EDIT_PRODUCT]: (state) => ({
     ...state,
-    productDetails: { ...state.productDetails, isEditing: true }
+    productDetails: {...state.productDetails, isEditing: true}
   }),
   [actionTypes.UPDATE_PRODUCT_STARTED]: (state) => ({
     ...state,

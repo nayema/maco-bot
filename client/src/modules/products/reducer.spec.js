@@ -106,13 +106,25 @@ describe('reducer', () => {
 
   describe('when updating an existing product', () => {
     it('starts editing', () => {
-      const previousState = { productDetails: { id: 999, name: 'Some Product', isEditing: false } }
+      const previousState = {
+        productDetails: {
+          id: 999,
+          name: 'Some Product',
+          clientId: 777,
+          isEditing: false
+        }
+      }
       const editProductAction = actionCreators.editProduct()
 
       const nextState = reducer(previousState, editProductAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        productDetails: { id: 999, name: 'Some Product', isEditing: true, }
+        productDetails: {
+          id: 999,
+          name: 'Some Product',
+          clientId: 777,
+          isEditing: true
+        }
       }))
     })
 
@@ -128,9 +140,9 @@ describe('reducer', () => {
     })
 
     it('starts updating', () => {
-      const changeEditAccountAction = actionCreators.updateProductStarted('Some Edited Product')
+      const updateProductStartedAction = actionCreators.updateProductStarted('Some Edited Product')
 
-      const nextState = reducer(undefined, changeEditAccountAction)
+      const nextState = reducer(undefined, updateProductStartedAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         productUpdatingInProgress: true
@@ -139,7 +151,6 @@ describe('reducer', () => {
 
     it('succeeds updating', () => {
       const previousState = {
-        productDetails: { id: 999, name: 'Some Product', isEditing: false },
         productUpdatingInProgress: true
       }
       const updateProductSucceededAction = actionCreators.updateProductSucceeded()
@@ -147,7 +158,6 @@ describe('reducer', () => {
       const nextState = reducer(previousState, updateProductSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        productDetails: { id: 999, name: 'Some Product', isEditing: false },
         productUpdatingInProgress: false
       }))
     })
