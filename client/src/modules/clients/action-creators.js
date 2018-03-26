@@ -49,7 +49,8 @@ export const updateClientStarted = createAction(
 )
 
 export const updateClientSucceeded = createAction(
-  actionTypes.UPDATE_CLIENT_SUCCEEDED
+  actionTypes.UPDATE_CLIENT_SUCCEEDED,
+  (client) => (client)
 )
 
 export const removeClientStarted = createAction(

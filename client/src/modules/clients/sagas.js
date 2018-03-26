@@ -27,7 +27,7 @@ function * add (action) {
 
 function * update (action) {
   yield call(repository.update, action.payload)
-  yield put(actionCreators.updateClientSucceeded())
+  yield put(actionCreators.updateClientSucceeded(action.payload))
 }
 
 function * remove (action) {

@@ -53,9 +53,9 @@ const reducer = handleActions({
     ...state,
     productUpdatingInProgress: true
   }),
-  [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state) => ({
+  [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,
-    productDetails: { ...state.productDetails, isEditing: false },
+    productDetails: { ...state.productDetails, ...action.payload, isEditing: false },
     productUpdatingInProgress: false
   }),
   [actionTypes.CANCEL_EDIT_PRODUCT]: (state) => ({

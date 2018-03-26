@@ -53,9 +53,9 @@ const reducer = handleActions({
     ...state,
     clientUpdatingInProgress: true
   }),
-  [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state) => ({
+  [actionTypes.UPDATE_CLIENT_SUCCEEDED]: (state, action) => ({
     ...state,
-    clientDetails: { ...state.clientDetails, isEditing: false },
+    clientDetails: { ...state.clientDetails, ...action.payload, isEditing: false },
     clientUpdatingInProgress: false
   }),
   [actionTypes.CANCEL_EDIT_CLIENT]: (state) => ({

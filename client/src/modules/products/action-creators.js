@@ -49,7 +49,8 @@ export const updateProductStarted = createAction(
 )
 
 export const updateProductSucceeded = createAction(
-  actionTypes.UPDATE_PRODUCT_SUCCEEDED
+  actionTypes.UPDATE_PRODUCT_SUCCEEDED,
+  (product) => (product)
 )
 
 export const removeProductStarted = createAction(
