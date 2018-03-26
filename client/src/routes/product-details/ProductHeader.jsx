@@ -12,43 +12,44 @@ const styles = theme => ({
   }
 })
 
-const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
+const ProductHeader = ({ product, clientName, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
   <Formik
-    initialValues={client}
-    onSubmit={(values) => updateClientStarted(values)}
+    initialValues={product}
+    onSubmit={(values) => updateProductStarted(values)}
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
+        Client: {clientName}
         <div>
           {
-            client.isEditing ? <span>
+            product.isEditing ? <span>
           <Button
             variant="raised"
             className={classes.button}
             color="primary"
-            disabled={clientUpdatingInProgress}
+            disabled={productUpdatingInProgress}
             onClick={props.handleSubmit}>
             Update
           </Button>
           <Button
             variant="raised"
             className={classes.button}
-            disabled={clientUpdatingInProgress}
-            onClick={cancelEditClient}>
+            disabled={productUpdatingInProgress}
+            onClick={cancelEditProduct}>
             Cancel
           </Button>
         </span> : <span>
           <Button
             variant="raised"
             className={classes.button}
-            onClick={editClient}>
+            onClick={editProduct}>
             Edit
           </Button>
           <Button
             variant="raised"
             className={classes.button}
             color="secondary"
-            onClick={() => removeClientStarted(client.id)}>
+            onClick={() => removeProductStarted(product.id)}>
             Remove
           </Button>
         </span>
@@ -58,11 +59,11 @@ const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInPr
           props={props}
           fieldName="name"
           label="Name"
-          model={client}
-          modelUpdateInProgress={clientUpdatingInProgress}
+          model={product}
+          modelUpdateInProgress={productUpdatingInProgress}
         />
       </form>
     )}
   />
 
-export default withStyles(styles)(ClientHeader)
+export default withStyles(styles)(ProductHeader)

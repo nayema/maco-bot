@@ -27,12 +27,12 @@ function * add (action) {
 
 function * update (action) {
   yield call(repository.update, action.payload)
-  yield put(actionCreators.updateProductSucceeded(action.payload))
+  yield put(actionCreators.updateProductSucceeded())
 }
 
 function * remove (action) {
   yield call(repository.remove, action.payload)
-  yield put(actionCreators.removeProductSucceeded(action.payload))
+  yield put(routing.actionCreators.goToClientDetails())
 }
 
 function * watchLoginRequestSucceeded () {
