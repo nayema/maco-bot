@@ -11,6 +11,7 @@ router.delete('/clients', ClientsController.remove)
 router.put('/clients', ClientsController.update)
 
 router.get('/products', ProductsController.getAll)
+router.get('/products/:id', ProductsController.getDetails)
 router.post('/products', ProductsController.add)
 router.delete('/products', ProductsController.remove)
 router.put('/products', ProductsController.update)

@@ -9,10 +9,10 @@ import * as routing from './modules/routing'
 const sagaMiddleware = createSagaMiddleware()
 const history = createHistory()
 
-const { routingEnhancer, routingMiddleware, routingReducer } = routing.routes(history)
+const { routingEnhancer, routingMiddleware, routingReducer, initialDispatch } = routing.routes(history)
 
 const initialState = {}
-const enhancers = [routingEnhancer]
+const enhancers = []
 const middlewares = [
   routingMiddleware,
   sagaMiddleware
@@ -27,6 +27,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const composedEnhancers = compose(
+  routingEnhancer,
   applyMiddleware(...middlewares),
   ...enhancers
 )
@@ -39,5 +40,6 @@ const store = createStore(
 )
 
 sagaMiddleware.run(rootSaga)
+initialDispatch()
 
 export default store

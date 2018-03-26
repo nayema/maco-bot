@@ -2,6 +2,7 @@ import request from 'supertest'
 
 import app from '../../../app'
 import Client from './Client'
+import Product from '../products/Product'
 import testJwt from '../../common/test-jwt'
 
 describe('clients', () => {
@@ -17,7 +18,7 @@ describe('clients', () => {
 
   describe('when getting all clients', () => {
     it('gets', async () => {
-      await Client.query().insert({ 'name': 'Some Client' })
+      await createClient({ 'name': 'Some Client' })
 
       const response = await request(app)
         .get('/maco/clients/')
@@ -34,17 +35,27 @@ describe('clients', () => {
 
   describe('when getting client details', () => {
     it('gets', async () => {
-      await Client.query().insert({ 'id': 1, 'name': 'Some Client' })
+      const client = await createClient({ 'id': 1, 'name': 'Some Client' })
+      await createProduct({
+        'name': 'Some Product',
+        'client_id': client.id
+      })
 
       const response = await request(app)
-        .get('/maco/clients/1')
+        .get('/maco/clients/')
         .set('Authorization', 'Bearer ' + testJwt)
 
       expect(response.statusCode).toBe(200)
-      const client = response.body
-      expect(client).toEqual(expect.objectContaining({
+      const clients = response.body
+      expect(clients[0]).toHaveProperty('id')
+      expect(clients[0].products[0]).toHaveProperty('id')
+      expect(clients[0]).toEqual(expect.objectContaining({
         'id': 1,
-        'name': 'Some Client'
+        'name': 'Some Client',
+        'products':  expect.arrayContaining([expect.objectContaining({
+          'name': 'Some Product',
+          'client_id': 1
+        })])
       }))
     })
   })
@@ -70,7 +81,7 @@ describe('clients', () => {
 
   describe('when updating an existing client', () => {
     it('updates', async () => {
-      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
+      await createClient({ 'id': 999, 'name': 'Some Client' })
       const client = { 'id': 999, 'name': 'Some Updated Client' }
 
       const response = await request(app)
@@ -89,7 +100,7 @@ describe('clients', () => {
 
   describe('when removing a client', () => {
     it('removes', async () => {
-      await Client.query().insert({ 'id': 999, 'name': 'Some Client' })
+      await createClient({ 'id': 999, 'name': 'Some Client' })
       const client = { 'id': 999 }
 
       const response = await request(app)
@@ -103,4 +114,12 @@ describe('clients', () => {
       expect(clients[0]['count']).toEqual('0')
     })
   })
+
+  async function createClient (attrs) {
+    return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
+  }
+
+  async function createProduct (attrs) {
+    return await Product.query().insert({ 'name': 'XXXXX', 'client_id': null, ...attrs })
+  }
 })

@@ -139,7 +139,6 @@ describe('reducer', () => {
 
     it('succeeds updating', () => {
       const previousState = {
-        clientDetails: { id: 999, name: 'Some Client', isEditing: false },
         clientUpdatingInProgress: true
       }
       const updateClientSucceededAction = actionCreators.updateClientSucceeded()
@@ -147,7 +146,6 @@ describe('reducer', () => {
       const nextState = reducer(previousState, updateClientSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        clientDetails: { id: 999, name: 'Some Client', isEditing: false },
         clientUpdatingInProgress: false
       }))
     })

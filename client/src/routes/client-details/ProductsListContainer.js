@@ -6,7 +6,7 @@ import ProductsList from './ProductsList'
 
 const mapStateToProps = (state) => ({
   clientId: state.clients.clientDetails.id,
-  products: state.products.products,
+  products: state.clients.clientDetails.products,
   newProduct: state.products.newProduct,
   loadingProducts: state.products.loadingProducts,
   productAddingInProgress: state.products.productAddingInProgress

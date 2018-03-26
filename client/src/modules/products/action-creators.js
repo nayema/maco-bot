@@ -11,6 +11,15 @@ export const loadProductsSucceeded = createAction(
   (products) => (products)
 )
 
+export const loadProductDetailsStarted = createAction(
+  actionTypes.LOAD_PRODUCT_DETAILS_STARTED
+)
+
+export const loadProductDetailsSucceeded = createAction(
+  actionTypes.LOAD_PRODUCT_DETAILS_SUCCEEDED,
+  (product) => (product)
+)
+
 export const changeNewProduct = createAction(
   actionTypes.CHANGE_NEW_PRODUCT,
   (attribute, value) => ({ [attribute]: value })
@@ -27,18 +36,11 @@ export const addProductSucceeded = createAction(
 )
 
 export const editProduct = createAction(
-  actionTypes.EDIT_PRODUCT,
-  (product) => (product)
-)
-
-export const changeEditProduct = createAction(
-  actionTypes.CHANGE_EDIT_PRODUCT,
-  (id, attribute, value) => ({ id, [attribute]: value })
+  actionTypes.EDIT_PRODUCT
 )
 
 export const cancelEditProduct = createAction(
-  actionTypes.CANCEL_EDIT_PRODUCT,
-  (product) => (product)
+  actionTypes.CANCEL_EDIT_PRODUCT
 )
 
 export const updateProductStarted = createAction(
@@ -47,8 +49,7 @@ export const updateProductStarted = createAction(
 )
 
 export const updateProductSucceeded = createAction(
-  actionTypes.UPDATE_PRODUCT_SUCCEEDED,
-  (product) => (product)
+  actionTypes.UPDATE_PRODUCT_SUCCEEDED
 )
 
 export const removeProductStarted = createAction(

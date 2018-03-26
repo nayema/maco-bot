@@ -22,6 +22,15 @@ const reducer = handleActions({
     products: action.payload,
     loadingProducts: false
   }),
+  [actionTypes.LOAD_PRODUCT_DETAILS_STARTED]: (state) => ({
+    ...state,
+    loadingProductDetails: true
+  }),
+  [actionTypes.LOAD_PRODUCT_DETAILS_SUCCEEDED]: (state, action) => ({
+    ...state,
+    productDetails: action.payload,
+    loadingProductDetails: false
+  }),
   [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
     ...state,
     newProduct: { ...state.newProduct, ...action.payload }
@@ -36,30 +45,22 @@ const reducer = handleActions({
     newProduct: initialState.newProduct,
     productAddingInProgress: false
   }),
-  [actionTypes.EDIT_PRODUCT]: (state, action) => ({
+  [actionTypes.EDIT_PRODUCT]: (state) => ({
     ...state,
-    products: state.products.map(oldProduct =>
-      oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: true, edit: oldProduct } : oldProduct
-    )
+    productDetails: {...state.productDetails, isEditing: true}
   }),
-  [actionTypes.CHANGE_EDIT_PRODUCT]: (state, action) => ({
+  [actionTypes.UPDATE_PRODUCT_STARTED]: (state) => ({
     ...state,
-    products: state.products.map(oldProduct => oldProduct.id === action.payload.id ? {
-      ...oldProduct,
-      edit: { ...oldProduct.edit, ...action.payload }
-    } : oldProduct)
+    productUpdatingInProgress: true
   }),
-  [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state, action) => ({
+  [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state) => ({
     ...state,
-    products: state.products.map(oldProduct =>
-      oldProduct.id === action.payload.id ? action.payload : oldProduct
-    )
+    productDetails: { ...state.productDetails, isEditing: false },
+    productUpdatingInProgress: false
   }),
-  [actionTypes.CANCEL_EDIT_PRODUCT]: (state, action) => ({
+  [actionTypes.CANCEL_EDIT_PRODUCT]: (state) => ({
     ...state,
-    products: state.products.map(oldProduct =>
-      oldProduct.id === action.payload.id ? { ...oldProduct, isEditing: false } : oldProduct
-    )
+    productDetails: { ...state.productDetails, isEditing: false }
   }),
   [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,

@@ -27,12 +27,12 @@ function * add (action) {
 
 function * update (action) {
   yield call(repository.update, action.payload)
-  yield put(actionCreators.updateProductSucceeded(action.payload))
+  yield put(actionCreators.updateProductSucceeded())
 }
 
 function * remove (action) {
   yield call(repository.remove, action.payload)
-  yield put(actionCreators.removeProductSucceeded(action.payload))
+  yield put(routing.actionCreators.goToClientDetails())
 }
 
 function * watchLoginRequestSucceeded () {
@@ -40,7 +40,7 @@ function * watchLoginRequestSucceeded () {
 }
 
 function * watchGoToProductDetails () {
-  yield takeEvery(routing.actionTypes.GO_TO_CLIENT_DETAILS, getDetails)
+  yield takeEvery(routing.actionTypes.GO_TO_PRODUCT_DETAILS, getDetails)
 }
 
 function * watchAdd () {
@@ -57,7 +57,6 @@ function * watchRemove () {
 
 function * sagas () {
   yield all([
-    fork(getAll),
     fork(watchLoginRequestSucceeded),
     fork(watchGoToProductDetails),
     fork(watchAdd),
