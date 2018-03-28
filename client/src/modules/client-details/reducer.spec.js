@@ -93,14 +93,13 @@ describe('reducer', () => {
 
   describe('when removing a client', () => {
     it('succeeds', () => {
-      const previousState = { clients: [{ id: 999 }] }
-      const client = { id: 999 }
-      const removeClientSuceededAction = actionCreators.removeClientSucceeded(client)
+      const previousState = { client: { id: 999 } }
+      const removeClientSuceededAction = actionCreators.removeClientSucceeded()
 
       const nextState = reducer(previousState, removeClientSuceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        clients: []
+        client: {}
       }))
     })
   })

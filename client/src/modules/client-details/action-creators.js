@@ -35,8 +35,7 @@ export const removeClientStarted = createAction(
 )
 
 export const removeClientSucceeded = createAction(
-  actionTypes.REMOVE_CLIENT_SUCCEEDED,
-  (client) => (client)
+  actionTypes.REMOVE_CLIENT_SUCCEEDED
 )
 
 export const changeNewProduct = createAction(

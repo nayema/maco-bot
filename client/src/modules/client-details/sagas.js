@@ -19,6 +19,7 @@ function * updateClient (action) {
 
 function * removeClient (action) {
   yield call(repository.remove, action.payload)
+  yield put(actionCreators.removeClientSucceeded())
   yield put(routing.actionCreators.goToClientsList())
 }
 

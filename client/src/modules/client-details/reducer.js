@@ -41,7 +41,7 @@ const reducer = handleActions({
   }),
   [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state, action) => ({
     ...state,
-    clients: state.clients.filter((client) => client.id !== action.payload.id)
+    client: { ...initialState.client }
   }),
   [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
     ...state,
