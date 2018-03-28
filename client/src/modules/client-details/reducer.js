@@ -6,7 +6,6 @@ const initialState = {
   client: null,
   loadingClient: false,
   clientUpdatingInProgress: false,
-  products: [],
   newProduct: { name: '', clientId: null },
   productAddingInProgress: false
 }
@@ -18,8 +17,7 @@ const reducer = handleActions({
   }),
   [actionTypes.LOAD_CLIENT_SUCCEEDED]: (state, action) => ({
     ...state,
-    client: action.payload.client,
-    products: action.payload.products,
+    client: action.payload,
     loadingClient: false
   }),
   [actionTypes.EDIT_CLIENT]: (state) => ({
@@ -39,7 +37,7 @@ const reducer = handleActions({
     ...state,
     client: { ...state.client, isEditing: false }
   }),
-  [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state, action) => ({
+  [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state) => ({
     ...state,
     client: { ...initialState.client }
   }),
@@ -53,7 +51,7 @@ const reducer = handleActions({
   }),
   [actionTypes.ADD_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,
-    products: state.products.concat([action.payload]),
+    client: { ...state.client, products: state.client.products.concat([action.payload]) },
     newProduct: initialState.newProduct,
     productAddingInProgress: false
   })

@@ -9,15 +9,6 @@ export async function getClient (client) {
   return camelizeKeys(await response.json())
 }
 
-export async function getProducts () {
-  const response = await fetch('/maco/products/', {
-    headers: new Headers({ // TODO: Encapsulate getting access token
-      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
-    })
-  })
-  return camelizeKeys(await response.json())
-}
-
 export async function update (client) {
   await fetch('/maco/clients/', {
     headers: new Headers({

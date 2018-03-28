@@ -8,7 +8,7 @@ export const loadClientStarted = createAction(
 
 export const loadClientSucceeded = createAction(
   actionTypes.LOAD_CLIENT_SUCCEEDED,
-  (client, products) => ({client, products})
+  (client) => (client)
 )
 
 export const editClient = createAction(

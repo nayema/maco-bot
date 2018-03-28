@@ -11,7 +11,6 @@ describe('reducer', () => {
       client: null,
       loadingClient: false,
       clientUpdatingInProgress: false,
-      products: [],
       newProduct: { name: '', clientId: null },
       productAddingInProgress: false
     })
@@ -31,14 +30,12 @@ describe('reducer', () => {
     it('succeeds', () => {
       const previousState = { client: null, loadingClient: true }
       const client = { name: 'Some Client' }
-      const products = [{ name: 'Some Product' }]
-      const loadClientSucceededAction = actionCreators.loadClientSucceeded(client, products)
+      const loadClientSucceededAction = actionCreators.loadClientSucceeded(client)
 
       const nextState = reducer(previousState, loadClientSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         client: client,
-        products: products,
         loadingClient: false
       }))
     })
@@ -126,14 +123,14 @@ describe('reducer', () => {
     })
 
     it('succeeds', () => {
-      const previousState = { products: [], productAddingInProgress: true }
+      const previousState = { client: { products: [] }, productAddingInProgress: true }
       const product = { name: 'Some Product' }
       const addProductSucceededAction = actionCreators.addProductSucceeded(product)
 
       const nextState = reducer(previousState, addProductSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        products: [product],
+        client: { products: [product] },
         newProduct: { name: '', clientId: null },
         productAddingInProgress: false
       }))

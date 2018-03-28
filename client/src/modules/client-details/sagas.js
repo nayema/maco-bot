@@ -8,8 +8,7 @@ import * as routing from '../routing'
 function * getDetails (action) {
   yield put(actionCreators.loadClientStarted())
   const client = yield call(repository.getClient, action.payload)
-  const products = yield call(repository.getProducts)
-  yield put(actionCreators.loadClientSucceeded(client, products))
+  yield put(actionCreators.loadClientSucceeded(client))
 }
 
 function * updateClient (action) {
