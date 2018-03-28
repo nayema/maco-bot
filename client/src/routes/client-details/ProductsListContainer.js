@@ -1,20 +1,19 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as products from '../../modules/products'
+import * as clientDetails from '../../modules/client-details'
 import ProductsList from './ProductsList'
 
 const mapStateToProps = (state) => ({
-  clientId: state.clients.clientDetails.id,
-  products: state.clients.clientDetails.products,
-  newProduct: state.products.newProduct,
-  loadingProducts: state.products.loadingProducts,
-  productAddingInProgress: state.products.productAddingInProgress
+  clientId: state.pages.clientDetails.client.id,
+  products:state.pages.clientDetails.products,
+  newProduct:state.pages.clientDetails.newProduct,
+  productAddingInProgress: state.pages.clientDetails.productAddingInProgress
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  addProductStarted: products.actionCreators.addProductStarted,
-  changeNewProduct: products.actionCreators.changeNewProduct,
+  addProductStarted: clientDetails.actionCreators.addProductStarted,
+  changeNewProduct: clientDetails.actionCreators.changeNewProduct,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
