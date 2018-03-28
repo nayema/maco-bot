@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Home from './routes/Home'
-import ClientsList from './routes/clients-list/ClientsListContainer'
+import ClientsList from './routes/client-list/ClientsListContainer'
 import ClientDetails from './routes/client-details/ClientDetailsContainer'
 import ProductDetails from './routes/product-details/ProductDetailsContainer'
 
