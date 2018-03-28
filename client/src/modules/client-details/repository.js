@@ -1,6 +1,6 @@
 import { camelizeKeys, decamelizeKeys } from 'humps'
 
-export async function getClient (client) {
+export async function getDetails (client) {
   const response = await fetch(`/maco/clients/${client['id']}`, {
     headers: new Headers({
       'Authorization': `Bearer ${localStorage.getItem('idToken')}`

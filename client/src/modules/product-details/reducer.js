@@ -3,51 +3,24 @@ import { handleActions } from 'redux-actions'
 import * as actionTypes from './action-types'
 
 const initialState = {
-  products: [],
-  productDetails: null,
-  newProduct: { name: '', clientId: null },
-  loadingProducts: false,
-  loadingProductDetails: false,
-  productAddingInProgress: false,
+  product: null,
+  loadingProduct: false,
   productUpdatingInProgress: false
 }
 
 const reducer = handleActions({
-  [actionTypes.LOAD_PRODUCTS_STARTED]: (state) => ({
+  [actionTypes.LOAD_PRODUCT_STARTED]: (state) => ({
     ...state,
-    loadingProducts: true
+    loadingProduct: true
   }),
-  [actionTypes.LOAD_PRODUCTS_SUCCEEDED]: (state, action) => ({
+  [actionTypes.LOAD_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,
-    products: action.payload,
-    loadingProducts: false
-  }),
-  [actionTypes.LOAD_PRODUCT_DETAILS_STARTED]: (state) => ({
-    ...state,
-    loadingProductDetails: true
-  }),
-  [actionTypes.LOAD_PRODUCT_DETAILS_SUCCEEDED]: (state, action) => ({
-    ...state,
-    productDetails: action.payload,
-    loadingProductDetails: false
-  }),
-  [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
-    ...state,
-    newProduct: { ...state.newProduct, ...action.payload }
-  }),
-  [actionTypes.ADD_PRODUCT_STARTED]: (state) => ({
-    ...state,
-    productAddingInProgress: true
-  }),
-  [actionTypes.ADD_PRODUCT_SUCCEEDED]: (state, action) => ({
-    ...state,
-    products: state.products.concat([action.payload]),
-    newProduct: initialState.newProduct,
-    productAddingInProgress: false
+    product: action.payload,
+    loadingProduct: false
   }),
   [actionTypes.EDIT_PRODUCT]: (state) => ({
     ...state,
-    productDetails: {...state.productDetails, isEditing: true}
+    product: { ...state.product, isEditing: true }
   }),
   [actionTypes.UPDATE_PRODUCT_STARTED]: (state) => ({
     ...state,
@@ -55,16 +28,16 @@ const reducer = handleActions({
   }),
   [actionTypes.UPDATE_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,
-    productDetails: { ...state.productDetails, ...action.payload, isEditing: false },
+    product: { ...state.product, ...action.payload, isEditing: false },
     productUpdatingInProgress: false
   }),
   [actionTypes.CANCEL_EDIT_PRODUCT]: (state) => ({
     ...state,
-    productDetails: { ...state.productDetails, isEditing: false }
+    product: { ...state.product, isEditing: false }
   }),
-  [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state, action) => ({
+  [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state) => ({
     ...state,
-    products: state.products.filter((product) => product.id !== action.payload.id)
+    product: { ...initialState.product }
   })
 }, initialState)
 

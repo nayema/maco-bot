@@ -3,63 +3,40 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
 import * as repository from './repository'
-import * as auth from '../auth'
 import * as routing from '../routing'
 
-function * getAll () { // TODO: Encapsulate authentication state
-  if (localStorage.getItem('idToken')) {
-    yield put(actionCreators.loadProductsStarted())
-    const products = yield call(repository.getAll)
-    yield put(actionCreators.loadProductsSucceeded(products))
-  }
-}
-
 function * getDetails (action) {
-  yield put(actionCreators.loadProductDetailsStarted())
-  const productDetails = yield call(repository.getDetails, action.payload)
-  yield put(actionCreators.loadProductDetailsSucceeded(productDetails))
+  yield put(actionCreators.loadProductStarted())
+  const product = yield call(repository.getDetails, action.payload)
+  yield put(actionCreators.loadProductSucceeded(product))
 }
 
-function * add (action) {
-  const product = yield call(repository.add, action.payload)
-  yield put(actionCreators.addProductSucceeded(product))
-}
-
-function * update (action) {
+function * updateProduct (action) {
   yield call(repository.update, action.payload)
   yield put(actionCreators.updateProductSucceeded(action.payload))
 }
 
-function * remove (action) {
+function * removeProduct (action) {
   yield call(repository.remove, action.payload)
+  yield put(actionCreators.removeProductSucceeded())
   yield put(routing.actionCreators.goToClientDetails())
-}
-
-function * watchLoginRequestSucceeded () {
-  yield takeEvery(auth.actionTypes.LOGIN_REQUEST_SUCCEEDED, getAll)
 }
 
 function * watchGoToProductDetails () {
   yield takeEvery(routing.actionTypes.GO_TO_PRODUCT_DETAILS, getDetails)
 }
 
-function * watchAdd () {
-  yield takeEvery(actionTypes.ADD_PRODUCT_STARTED, add)
-}
-
 function * watchUpdate () {
-  yield takeEvery(actionTypes.UPDATE_PRODUCT_STARTED, update)
+  yield takeEvery(actionTypes.UPDATE_PRODUCT_STARTED, updateProduct)
 }
 
 function * watchRemove () {
-  yield takeEvery(actionTypes.REMOVE_PRODUCT_STARTED, remove)
+  yield takeEvery(actionTypes.REMOVE_PRODUCT_STARTED, removeProduct)
 }
 
 function * sagas () {
   yield all([
-    fork(watchLoginRequestSucceeded),
     fork(watchGoToProductDetails),
-    fork(watchAdd),
     fork(watchUpdate),
     fork(watchRemove)
   ])
