@@ -12,10 +12,11 @@ const styles = theme => ({
   }
 })
 
-const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInProgress, cancelEditClient, editClient, removeClientStarted }) =>
+const ClientHeader = ({ classes, client, updateClientStarted, clientUpdatingInProgress, editClient, cancelEditClient, removeClientStarted }) =>
   <Formik
     initialValues={client}
-    onSubmit={(values) => updateClientStarted(values)}
+    onSubmit={(values) => updateClientStarted({ ...client, ...values, products: client.products })}
+    onReset={() => cancelEditClient()}
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
@@ -34,7 +35,7 @@ const ClientHeader = ({ client, updateClientStarted, classes, clientUpdatingInPr
             variant="raised"
             className={classes.button}
             disabled={clientUpdatingInProgress}
-            onClick={cancelEditClient}>
+            onClick={props.handleReset}>
             Cancel
           </Button>
         </span> : <span>

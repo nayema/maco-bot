@@ -12,14 +12,15 @@ const styles = theme => ({
   }
 })
 
-const ProductHeader = ({ product, clientName, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
+const ProductHeader = ({ product, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
   <Formik
     initialValues={product}
-    onSubmit={(values) => updateProductStarted(values)}
+    onSubmit={(values) => updateProductStarted({ ...product, ...values })}
+    onReset={() => cancelEditProduct()}
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-        Client: {clientName}
+        {/*Client: {product.client.name}*/}
         <div>
           {
             product.isEditing ? <span>
@@ -35,7 +36,7 @@ const ProductHeader = ({ product, clientName, updateProductStarted, classes, pro
             variant="raised"
             className={classes.button}
             disabled={productUpdatingInProgress}
-            onClick={cancelEditProduct}>
+            onClick={props.handleReset}>
             Cancel
           </Button>
         </span> : <span>

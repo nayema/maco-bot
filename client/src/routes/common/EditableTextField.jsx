@@ -1,6 +1,6 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { withStyles } from 'material-ui/styles/index'
+import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
   textField: {

@@ -4,7 +4,7 @@ import keyPress from 'react-keypress'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
-import { LinearProgress, CircularProgress } from 'material-ui/Progress'
+import { CircularProgress } from 'material-ui/Progress'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
@@ -65,15 +65,7 @@ const ProductRow = ({ classes, product, Link }) => (
   </TableRow>
 )
 
-const LoadingProductsProgress = () => (
-  <TableRow>
-    <TableCell colSpan={2}>
-      <LinearProgress mode="query"/>
-    </TableCell>
-  </TableRow>
-)
-
-const ProductsList = ({ classes, clientId, newProduct, products, loadingProducts, productAddingInProgress, addProductStarted, changeNewProduct, Link = LinkContainer }) => (
+const ProductsList = ({ classes, clientId, products, newProduct, productAddingInProgress, addProductStarted, changeNewProduct, Link = LinkContainer }) => (
   <Table className={classes.root}>
     <TableHead>
       <TableRow>
@@ -89,7 +81,6 @@ const ProductsList = ({ classes, clientId, newProduct, products, loadingProducts
         addProductStarted={addProductStarted}
         changeNewProduct={changeNewProduct}
       />
-      {loadingProducts && <LoadingProductsProgress loadingProducts={loadingProducts}/>}
       {products.map(product =>
         <ProductRow
           key={product.id}

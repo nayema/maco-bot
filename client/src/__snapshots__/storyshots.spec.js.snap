@@ -677,8 +677,6 @@ exports[`Storyshots Product Header when editing 1`] = `
   >
     Some Product
   </h1>
-  Client: 
-  Some Client
   <div>
     <span>
       <button
@@ -785,8 +783,6 @@ exports[`Storyshots Product Header when updating 1`] = `
   >
     Some Product
   </h1>
-  Client: 
-  Some Client
   <div>
     <span>
       <button
@@ -887,8 +883,6 @@ exports[`Storyshots Product Header with a product 1`] = `
   >
     Some Product
   </h1>
-  Client: 
-  Some Client
   <div>
     <span>
       <button

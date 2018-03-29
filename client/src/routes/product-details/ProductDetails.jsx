@@ -11,11 +11,11 @@ const styles = theme => ({
   }
 })
 
-const LoadingProductDetailsProgress = () => <LinearProgress mode="query"/>
+const LoadingProductProgress = () => <LinearProgress mode="query"/>
 
-const ProductDetails = ({ classes, product, loadingProductDetails }) =>
+const ProductDetails = ({ classes, product, loadingProduct }) =>
   <div className={classes.root}>
-    {loadingProductDetails && <LoadingProductDetailsProgress loadingProductDetails={loadingProductDetails}/>}
+    {loadingProduct && <LoadingProductProgress loadingProduct={loadingProduct}/>}
     {product && <div>
       <ProductHeader/>
     </div>}

@@ -12,11 +12,11 @@ const styles = theme => ({
   }
 })
 
-const LoadingClientDetailsProgress = () => <LinearProgress mode="query"/>
+const LoadingClientProgress = () => <LinearProgress mode="query"/>
 
-const ClientDetails = ({ classes, client, loadingClientDetails }) =>
+const ClientDetails = ({ classes, client, loadingClient }) =>
   <div className={classes.root}>
-    {loadingClientDetails && <LoadingClientDetailsProgress loadingClientDetails={loadingClientDetails}/>}
+    {loadingClient && <LoadingClientProgress loadingClient={loadingClient}/>}
     {client && <div>
       <ClientHeader/>
       <ProductsList/>
