@@ -19,7 +19,7 @@ function * updateProduct (action) {
 function * removeProduct (action) {
   yield call(repository.remove, action.payload)
   yield put(actionCreators.removeProductSucceeded())
-  yield put(routing.actionCreators.goToClientDetails())
+  yield put(routing.actionCreators.goToHome())
 }
 
 function * watchGoToProductDetails () {
