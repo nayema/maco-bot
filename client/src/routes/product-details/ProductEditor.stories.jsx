@@ -3,28 +3,28 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import ProductHeader from './ProductHeader'
+import ProductEditor from './ProductEditor'
 
-storiesOf('Product Header', ProductHeader)
+storiesOf('Product Editor', ProductEditor)
   .add('with a product', () =>
-    <ProductHeader
+    <ProductEditor
       product={{
         'id': 999,
-        'name': 'Some Product'
+        'name': 'Some Product',
+        'client': { 'name': 'Some Client' }
       }}
-      clientName={'Some Client'}
       editProduct={action('edit product')}
       removeProductStarted={action('remove product started')}
     />
   )
   .add('when editing', () =>
-    <ProductHeader
+    <ProductEditor
       product={{
         'id': 999,
         'name': 'Some Product',
-        'isEditing': true
+        'isEditing': true,
+        'client': { 'name': 'Some Client' }
       }}
-      clientName={'Some Client'}
       changeEditProduct={action('change edit product')}
       updateProductStarted={action('update product started')}
       productUpdatingInProgress={false}
@@ -32,13 +32,13 @@ storiesOf('Product Header', ProductHeader)
     />
   )
   .add('when updating', () =>
-    <ProductHeader
+    <ProductEditor
       product={{
         'id': 999,
         'name': 'Some Product',
-        'isEditing': true
+        'isEditing': true,
+        'client': { 'name': 'Some Client' }
       }}
-      clientName={'Some Client'}
       changeEditProduct={action('change edit product')}
       updateProductStarted={action('update product started')}
       productUpdatingInProgress={true}

@@ -12,7 +12,7 @@ const styles = theme => ({
   }
 })
 
-const ProductHeader = ({ product, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
+const ProductEditor = ({ product, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
   <Formik
     initialValues={product}
     onSubmit={(values) => updateProductStarted({ ...product, ...values })}
@@ -20,7 +20,7 @@ const ProductHeader = ({ product, updateProductStarted, classes, productUpdating
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-        {/*Client: {product.client.name}*/}
+        Client: {product.client.name}
         <div>
           {
             product.isEditing ? <span>
@@ -67,4 +67,4 @@ const ProductHeader = ({ product, updateProductStarted, classes, productUpdating
     )}
   />
 
-export default withStyles(styles)(ProductHeader)
+export default withStyles(styles)(ProductEditor)

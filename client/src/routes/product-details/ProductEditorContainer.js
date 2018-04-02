@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as productDetails from '../../modules/product-details'
-import ProductHeader from './ProductHeader'
+import ProductEditor from './ProductEditor'
 
 const mapStateToProps = (state) => ({
   product: state.pages.productDetails.product,
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   removeProductStarted: (id) => productDetails.actionCreators.removeProductStarted({ id })
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductEditor)
