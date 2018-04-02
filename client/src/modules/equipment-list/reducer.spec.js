@@ -160,8 +160,7 @@ describe('reducer', () => {
   describe('when removing an equipment', () => {
     it('succeeds', () => {
       const previousState = { equipmentList: [{ id: 999 }] }
-      const equipment = { id: 999 }
-      const removeClientSuceededAction = actionCreators.removeEquipmentSucceeded(equipment)
+      const removeClientSuceededAction = actionCreators.removeEquipmentSucceeded()
 
       const nextState = reducer(previousState, removeClientSuceededAction)
 

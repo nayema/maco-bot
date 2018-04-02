@@ -26,7 +26,7 @@ function * update (action) {
 
 function * remove (action) {
   yield call(equipmentRepository.remove, action.payload)
-  yield put(actionCreators.removeEquipmentSucceeded(action.payload))
+  yield put(actionCreators.removeEquipmentSucceeded())
   yield put(routing.actionCreators.goToEquipmentList())
 }
 

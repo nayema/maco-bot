@@ -66,9 +66,9 @@ const reducer = handleActions({
     ),
     equipmentUpdatingInProgress: false
   }),
-  [actionTypes.REMOVE_EQUIPMENT_SUCCEEDED]: (state, action) => ({
+  [actionTypes.REMOVE_EQUIPMENT_SUCCEEDED]: (state) => ({
     ...state,
-    equipmentList: state.equipmentList.filter((equipment) => equipment.id !== action.payload.id)
+    equipmentList: initialState.equipmentList
   })
 }, initialState)
 

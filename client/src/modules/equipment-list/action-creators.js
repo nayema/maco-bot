@@ -52,6 +52,5 @@ export const removeEquipmentStarted = createAction(
 )
 
 export const removeEquipmentSucceeded = createAction(
-  actionTypes.REMOVE_EQUIPMENT_SUCCEEDED,
-  (equipment) => (equipment)
+  actionTypes.REMOVE_EQUIPMENT_SUCCEEDED
 )
