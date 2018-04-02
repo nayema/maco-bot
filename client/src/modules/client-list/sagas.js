@@ -2,20 +2,20 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
-import * as repository from './repository'
+import { clientRepository } from '../maco'
 import * as auth from '../auth'
 import * as routing from '../routing'
 
 function * getAll () { // TODO: Encapsulate authentication state
   if (localStorage.getItem('idToken')) {
     yield put(actionCreators.loadClientsStarted())
-    const clients = yield call(repository.getAll)
+    const clients = yield call(clientRepository.getAll)
     yield put(actionCreators.loadClientsSucceeded(clients))
   }
 }
 
 function * add (action) {
-  const client = yield call(repository.add, action.payload)
+  const client = yield call(clientRepository.add, action.payload)
   yield put(actionCreators.addClientSucceeded(client))
 }
 
@@ -35,7 +35,7 @@ function * sagas () {
   yield all([
     fork(watchLoginRequestSucceeded),
     fork(watchGoToClientsList),
-    fork(watchAdd),
+    fork(watchAdd)
   ])
 }
 

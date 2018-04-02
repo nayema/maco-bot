@@ -2,28 +2,28 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
-import * as repository from './repository'
+import { clientRepository, productRepository } from '../maco'
 import * as routing from '../routing'
 
 function * getDetails (action) {
   yield put(actionCreators.loadClientStarted())
-  const client = yield call(repository.getDetails, action.payload)
+  const client = yield call(clientRepository.getDetails, action.payload)
   yield put(actionCreators.loadClientSucceeded(client))
 }
 
 function * updateClient (action) {
-  yield call(repository.update, action.payload)
+  yield call(clientRepository.update, action.payload)
   yield put(actionCreators.updateClientSucceeded(action.payload))
 }
 
 function * removeClient (action) {
-  yield call(repository.remove, action.payload)
+  yield call(clientRepository.remove, action.payload)
   yield put(actionCreators.removeClientSucceeded())
   yield put(routing.actionCreators.goToClientsList())
 }
 
 function * addProduct (action) {
-  const product = yield call(repository.add, action.payload)
+  const product = yield call(productRepository.add, action.payload)
   yield put(actionCreators.addProductSucceeded(product))
 }
 

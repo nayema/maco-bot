@@ -9,6 +9,18 @@ export async function getDetails (product) {
   return camelizeKeys(await response.json())
 }
 
+export async function add (product) {
+  const response = await fetch('/maco/products/', {
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
+    }),
+    body: JSON.stringify(decamelizeKeys(product)),
+    method: 'post'
+  })
+  return camelizeKeys(await response.json())
+}
+
 export async function update (product) {
   await fetch('/maco/products/', {
     headers: new Headers({
