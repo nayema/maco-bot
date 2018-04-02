@@ -96,7 +96,7 @@ describe('reducer', () => {
       const nextState = reducer(previousState, removeClientSuceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        client: {}
+        client: null
       }))
     })
   })
