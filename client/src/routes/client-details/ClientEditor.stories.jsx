@@ -3,11 +3,11 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import ClientHeader from './ClientHeader'
+import ClientEditor from './ClientEditor'
 
-storiesOf('Client Header', ClientHeader)
+storiesOf('Client Header', ClientEditor)
   .add('with a client', () =>
-    <ClientHeader
+    <ClientEditor
       client={{
         'id': 999,
         'name': 'Some Client'
@@ -17,7 +17,7 @@ storiesOf('Client Header', ClientHeader)
     />
   )
   .add('when editing', () =>
-    <ClientHeader
+    <ClientEditor
       client={{
         'id': 999,
         'name': 'Some Client',
@@ -30,7 +30,7 @@ storiesOf('Client Header', ClientHeader)
     />
   )
   .add('when updating', () =>
-    <ClientHeader
+    <ClientEditor
       client={{
         'id': 999,
         'name': 'Some Client',

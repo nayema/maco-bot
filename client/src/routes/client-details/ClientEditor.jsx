@@ -12,7 +12,7 @@ const styles = theme => ({
   }
 })
 
-const ClientHeader = ({ classes, client, updateClientStarted, clientUpdatingInProgress, editClient, cancelEditClient, removeClientStarted }) =>
+const ClientEditor = ({ classes, client, updateClientStarted, clientUpdatingInProgress, editClient, cancelEditClient, removeClientStarted }) =>
   <Formik
     initialValues={client}
     onSubmit={(values) => updateClientStarted({ ...client, ...values, products: client.products })}
@@ -66,4 +66,4 @@ const ClientHeader = ({ classes, client, updateClientStarted, clientUpdatingInPr
     )}
   />
 
-export default withStyles(styles)(ClientHeader)
+export default withStyles(styles)(ClientEditor)

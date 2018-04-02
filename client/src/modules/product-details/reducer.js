@@ -37,7 +37,7 @@ const reducer = handleActions({
   }),
   [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state) => ({
     ...state,
-    product: { ...initialState.product }
+    product: initialState.product
   })
 }, initialState)
 

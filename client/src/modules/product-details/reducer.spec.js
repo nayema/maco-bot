@@ -106,7 +106,7 @@ describe('reducer', () => {
       const nextState = reducer(previousState, removeProductSuceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        product: {}
+        product: null
       }))
     })
   })

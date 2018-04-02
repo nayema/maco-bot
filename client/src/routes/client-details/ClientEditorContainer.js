@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as clientDetails from '../../modules/client-details'
-import ClientHeader from './ClientHeader'
+import ClientEditor from './ClientEditor'
 
 const mapStateToProps = (state) => ({
   client: state.pages.clientDetails.client,
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   removeClientStarted: (id) => clientDetails.actionCreators.removeClientStarted({ id })
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(ClientEditor)

@@ -10,7 +10,7 @@ exports[`Storyshots Client Header when editing 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-120 MuiButton-root-105 MuiButton-raised-110 MuiButton-raisedPrimary-112 ClientHeader-button-80"
+        className="MuiButtonBase-root-120 MuiButton-root-105 MuiButton-raised-110 MuiButton-raisedPrimary-112 ClientEditor-button-80"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -36,7 +36,7 @@ exports[`Storyshots Client Header when editing 1`] = `
         />
       </button>
       <button
-        className="MuiButtonBase-root-120 MuiButton-root-105 MuiButton-raised-110 ClientHeader-button-80"
+        className="MuiButtonBase-root-120 MuiButton-root-105 MuiButton-raised-110 ClientEditor-button-80"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -116,7 +116,7 @@ exports[`Storyshots Client Header when updating 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-199 MuiButtonBase-disabled-200 MuiButton-root-184 MuiButton-raised-189 MuiButton-raisedPrimary-191 MuiButton-disabled-193 ClientHeader-button-159"
+        className="MuiButtonBase-root-199 MuiButtonBase-disabled-200 MuiButton-root-184 MuiButton-raised-189 MuiButton-raisedPrimary-191 MuiButton-disabled-193 ClientEditor-button-159"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -139,7 +139,7 @@ exports[`Storyshots Client Header when updating 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root-199 MuiButtonBase-disabled-200 MuiButton-root-184 MuiButton-raised-189 MuiButton-disabled-193 ClientHeader-button-159"
+        className="MuiButtonBase-root-199 MuiButtonBase-disabled-200 MuiButton-root-184 MuiButton-raised-189 MuiButton-disabled-193 ClientEditor-button-159"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -216,7 +216,7 @@ exports[`Storyshots Client Header with a client 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-41 MuiButton-root-26 MuiButton-raised-31 ClientHeader-button-1"
+        className="MuiButtonBase-root-41 MuiButton-root-26 MuiButton-raised-31 ClientEditor-button-1"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -242,7 +242,7 @@ exports[`Storyshots Client Header with a client 1`] = `
         />
       </button>
       <button
-        className="MuiButtonBase-root-41 MuiButton-root-26 MuiButton-raised-31 MuiButton-raisedSecondary-34 ClientHeader-button-1"
+        className="MuiButtonBase-root-41 MuiButton-root-26 MuiButton-raised-31 MuiButton-raisedSecondary-34 ClientEditor-button-1"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -670,17 +670,19 @@ exports[`Storyshots Clients List with no clients 1`] = `
 </table>
 `;
 
-exports[`Storyshots Product Header when editing 1`] = `
+exports[`Storyshots Product Editor when editing 1`] = `
 <form>
   <h1
     className="MuiTypography-root-498 MuiTypography-display3-500 MuiTypography-gutterBottom-515"
   >
     Some Product
   </h1>
+  Client: 
+  Some Client
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 MuiButton-raisedPrimary-529 ProductHeader-button-497"
+        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 MuiButton-raisedPrimary-529 ProductEditor-button-497"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -706,7 +708,7 @@ exports[`Storyshots Product Header when editing 1`] = `
         />
       </button>
       <button
-        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 ProductHeader-button-497"
+        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 ProductEditor-button-497"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -776,17 +778,19 @@ exports[`Storyshots Product Header when editing 1`] = `
 </form>
 `;
 
-exports[`Storyshots Product Header when updating 1`] = `
+exports[`Storyshots Product Editor when updating 1`] = `
 <form>
   <h1
     className="MuiTypography-root-577 MuiTypography-display3-579 MuiTypography-gutterBottom-594"
   >
     Some Product
   </h1>
+  Client: 
+  Some Client
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-raisedPrimary-608 MuiButton-disabled-610 ProductHeader-button-576"
+        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-raisedPrimary-608 MuiButton-disabled-610 ProductEditor-button-576"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -809,7 +813,7 @@ exports[`Storyshots Product Header when updating 1`] = `
         </span>
       </button>
       <button
-        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-disabled-610 ProductHeader-button-576"
+        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-disabled-610 ProductEditor-button-576"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -876,17 +880,19 @@ exports[`Storyshots Product Header when updating 1`] = `
 </form>
 `;
 
-exports[`Storyshots Product Header with a product 1`] = `
+exports[`Storyshots Product Editor with a product 1`] = `
 <form>
   <h1
     className="MuiTypography-root-419 MuiTypography-display3-421 MuiTypography-gutterBottom-436"
   >
     Some Product
   </h1>
+  Client: 
+  Some Client
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 ProductHeader-button-418"
+        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 ProductEditor-button-418"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -912,7 +918,7 @@ exports[`Storyshots Product Header with a product 1`] = `
         />
       </button>
       <button
-        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 MuiButton-raisedSecondary-451 ProductHeader-button-418"
+        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 MuiButton-raisedSecondary-451 ProductEditor-button-418"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
