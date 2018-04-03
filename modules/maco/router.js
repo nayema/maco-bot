@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const ClientsController = require('./clients/ClientsController')
-const ProductsController = require('./products/ProductsController')
-const EquipmentController = require('./equipment/EquipmentController')
+const ClientsController = require('./ClientsController')
+const ProductsController = require('./ProductsController')
+const EquipmentController = require('./EquipmentController')
 
 router.get('/clients', ClientsController.getAll)
 router.get('/clients/:id', ClientsController.getDetails)

@@ -1,8 +1,8 @@
 import request from 'supertest'
 
-import app from '../../../app'
+import app from '../../app'
 import Equipment from './Equipment'
-import testJwt from '../../common/test-jwt'
+import testJwt from '../common/test-jwt'
 
 describe('equipment', () => {
   beforeEach(async done => {
