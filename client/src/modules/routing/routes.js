@@ -7,7 +7,8 @@ const routesMap = {
   [actionTypes.GO_TO_HOME]: '/',
   [actionTypes.GO_TO_CLIENTS_LIST]: '/clients',
   [actionTypes.GO_TO_CLIENT_DETAILS]: '/clients/:id',
-  [actionTypes.GO_TO_PRODUCT_DETAILS]: '/products/:id'
+  [actionTypes.GO_TO_PRODUCT_DETAILS]: '/products/:id',
+  [actionTypes.GO_TO_EQUIPMENT_LIST]: '/equipment',
 }
 
 function routes (history) {

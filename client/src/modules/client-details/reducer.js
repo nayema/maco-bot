@@ -39,7 +39,7 @@ const reducer = handleActions({
   }),
   [actionTypes.REMOVE_CLIENT_SUCCEEDED]: (state) => ({
     ...state,
-    client: { ...initialState.client }
+    client: initialState.client
   }),
   [actionTypes.CHANGE_NEW_PRODUCT]: (state, action) => ({
     ...state,

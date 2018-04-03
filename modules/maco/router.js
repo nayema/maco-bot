@@ -3,6 +3,7 @@ const router = express.Router()
 
 const ClientsController = require('./clients/ClientsController')
 const ProductsController = require('./products/ProductsController')
+const EquipmentController = require('./equipment/EquipmentController')
 
 router.get('/clients', ClientsController.getAll)
 router.get('/clients/:id', ClientsController.getDetails)
@@ -15,5 +16,10 @@ router.get('/products/:id', ProductsController.getDetails)
 router.post('/products', ProductsController.add)
 router.delete('/products', ProductsController.remove)
 router.put('/products', ProductsController.update)
+
+router.get('/equipment', EquipmentController.getAll)
+router.post('/equipment', EquipmentController.add)
+router.delete('/equipment', EquipmentController.remove)
+router.put('/equipment', EquipmentController.update)
 
 module.exports = router

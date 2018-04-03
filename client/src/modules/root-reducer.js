@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import * as routing from './routing'
 import * as auth from './auth'
+import * as clientList from './client-list'
 import * as clientDetails from './client-details'
 import * as productDetails from './product-details'
-import * as clientList from './client-list'
+import * as equipmentList from './equipment-list'
 
 export default {
   auth: auth.reducer,
@@ -11,6 +12,7 @@ export default {
   pages: combineReducers({
     clientList: clientList.reducer,
     clientDetails: clientDetails.reducer,
-    productDetails: productDetails.reducer
+    productDetails: productDetails.reducer,
+    equipmentList: equipmentList.reducer
   })
 }

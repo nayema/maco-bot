@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Client Header when editing 1`] = `
+exports[`Storyshots Client Editor when editing 1`] = `
 <form>
   <h1
     className="MuiTypography-root-81 MuiTypography-display3-83 MuiTypography-gutterBottom-98"
@@ -106,7 +106,7 @@ exports[`Storyshots Client Header when editing 1`] = `
 </form>
 `;
 
-exports[`Storyshots Client Header when updating 1`] = `
+exports[`Storyshots Client Editor when updating 1`] = `
 <form>
   <h1
     className="MuiTypography-root-160 MuiTypography-display3-162 MuiTypography-gutterBottom-177"
@@ -206,7 +206,7 @@ exports[`Storyshots Client Header when updating 1`] = `
 </form>
 `;
 
-exports[`Storyshots Client Header with a client 1`] = `
+exports[`Storyshots Client Editor with a client 1`] = `
 <form>
   <h1
     className="MuiTypography-root-2 MuiTypography-display3-4 MuiTypography-gutterBottom-19"

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 
 import ClientEditor from './ClientEditor'
 
-storiesOf('Client Header', ClientEditor)
+storiesOf('Client Editor', ClientEditor)
   .add('with a client', () =>
     <ClientEditor
       client={{

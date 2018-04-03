@@ -21,18 +21,18 @@ class ClientsController {
     return res.send(client)
   }
 
-  static async remove (req, res) {
-    await Client
-      .query()
-      .delete()
-      .where('id', req.body['id'])
-    return res.end()
-  }
-
   static async update (req, res) {
     await Client
       .query()
       .update({ 'name': req.body['name'] })
+      .where('id', req.body['id'])
+    return res.end()
+  }
+
+  static async remove (req, res) {
+    await Client
+      .query()
+      .delete()
       .where('id', req.body['id'])
     return res.end()
   }
