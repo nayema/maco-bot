@@ -11,11 +11,11 @@ describe('reducer', () => {
       equipmentList: [],
       newEquipment: {
         name: '',
-        assetId: null,
-        productContactSurfaceArea: null,
-        minimumBatchSize: null
+        assetId: '',
+        productContactSurfaceArea: '',
+        minimumBatchSize: ''
       },
-      loadingEquipment: false,
+      loadingEquipmentList: false,
       equipmentAddingInProgress: false,
       equipmentUpdatingInProgress: false
     })
@@ -28,12 +28,12 @@ describe('reducer', () => {
       const nextState = reducer(undefined, loadEquipmentStartedAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        loadingEquipment: true
+        loadingEquipmentList: true
       }))
     })
 
     it('succeeds', () => {
-      const previousState = { equipmentList: [], loadingEquipment: true }
+      const previousState = { equipmentList: [], loadingEquipmentList: true }
       const equipmentList = [{ name: 'Some Equipment' }]
       const loadEquipmentSucceededAction = actionCreators.loadEquipmentSucceeded(equipmentList)
 
@@ -41,7 +41,7 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         equipmentList: equipmentList,
-        loadingEquipment: false
+        loadingEquipmentList: false
       }))
     })
   })
@@ -83,9 +83,9 @@ describe('reducer', () => {
         equipmentList: [equipment],
         newEquipment: {
           name: '',
-          assetId: null,
-          productContactSurfaceArea: null,
-          minimumBatchSize: null
+          assetId: '',
+          productContactSurfaceArea: '',
+          minimumBatchSize: ''
         },
         equipmentAddingInProgress: false
       }))
@@ -113,6 +113,32 @@ describe('reducer', () => {
           edit: {
             id: 999,
             name: 'Some Equipment'
+          }
+        }]
+      }))
+    })
+
+    it('changes editing', () => {
+      const previousState = {
+        equipmentList: [{
+          id: 999,
+          name: 'Some Equipment',
+          edit: { unrelatedAttr: 'Unrelated', name: 'Some Equipment' }
+        }]
+      }
+      const equipment = { id: 999, name: 'Some Edited Equipment' }
+      const changeEditEquipmentAction = actionCreators.changeEditEquipment(equipment)
+
+      const nextState = reducer(previousState, changeEditEquipmentAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        equipmentList: [{
+          id: 999,
+          name: 'Some Equipment',
+          edit: {
+            id: 999,
+            unrelatedAttr: 'Unrelated',
+            name: 'Some Edited Equipment'
           }
         }]
       }))

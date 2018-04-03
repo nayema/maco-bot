@@ -6,11 +6,11 @@ const initialState = {
   equipmentList: [],
   newEquipment: {
     name: '',
-    assetId: null,
-    productContactSurfaceArea: null,
-    minimumBatchSize: null
+    assetId: '',
+    productContactSurfaceArea: '',
+    minimumBatchSize: ''
   },
-  loadingEquipment: false,
+  loadingEquipmentList: false,
   equipmentAddingInProgress: false,
   equipmentUpdatingInProgress: false
 }
@@ -18,12 +18,12 @@ const initialState = {
 const reducer = handleActions({
   [actionTypes.LOAD_EQUIPMENT_STARTED]: (state) => ({
     ...state,
-    loadingEquipment: true
+    loadingEquipmentList: true
   }),
   [actionTypes.LOAD_EQUIPMENT_SUCCEEDED]: (state, action) => ({
     ...state,
     equipmentList: action.payload,
-    loadingEquipment: false
+    loadingEquipmentList: false
   }),
   [actionTypes.CHANGE_NEW_EQUIPMENT]: (state, action) => ({
     ...state,
@@ -46,6 +46,15 @@ const reducer = handleActions({
         ...oldEquipment,
         isEditing: true,
         edit: oldEquipment
+      } : oldEquipment
+    )
+  }),
+  [actionTypes.CHANGE_EDIT_EQUIPMENT]: (state, action) => ({
+    ...state,
+    equipmentList: state.equipmentList.map(oldEquipment =>
+      oldEquipment.id === action.payload.id ? {
+        ...oldEquipment,
+        edit: { ...oldEquipment.edit, ...action.payload }
       } : oldEquipment
     )
   }),

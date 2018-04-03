@@ -30,6 +30,9 @@ const App = ({ classes }) => (
       <Grid item xs>
         <Link to="/clients">Clients</Link>
       </Grid>
+      <Grid item xs>
+        <Link to="/equipment">Equipment</Link>
+      </Grid>
     </Grid>
     <Grid container spacing={16}>
       <Grid item xs>

@@ -31,6 +31,11 @@ export const editEquipment = createAction(
   (transaction) => (transaction)
 )
 
+export const changeEditEquipment = createAction(
+  actionTypes.CHANGE_EDIT_EQUIPMENT,
+  (equipment) => (equipment)
+)
+
 export const updateEquipmentStarted = createAction(
   actionTypes.UPDATE_EQUIPMENT_STARTED,
   (equipment) => (equipment)
