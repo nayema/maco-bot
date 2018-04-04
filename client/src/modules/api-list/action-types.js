@@ -1,7 +1,5 @@
 export const LOAD_API_LIST_STARTED = 'api-list/LOAD_API_LIST_STARTED'
 export const LOAD_API_LIST_SUCCEEDED = 'api-list/LOAD_API_LIST_SUCCEEDED'
-export const LOAD_API_STARTED = 'api-list/LOAD_API_STARTED'
-export const LOAD_API_SUCCEEDED = 'api-list/LOAD_API_SUCCEEDED'
 export const CHANGE_NEW_API = 'api-list/CHANGE_NEW_API'
 export const ADD_API_STARTED = 'api-list/ADD_API_STARTED'
 export const ADD_API_SUCCEEDED = 'api-list/ADD_API_SUCCEEDED'

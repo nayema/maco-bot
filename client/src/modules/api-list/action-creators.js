@@ -11,15 +11,6 @@ export const loadApiListSucceeded = createAction(
   (apiList) => (apiList)
 )
 
-export const loadApiStarted = createAction(
-  actionTypes.LOAD_API_STARTED
-)
-
-export const loadApiSucceeded = createAction(
-  actionTypes.LOAD_API_SUCCEEDED,
-  (api) => (api)
-)
-
 export const changeNewApi = createAction(
   actionTypes.CHANGE_NEW_API,
   (attribute, value) => ({ [attribute]: value })

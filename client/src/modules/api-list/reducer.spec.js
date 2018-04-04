@@ -13,9 +13,7 @@ describe('reducer', () => {
         name: '',
         adi: ''
       },
-      api: null,
       loadingApiList: false,
-      loadingApi: false,
       apiAddingInProgress: false,
       apiUpdatingInProgress: false
     })
@@ -42,31 +40,6 @@ describe('reducer', () => {
       expect(nextState).toEqual(expect.objectContaining({
         apiList: apiList,
         loadingApiList: false
-      }))
-    })
-  })
-
-  describe('when loading api details', () => {
-    it('starts', () => {
-      const loadApiStartedAction = actionCreators.loadApiStarted()
-
-      const nextState = reducer(undefined, loadApiStartedAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        loadingApi: true
-      }))
-    })
-
-    it('succeeds', () => {
-      const previousState = { api: null, loadingApi: true }
-      const api = { name: 'Some Api' }
-      const loadApiSucceededAction = actionCreators.loadApiSucceeded(api)
-
-      const nextState = reducer(previousState, loadApiSucceededAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        api: api,
-        loadingApi: false
       }))
     })
   })
