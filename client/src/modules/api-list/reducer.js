@@ -8,20 +8,31 @@ const initialState = {
     name: '',
     adi: ''
   },
+  api: null,
   loadingApiList: false,
+  loadingApi: false,
   apiAddingInProgress: false,
   apiUpdatingInProgress: false
 }
 
 const reducer = handleActions({
-  [actionTypes.LOAD_API_STARTED]: (state) => ({
+  [actionTypes.LOAD_API_LIST_STARTED]: (state) => ({
     ...state,
     loadingApiList: true
   }),
-  [actionTypes.LOAD_API_SUCCEEDED]: (state, action) => ({
+  [actionTypes.LOAD_API_LIST_SUCCEEDED]: (state, action) => ({
     ...state,
     apiList: action.payload,
     loadingApiList: false
+  }),
+  [actionTypes.LOAD_API_STARTED]: (state) => ({
+    ...state,
+    loadingApi: true
+  }),
+  [actionTypes.LOAD_API_SUCCEEDED]: (state, action) => ({
+    ...state,
+    api: action.payload,
+    loadingApi: false
   }),
   [actionTypes.CHANGE_NEW_API]: (state, action) => ({
     ...state,

@@ -13,17 +13,19 @@ describe('reducer', () => {
         name: '',
         adi: ''
       },
+      api: null,
       loadingApiList: false,
+      loadingApi: false,
       apiAddingInProgress: false,
       apiUpdatingInProgress: false
     })
   })
 
-  describe('when loading api', () => {
+  describe('when loading apis', () => {
     it('starts', () => {
-      const loadApiStartedAction = actionCreators.loadApiStarted()
+      const loadApiListStartedAction = actionCreators.loadApiListStarted()
 
-      const nextState = reducer(undefined, loadApiStartedAction)
+      const nextState = reducer(undefined, loadApiListStartedAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         loadingApiList: true
@@ -33,13 +35,38 @@ describe('reducer', () => {
     it('succeeds', () => {
       const previousState = { apiList: [], loadingApiList: true }
       const apiList = [{ name: 'Some API' }]
-      const loadApiSucceededAction = actionCreators.loadApiSucceeded(apiList)
+      const loadApiListSucceededAction = actionCreators.loadApiListSucceeded(apiList)
 
-      const nextState = reducer(previousState, loadApiSucceededAction)
+      const nextState = reducer(previousState, loadApiListSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         apiList: apiList,
         loadingApiList: false
+      }))
+    })
+  })
+
+  describe('when loading api details', () => {
+    it('starts', () => {
+      const loadApiStartedAction = actionCreators.loadApiStarted()
+
+      const nextState = reducer(undefined, loadApiStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        loadingApi: true
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { api: null, loadingApi: true }
+      const api = { name: 'Some Api' }
+      const loadApiSucceededAction = actionCreators.loadApiSucceeded(api)
+
+      const nextState = reducer(previousState, loadApiSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        api: api,
+        loadingApi: false
       }))
     })
   })

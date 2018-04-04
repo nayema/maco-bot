@@ -2,13 +2,22 @@ import { createAction } from 'redux-actions'
 
 import * as actionTypes from './action-types'
 
+export const loadApiListStarted = createAction(
+  actionTypes.LOAD_API_LIST_STARTED
+)
+
+export const loadApiListSucceeded = createAction(
+  actionTypes.LOAD_API_LIST_SUCCEEDED,
+  (apiList) => (apiList)
+)
+
 export const loadApiStarted = createAction(
   actionTypes.LOAD_API_STARTED
 )
 
 export const loadApiSucceeded = createAction(
   actionTypes.LOAD_API_SUCCEEDED,
-  (apiList) => (apiList)
+  (api) => (api)
 )
 
 export const changeNewApi = createAction(
