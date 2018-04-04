@@ -15,7 +15,7 @@ const reducer = handleActions({
     page: 'home'
   }),
   [actionTypes.GO_TO_CLIENTS_LIST]: () => ({
-    page: 'clientsList'
+    page: 'clientList'
   }),
   [actionTypes.GO_TO_CLIENT_DETAILS]: () => ({
     page: 'clientDetails'
@@ -27,7 +27,7 @@ const reducer = handleActions({
     page: 'equipmentList'
   }),
   [actionTypes.GO_TO_APIS_LIST]: () => ({
-    page: 'apisList'
+    page: 'apiList'
   })
 }, initialState)
 

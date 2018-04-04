@@ -5,7 +5,7 @@ import * as clientList from './client-list'
 import * as clientDetails from './client-details'
 import * as productDetails from './product-details'
 import * as equipmentList from './equipment-list'
-import * as apisList from './api-list'
+import * as apiList from './api-list'
 
 export default {
   auth: auth.reducer,
@@ -15,6 +15,6 @@ export default {
     clientDetails: clientDetails.reducer,
     productDetails: productDetails.reducer,
     equipmentList: equipmentList.reducer,
-    apiList: apisList.reducer
+    apiList: apiList.reducer
   })
 }

@@ -72,7 +72,7 @@ const LoadingClientsProgress = () => (
 
 const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, Link = LinkContainer }) => (
   <div>
-    <Typography variant="title" gutterBottom>Clients List</Typography>
+    <Typography variant="title" gutterBottom>Client List</Typography>
     <Table className={classes.root}>
       <TableHead>
         <TableRow>

@@ -5,7 +5,7 @@ import * as clientList from './client-list'
 import * as clientDetails from './client-details'
 import * as productDetails from './product-details'
 import * as equipmentList from './equipment-list'
-import * as apisList from './api-list'
+import * as apiList from './api-list'
 
 export default function * rootSaga () {
   yield all([
@@ -14,6 +14,6 @@ export default function * rootSaga () {
     fork(clientDetails.sagas),
     fork(productDetails.sagas),
     fork(equipmentList.sagas),
-    fork(apisList.sagas)
+    fork(apiList.sagas)
   ])
 }
