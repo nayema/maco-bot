@@ -37,3 +37,18 @@ export const removeProductStarted = createAction(
 export const removeProductSucceeded = createAction(
   actionTypes.REMOVE_PRODUCT_SUCCEEDED
 )
+
+export const changeNewApi = createAction(
+  actionTypes.CHANGE_NEW_API,
+  (attribute, value) => ({ [attribute]: value })
+)
+
+export const addApiStarted = createAction(
+  actionTypes.ADD_API_STARTED,
+  (api) => (api)
+)
+
+export const addApiSucceeded = createAction(
+  actionTypes.ADD_API_SUCCEEDED,
+  (api) => (api)
+)

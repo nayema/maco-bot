@@ -10,7 +10,9 @@ describe('reducer', () => {
     expect(nextState).toEqual(expect.objectContaining({
       product: null,
       loadingProduct: false,
-      productUpdatingInProgress: false
+      productUpdatingInProgress: false,
+      newSelectApi: { apiId: null },
+      apiAddingInProgress: false
     }))
   })
 
@@ -107,6 +109,42 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         product: null
+      }))
+    })
+  })
+
+  describe('when adding an existing api', () => {
+    it('changes new api name', () => {
+      const changeNewApiAction = actionCreators.changeNewApi('apiId', 999)
+
+      const nextState = reducer(undefined, changeNewApiAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        newSelectApi: expect.objectContaining({ apiId: 999 })
+      }))
+    })
+
+    it('starts', () => {
+      const addApiStartedAction = actionCreators.addApiStarted()
+
+      const nextState = reducer(undefined, addApiStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        apiAddingInProgress: true
+      }))
+    })
+
+    it('succeeds', () => {
+      const previousState = { product: { apis: [] }, apiAddingInProgress: true }
+      const api = { apiId: 999 }
+      const addApiSucceededAction = actionCreators.addApiSucceeded(api)
+
+      const nextState = reducer(previousState, addApiSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        product: { apis: [api] },
+        newSelectApi: { apiId: null },
+        apiAddingInProgress: false
       }))
     })
   })

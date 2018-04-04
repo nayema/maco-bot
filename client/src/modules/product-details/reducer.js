@@ -5,7 +5,9 @@ import * as actionTypes from './action-types'
 const initialState = {
   product: null,
   loadingProduct: false,
-  productUpdatingInProgress: false
+  productUpdatingInProgress: false,
+  newSelectApi: { apiId: null },
+  apiAddingInProgress: false
 }
 
 const reducer = handleActions({
@@ -38,6 +40,20 @@ const reducer = handleActions({
   [actionTypes.REMOVE_PRODUCT_SUCCEEDED]: (state) => ({
     ...state,
     product: initialState.product
+  }),
+  [actionTypes.CHANGE_NEW_API]: (state, action) => ({
+    ...state,
+    newSelectApi: { ...state.newSelectApi, ...action.payload }
+  }),
+  [actionTypes.ADD_API_STARTED]: (state) => ({
+    ...state,
+    apiAddingInProgress: true
+  }),
+  [actionTypes.ADD_API_SUCCEEDED]: (state, action) => ({
+    ...state,
+    product: { ...state.product, apis: state.product.apis.concat([action.payload]) },
+    newSelectApi: initialState.newSelectApi,
+    apiAddingInProgress: false
   })
 }, initialState)
 
