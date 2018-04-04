@@ -186,9 +186,9 @@ describe('reducer', () => {
   describe('when removing an equipment', () => {
     it('succeeds', () => {
       const previousState = { equipmentList: [{ id: 999 }] }
-      const removeClientSuceededAction = actionCreators.removeEquipmentSucceeded()
+      const removeApiSuceededAction = actionCreators.removeEquipmentSucceeded()
 
-      const nextState = reducer(previousState, removeClientSuceededAction)
+      const nextState = reducer(previousState, removeApiSuceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         equipmentList: []
