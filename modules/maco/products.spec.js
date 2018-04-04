@@ -3,7 +3,6 @@ import request from 'supertest'
 import app from '../../app'
 import Product from './Product'
 import Client from './Client'
-import Api from './Api'
 import testJwt from '../common/test-jwt'
 
 describe('products', () => {
@@ -48,9 +47,7 @@ describe('products', () => {
         'id': 1,
         'name': 'Some Product',
         'client_id': client.id,
-        'apis': [
-          { 'id': 1, 'name': 'Some API', 'adi': 0.0 }
-        ]
+        'apis': [{ 'id': 1, 'name': 'Some API', 'adi': 0.0 }]
       })
       const response = await request(app)
         .get('/maco/products/1')
@@ -61,12 +58,8 @@ describe('products', () => {
       expect(product).toEqual(expect.objectContaining({
         'id': 1,
         'name': 'Some Product',
-        'client': expect.objectContaining({
-          'name': 'Some Client'
-        }),
-        'apis': [expect.objectContaining(
-          { 'id': 1, 'name': 'Some API', 'adi': 0.0 }
-        )]
+        'client': expect.objectContaining({ 'name': 'Some Client' }),
+        'apis': [expect.objectContaining({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })]
       }))
     })
   })
@@ -152,13 +145,5 @@ describe('products', () => {
 
   async function createClient (attrs) {
     return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
-  }
-
-  async function createApi (attrs) {
-    return await Api.query().insert({ 'name': 'XXXXX', 'adi': 0.0, ...attrs })
-  }
-
-  async function createProductsApis (attrs) {
-    return await Api.query().insert({ 'name': 'XXXXX', 'adi': 0.0, ...attrs })
   }
 })

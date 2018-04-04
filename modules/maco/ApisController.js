@@ -1,42 +1,41 @@
-const Product = require('./Product')
+const Api = require('./Api')
 
-class ProductsController {
+class ApisController {
   static async getAll (req, res) {
-    const products = await Product.query().eager('client')
-    return res.send(products)
+    const apis = await Api.query()
+    return res.send(apis)
   }
 
   static async getDetails (req, res) {
-    const products = await Product
+    const apis = await Api
       .query()
-      .eager('[client, apis]')
       .where('id', req.params['id'])
-    return res.send(products[0])
+    return res.send(apis[0])
   }
 
   static async add (req, res) {
-    const product = await Product
+    const api = await Api
       .query()
       .insert({
         'name': req.body['name'],
-        'client_id': req.body['client_id']
+        'adi': req.body['adi']
       })
-    return res.send(product)
+    return res.send(api)
   }
 
   static async update (req, res) {
-    await Product
+    await Api
       .query()
       .update({
         'name': req.body['name'],
-        'client_id': req.body['client_id']
+        'adi': req.body['adi']
       })
       .where('id', req.body['id'])
     return res.end()
   }
 
   static async remove (req, res) {
-    await Product
+    await Api
       .query()
       .delete()
       .where('id', req.body['id'])
@@ -44,4 +43,4 @@ class ProductsController {
   }
 }
 
-module.exports = ProductsController
+module.exports = ApisController
