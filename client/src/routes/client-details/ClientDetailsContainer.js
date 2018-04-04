@@ -1,5 +1,6 @@
 import React from 'react'
 import { LinearProgress } from 'material-ui/Progress'
+import Typography from 'material-ui/Typography'
 import { connect } from 'react-redux'
 
 import ClientEditor from './ClientEditorContainer'
@@ -9,6 +10,7 @@ const LoadingClientProgress = () => <LinearProgress mode="query"/>
 
 const ClientDetails = ({ client, loadingClient }) =>
   <div>
+    <Typography variant="title" gutterBottom>Client Details</Typography>
     {loadingClient && <LoadingClientProgress loadingClient={loadingClient}/>}
     {client && <div>
       <ClientEditor/>

@@ -21,3 +21,7 @@ export const goToProductDetails = createAction(
 export const goToEquipmentList = createAction(
   actionTypes.GO_TO_EQUIPMENT_LIST
 )
+
+export const goToApisList = createAction(
+  actionTypes.GO_TO_APIS_LIST
+)

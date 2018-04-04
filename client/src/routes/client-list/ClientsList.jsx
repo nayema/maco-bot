@@ -5,6 +5,7 @@ import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
 import { LinearProgress, CircularProgress } from 'material-ui/Progress'
+import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
@@ -70,31 +71,34 @@ const LoadingClientsProgress = () => (
 )
 
 const ClientsList = ({ classes, newClient, clients, loadingClients, clientAddingInProgress, addClientStarted, changeNewClient, Link = LinkContainer }) => (
-  <Table className={classes.root}>
-    <TableHead>
-      <TableRow>
-        <TableCell>Name</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <AddClientRow
-        classes={classes}
-        newClient={newClient}
-        clientAddingInProgress={clientAddingInProgress}
-        addClientStarted={addClientStarted}
-        changeNewClient={changeNewClient}
-      />
-      {loadingClients && <LoadingClientsProgress loadingClients={loadingClients}/>}
-      {clients.map(client =>
-        <ClientRow
-          key={client.id}
+  <div>
+    <Typography variant="title" gutterBottom>Client List</Typography>
+    <Table className={classes.root}>
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <AddClientRow
           classes={classes}
-          client={client}
-          Link={Link}
+          newClient={newClient}
+          clientAddingInProgress={clientAddingInProgress}
+          addClientStarted={addClientStarted}
+          changeNewClient={changeNewClient}
         />
-      )}
-    </TableBody>
-  </Table>
+        {loadingClients && <LoadingClientsProgress loadingClients={loadingClients}/>}
+        {clients.map(client =>
+          <ClientRow
+            key={client.id}
+            classes={classes}
+            client={client}
+            Link={Link}
+          />
+        )}
+      </TableBody>
+    </Table>
+  </div>
 )
 
 export default withStyles(styles)(ClientsList)
