@@ -1,7 +1,7 @@
 import request from 'supertest'
 
 import app from '../../app'
-import Api from './API'
+import Api from './Api'
 import testJwt from '../common/test-jwt'
 
 describe('apis', () => {
