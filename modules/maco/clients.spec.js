@@ -1,9 +1,9 @@
 import request from 'supertest'
 
-import app from '../../../app'
+import app from '../../app'
 import Client from './Client'
-import Product from '../products/Product'
-import testJwt from '../../common/test-jwt'
+import Product from './Product'
+import testJwt from '../common/test-jwt'
 
 describe('clients', () => {
   beforeEach(async done => {

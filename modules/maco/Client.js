@@ -1,4 +1,4 @@
-const Model = require('../../common/model')
+const Model = require('../common/model')
 
 class Client extends Model {
   static get tableName () {
@@ -6,11 +6,10 @@ class Client extends Model {
   }
 
   static get relationMappings () {
-    const Product = require('../products/Product')
     return {
       products: {
         relation: Model.HasManyRelation,
-        modelClass: Product,
+        modelClass: require('./Product'),
         join: {
           from: 'clients.id',
           to: 'products.client_id'

@@ -1,19 +1,19 @@
 const Equipment = require('./Equipment')
 
-class ClientsController {
+class EquipmentController {
   static async getAll (req, res) {
-    const clients = await Equipment.query()
-    return res.send(clients)
+    const equipment = await Equipment.query()
+    return res.send(equipment)
   }
 
   static async add (req, res) {
-    const client = await Equipment.query().insert({
+    const equipment = await Equipment.query().insert({
       'name': req.body['name'],
       'asset_id': req.body['asset_id'],
       'product_contact_surface_area': req.body['product_contact_surface_area'],
       'minimum_batch_size': req.body['minimum_batch_size']
     })
-    return res.send(client)
+    return res.send(equipment)
   }
 
   static async update (req, res) {
@@ -38,4 +38,4 @@ class ClientsController {
   }
 }
 
-module.exports = ClientsController
+module.exports = EquipmentController

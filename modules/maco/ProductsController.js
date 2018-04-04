@@ -9,7 +9,7 @@ class ProductsController {
   static async getDetails (req, res) {
     const products = await Product
       .query()
-      .eager('client')
+      .eager('[client, apis]')
       .where('id', req.params['id'])
     return res.send(products[0])
   }
@@ -24,14 +24,6 @@ class ProductsController {
     return res.send(product)
   }
 
-  static async remove (req, res) {
-    await Product
-      .query()
-      .delete()
-      .where('id', req.body['id'])
-    return res.end()
-  }
-
   static async update (req, res) {
     await Product
       .query()
@@ -39,6 +31,14 @@ class ProductsController {
         'name': req.body['name'],
         'client_id': req.body['client_id']
       })
+      .where('id', req.body['id'])
+    return res.end()
+  }
+
+  static async remove (req, res) {
+    await Product
+      .query()
+      .delete()
       .where('id', req.body['id'])
     return res.end()
   }

@@ -1,9 +1,9 @@
 import request from 'supertest'
 
-import app from '../../../app'
+import app from '../../app'
 import Product from './Product'
-import Client from '../clients/Client'
-import testJwt from '../../common/test-jwt'
+import Client from './Client'
+import testJwt from '../common/test-jwt'
 
 describe('products', () => {
   beforeEach(async done => {
@@ -43,12 +43,12 @@ describe('products', () => {
   describe('when getting product details', () => {
     it('gets', async () => {
       const client = await createClient({ 'name': 'Some Client' })
-      await createProduct({
+      await Product.query().insertWithRelated({
         'id': 1,
         'name': 'Some Product',
-        client_id: client.id
+        'client_id': client.id,
+        'apis': [{ 'id': 1, 'name': 'Some API', 'adi': 0.0 }]
       })
-
       const response = await request(app)
         .get('/maco/products/1')
         .set('Authorization', 'Bearer ' + testJwt)
@@ -58,9 +58,8 @@ describe('products', () => {
       expect(product).toEqual(expect.objectContaining({
         'id': 1,
         'name': 'Some Product',
-        'client': expect.objectContaining({
-          'name': 'Some Client'
-        })
+        'client': expect.objectContaining({ 'name': 'Some Client' }),
+        'apis': [expect.objectContaining({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })]
       }))
     })
   })
@@ -140,11 +139,11 @@ describe('products', () => {
     })
   })
 
-  async function createClient (attrs) {
-    return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
-  }
-
   async function createProduct (attrs) {
     return await Product.query().insert({ 'name': 'XXXXX', 'client_id': null, ...attrs })
+  }
+
+  async function createClient (attrs) {
+    return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
   }
 })
