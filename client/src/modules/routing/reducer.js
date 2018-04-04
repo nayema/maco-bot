@@ -25,6 +25,9 @@ const reducer = handleActions({
   }),
   [actionTypes.GO_TO_EQUIPMENT_LIST]: () => ({
     page: 'equipmentList'
+  }),
+  [actionTypes.GO_TO_APIS_LIST]: () => ({
+    page: 'apisList'
   })
 }, initialState)
 
