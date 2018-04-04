@@ -3,6 +3,7 @@ import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
 import { LinearProgress, CircularProgress } from 'material-ui/Progress'
+import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
@@ -77,7 +78,7 @@ const AddEquipmentRow = ({ classes, equipmentList, newEquipment, equipmentAdding
 const EditableField = ({ isEditing, displayValue, children }) =>
   isEditing ? children : <span>{displayValue}</span>
 
-const EquipmentRow = ({ classes, equipment, updateEquipmentStarted, equipmentUpdatingInProgress, editEquipment, changeEditEquipment, cancelEditEquipment, removeEquipmentStarted  }) => (
+const EquipmentRow = ({ classes, equipment, updateEquipmentStarted, equipmentUpdatingInProgress, editEquipment, changeEditEquipment, cancelEditEquipment, removeEquipmentStarted }) => (
   <TableRow>
     <TableCell>
       <EditableField isEditing={equipment.isEditing} displayValue={equipment['name']}>
@@ -134,40 +135,43 @@ const LoadingEquipmentProgress = () => (
 )
 
 const EquipmentList = ({ classes, equipmentList, newEquipment, loadingEquipmentList, equipmentAddingInProgress, equipmentUpdatingInProgress, addEquipmentStarted, changeNewEquipment, changeEditEquipment, editEquipment, cancelEditEquipment, updateEquipmentStarted, removeEquipmentStarted }) => (
-  <Table className={classes.root}>
-    <TableHead>
-      <TableRow>
-        <TableCell>Name</TableCell>
-        <TableCell>Asset ID</TableCell>
-        <TableCell>Product Contact Surface Area (cm2)</TableCell>
-        <TableCell>Minimum Batch Size (kg)</TableCell>
-        <TableCell/>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <AddEquipmentRow
-        classes={classes}
-        equipmentList={equipmentList}
-        newEquipment={newEquipment}
-        equipmentAddingInProgress={equipmentAddingInProgress}
-        addEquipmentStarted={addEquipmentStarted}
-        changeNewEquipment={changeNewEquipment}
-      />
-      {loadingEquipmentList && <LoadingEquipmentProgress loadingEquipment={loadingEquipmentList}/>}
-      {equipmentList.map(equipment =>
-        <EquipmentRow
-          key={equipment.id}
+  <div>
+    <Typography variant="title" gutterBottom>Equipment List</Typography>
+    <Table className={classes.root}>
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+          <TableCell>Asset ID</TableCell>
+          <TableCell>Product Contact Surface Area (cm2)</TableCell>
+          <TableCell>Minimum Batch Size (kg)</TableCell>
+          <TableCell/>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <AddEquipmentRow
           classes={classes}
-          equipment={equipment}
-          changeEditEquipment={changeEditEquipment}
-          editEquipment={editEquipment}
-          cancelEditEquipment={cancelEditEquipment}
-          updateEquipmentStarted={updateEquipmentStarted}
-          removeEquipmentStarted={removeEquipmentStarted}
+          equipmentList={equipmentList}
+          newEquipment={newEquipment}
+          equipmentAddingInProgress={equipmentAddingInProgress}
+          addEquipmentStarted={addEquipmentStarted}
+          changeNewEquipment={changeNewEquipment}
         />
-      )}
-    </TableBody>
-  </Table>
+        {loadingEquipmentList && <LoadingEquipmentProgress loadingEquipment={loadingEquipmentList}/>}
+        {equipmentList.map(equipment =>
+          <EquipmentRow
+            key={equipment.id}
+            classes={classes}
+            equipment={equipment}
+            changeEditEquipment={changeEditEquipment}
+            editEquipment={editEquipment}
+            cancelEditEquipment={cancelEditEquipment}
+            updateEquipmentStarted={updateEquipmentStarted}
+            removeEquipmentStarted={removeEquipmentStarted}
+          />
+        )}
+      </TableBody>
+    </Table>
+  </div>
 )
 
 export default withStyles(styles)(EquipmentList)

@@ -313,367 +313,388 @@ exports[`Storyshots Client Editor with a client 1`] = `
 `;
 
 exports[`Storyshots Clients List with adding a new client 1`] = `
-<table
-  className="MuiTable-root-365 ClientsList-root-361"
->
-  <thead>
-    <tr
-      className="MuiTableRow-root-366 MuiTableRow-typeHead-367"
-    >
-      <th
-        aria-sort={null}
-        className="MuiTableCell-root-371 MuiTableCell-paddingDefault-376 MuiTableCell-typeHead-373"
-        scope="col"
+<div>
+  <h2
+    className="MuiTypography-root-413 MuiTypography-title-419 MuiTypography-gutterBottom-430"
+  >
+    Clients List
+  </h2>
+  <table
+    className="MuiTable-root-437 ClientsList-root-409"
+  >
+    <thead>
+      <tr
+        className="MuiTableRow-root-438 MuiTableRow-typeHead-439"
       >
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      className="MuiTableRow-root-366"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-371 MuiTableCell-paddingDefault-376 MuiTableCell-typeBody-374"
-        scope={undefined}
-      >
-        <div
-          className="MuiInput-root-379 MuiInput-disabled-384 MuiInput-inkbar-381 MuiInput-underline-385"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-443 MuiTableCell-paddingDefault-448 MuiTableCell-typeHead-445"
+          scope="col"
         >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-388 MuiInput-inputDisabled-390"
-            defaultValue={undefined}
-            disabled={true}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder="New Client Name"
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value="Some New Client"
-          />
-        </div>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-371 MuiTableCell-paddingDefault-376 MuiTableCell-typeBody-374 ClientsList-actionCell-363"
-        scope={undefined}
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="MuiTableRow-root-438"
       >
-        <div
-          className="ClientsList-wrapper-362"
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-443 MuiTableCell-paddingDefault-448 MuiTableCell-typeBody-446"
+          scope={undefined}
         >
-          <button
-            className="MuiButtonBase-root-409 MuiButtonBase-disabled-410 MuiButton-root-394 MuiButton-flatPrimary-396 MuiButton-disabled-403"
-            disabled={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={-1}
-            type="button"
-          >
-            <span
-              className="MuiButton-label-395"
-            >
-              Add
-            </span>
-          </button>
           <div
-            className="MuiCircularProgress-root-411 MuiCircularProgress-colorPrimary-412 ClientsList-buttonProgress-364"
-            role="progressbar"
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
+            className="MuiInput-root-451 MuiInput-disabled-456 MuiInput-inkbar-453 MuiInput-underline-457"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
           >
-            <svg
-              className="MuiCircularProgress-svg-414 MuiCircularProgress-svgIndeterminate-415"
-              viewBox="0 0 50 50"
-            >
-              <circle
-                className="MuiCircularProgress-circle-416 MuiCircularProgress-circleIndeterminate-417"
-                cx={25}
-                cy={25}
-                fill="none"
-                r={20}
-                strokeWidth={3.6}
-                style={Object {}}
-              />
-            </svg>
+            <input
+              aria-invalid={undefined}
+              aria-required={undefined}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-460 MuiInput-inputDisabled-462"
+              defaultValue={undefined}
+              disabled={true}
+              id={undefined}
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder="New Client Name"
+              readOnly={undefined}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value="Some New Client"
+            />
           </div>
-        </div>
-      </td>
-    </tr>
-    <tr
-      className="MuiTableRow-root-366"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-371 MuiTableCell-paddingDefault-376 MuiTableCell-typeBody-374"
-        scope={undefined}
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-443 MuiTableCell-paddingDefault-448 MuiTableCell-typeBody-446 ClientsList-actionCell-411"
+          scope={undefined}
+        >
+          <div
+            className="ClientsList-wrapper-410"
+          >
+            <button
+              className="MuiButtonBase-root-481 MuiButtonBase-disabled-482 MuiButton-root-466 MuiButton-flatPrimary-468 MuiButton-disabled-475"
+              disabled={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              type="button"
+            >
+              <span
+                className="MuiButton-label-467"
+              >
+                Add
+              </span>
+            </button>
+            <div
+              className="MuiCircularProgress-root-483 MuiCircularProgress-colorPrimary-484 ClientsList-buttonProgress-412"
+              role="progressbar"
+              style={
+                Object {
+                  "height": 25,
+                  "width": 25,
+                }
+              }
+            >
+              <svg
+                className="MuiCircularProgress-svg-486 MuiCircularProgress-svgIndeterminate-487"
+                viewBox="0 0 50 50"
+              >
+                <circle
+                  className="MuiCircularProgress-circle-488 MuiCircularProgress-circleIndeterminate-489"
+                  cx={25}
+                  cy={25}
+                  fill="none"
+                  r={20}
+                  strokeWidth={3.6}
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="MuiTableRow-root-438"
       >
-        <a>
-          Some Client
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-443 MuiTableCell-paddingDefault-448 MuiTableCell-typeBody-446"
+          scope={undefined}
+        >
+          <a>
+            Some Client
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
 
 exports[`Storyshots Clients List with loading all clients 1`] = `
-<table
-  className="MuiTable-root-292 ClientsList-root-288"
->
-  <thead>
-    <tr
-      className="MuiTableRow-root-293 MuiTableRow-typeHead-294"
-    >
-      <th
-        aria-sort={null}
-        className="MuiTableCell-root-298 MuiTableCell-paddingDefault-303 MuiTableCell-typeHead-300"
-        scope="col"
+<div>
+  <h2
+    className="MuiTypography-root-316 MuiTypography-title-322 MuiTypography-gutterBottom-333"
+  >
+    Clients List
+  </h2>
+  <table
+    className="MuiTable-root-340 ClientsList-root-312"
+  >
+    <thead>
+      <tr
+        className="MuiTableRow-root-341 MuiTableRow-typeHead-342"
       >
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      className="MuiTableRow-root-293"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-298 MuiTableCell-paddingDefault-303 MuiTableCell-typeBody-301"
-        scope={undefined}
-      >
-        <div
-          className="MuiInput-root-306 MuiInput-inkbar-308 MuiInput-underline-312"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-346 MuiTableCell-paddingDefault-351 MuiTableCell-typeHead-348"
+          scope="col"
         >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-315"
-            defaultValue={undefined}
-            disabled={undefined}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder="New Client Name"
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value=""
-          />
-        </div>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-298 MuiTableCell-paddingDefault-303 MuiTableCell-typeBody-301 ClientsList-actionCell-290"
-        scope={undefined}
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="MuiTableRow-root-341"
       >
-        <div
-          className="ClientsList-wrapper-289"
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-346 MuiTableCell-paddingDefault-351 MuiTableCell-typeBody-349"
+          scope={undefined}
         >
-          <button
-            className="MuiButtonBase-root-336 MuiButton-root-321 MuiButton-flatPrimary-323"
-            disabled={false}
+          <div
+            className="MuiInput-root-354 MuiInput-inkbar-356 MuiInput-underline-360"
             onBlur={[Function]}
-            onClick={[Function]}
             onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
+            onKeyPress={[Function]}
           >
-            <span
-              className="MuiButton-label-322"
-            >
-              Add
-            </span>
-            <span
-              className="MuiTouchRipple-root-338"
+            <input
+              aria-invalid={undefined}
+              aria-required={undefined}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-363"
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder="New Client Name"
+              readOnly={undefined}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value=""
             />
-          </button>
-        </div>
-      </td>
-    </tr>
-    <tr
-      className="MuiTableRow-root-293"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-298 MuiTableCell-paddingDefault-303 MuiTableCell-typeBody-301"
-        colSpan={2}
-        scope={undefined}
-      >
-        <div
-          className="MuiLinearProgress-root-345 MuiLinearProgress-primaryColor-346"
-          mode="query"
-          role="progressbar"
+          </div>
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-346 MuiTableCell-paddingDefault-351 MuiTableCell-typeBody-349 ClientsList-actionCell-314"
+          scope={undefined}
         >
           <div
-            className="MuiLinearProgress-bar-352 MuiLinearProgress-primaryColorBar-347 MuiLinearProgress-indeterminateBar1-357"
-            style={Object {}}
-          />
-          <div
-            className="MuiLinearProgress-bar-352 MuiLinearProgress-primaryColorBar-347 MuiLinearProgress-indeterminateBar2-358"
-            style={Object {}}
-          />
-        </div>
-      </td>
-    </tr>
-    <tr
-      className="MuiTableRow-root-293"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-298 MuiTableCell-paddingDefault-303 MuiTableCell-typeBody-301"
-        scope={undefined}
+            className="ClientsList-wrapper-313"
+          >
+            <button
+              className="MuiButtonBase-root-384 MuiButton-root-369 MuiButton-flatPrimary-371"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label-370"
+              >
+                Add
+              </span>
+              <span
+                className="MuiTouchRipple-root-386"
+              />
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="MuiTableRow-root-341"
       >
-        <a>
-          Some Client
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-346 MuiTableCell-paddingDefault-351 MuiTableCell-typeBody-349"
+          colSpan={2}
+          scope={undefined}
+        >
+          <div
+            className="MuiLinearProgress-root-393 MuiLinearProgress-primaryColor-394"
+            mode="query"
+            role="progressbar"
+          >
+            <div
+              className="MuiLinearProgress-bar-400 MuiLinearProgress-primaryColorBar-395 MuiLinearProgress-indeterminateBar1-405"
+              style={Object {}}
+            />
+            <div
+              className="MuiLinearProgress-bar-400 MuiLinearProgress-primaryColorBar-395 MuiLinearProgress-indeterminateBar2-406"
+              style={Object {}}
+            />
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="MuiTableRow-root-341"
+      >
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-346 MuiTableCell-paddingDefault-351 MuiTableCell-typeBody-349"
+          scope={undefined}
+        >
+          <a>
+            Some Client
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
 
 exports[`Storyshots Clients List with no clients 1`] = `
-<table
-  className="MuiTable-root-235 ClientsList-root-231"
->
-  <thead>
-    <tr
-      className="MuiTableRow-root-236 MuiTableRow-typeHead-237"
-    >
-      <th
-        aria-sort={null}
-        className="MuiTableCell-root-241 MuiTableCell-paddingDefault-246 MuiTableCell-typeHead-243"
-        scope="col"
+<div>
+  <h2
+    className="MuiTypography-root-235 MuiTypography-title-241 MuiTypography-gutterBottom-252"
+  >
+    Clients List
+  </h2>
+  <table
+    className="MuiTable-root-259 ClientsList-root-231"
+  >
+    <thead>
+      <tr
+        className="MuiTableRow-root-260 MuiTableRow-typeHead-261"
       >
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      className="MuiTableRow-root-236"
-    >
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-241 MuiTableCell-paddingDefault-246 MuiTableCell-typeBody-244"
-        scope={undefined}
-      >
-        <div
-          className="MuiInput-root-249 MuiInput-inkbar-251 MuiInput-underline-255"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-265 MuiTableCell-paddingDefault-270 MuiTableCell-typeHead-267"
+          scope="col"
         >
-          <input
-            aria-invalid={undefined}
-            aria-required={undefined}
-            autoComplete={undefined}
-            autoFocus={undefined}
-            className="MuiInput-input-258"
-            defaultValue={undefined}
-            disabled={undefined}
-            id={undefined}
-            name={undefined}
-            onChange={[Function]}
-            onKeyDown={undefined}
-            onKeyUp={undefined}
-            placeholder="New Client Name"
-            readOnly={undefined}
-            required={undefined}
-            rows={undefined}
-            type="text"
-            value=""
-          />
-        </div>
-      </td>
-      <td
-        aria-sort={null}
-        className="MuiTableCell-root-241 MuiTableCell-paddingDefault-246 MuiTableCell-typeBody-244 ClientsList-actionCell-233"
-        scope={undefined}
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="MuiTableRow-root-260"
       >
-        <div
-          className="ClientsList-wrapper-232"
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-265 MuiTableCell-paddingDefault-270 MuiTableCell-typeBody-268"
+          scope={undefined}
         >
-          <button
-            className="MuiButtonBase-root-279 MuiButton-root-264 MuiButton-flatPrimary-266"
-            disabled={false}
+          <div
+            className="MuiInput-root-273 MuiInput-inkbar-275 MuiInput-underline-279"
             onBlur={[Function]}
-            onClick={[Function]}
             onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            tabIndex={0}
-            type="button"
+            onKeyPress={[Function]}
           >
-            <span
-              className="MuiButton-label-265"
-            >
-              Add
-            </span>
-            <span
-              className="MuiTouchRipple-root-281"
+            <input
+              aria-invalid={undefined}
+              aria-required={undefined}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-282"
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              name={undefined}
+              onChange={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder="New Client Name"
+              readOnly={undefined}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value=""
             />
-          </button>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          </div>
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-265 MuiTableCell-paddingDefault-270 MuiTableCell-typeBody-268 ClientsList-actionCell-233"
+          scope={undefined}
+        >
+          <div
+            className="ClientsList-wrapper-232"
+          >
+            <button
+              className="MuiButtonBase-root-303 MuiButton-root-288 MuiButton-flatPrimary-290"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label-289"
+              >
+                Add
+              </span>
+              <span
+                className="MuiTouchRipple-root-305"
+              />
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
 
 exports[`Storyshots Product Editor when editing 1`] = `
 <form>
   <h1
-    className="MuiTypography-root-498 MuiTypography-display3-500 MuiTypography-gutterBottom-515"
+    className="MuiTypography-root-570 MuiTypography-display3-572 MuiTypography-gutterBottom-587"
   >
     Some Product
   </h1>
@@ -682,7 +703,7 @@ exports[`Storyshots Product Editor when editing 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 MuiButton-raisedPrimary-529 ProductEditor-button-497"
+        className="MuiButtonBase-root-609 MuiButton-root-594 MuiButton-raised-599 MuiButton-raisedPrimary-601 ProductEditor-button-569"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -699,16 +720,16 @@ exports[`Storyshots Product Editor when editing 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-523"
+          className="MuiButton-label-595"
         >
           Update
         </span>
         <span
-          className="MuiTouchRipple-root-539"
+          className="MuiTouchRipple-root-611"
         />
       </button>
       <button
-        className="MuiButtonBase-root-537 MuiButton-root-522 MuiButton-raised-527 ProductEditor-button-497"
+        className="MuiButtonBase-root-609 MuiButton-root-594 MuiButton-raised-599 ProductEditor-button-569"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -725,31 +746,31 @@ exports[`Storyshots Product Editor when editing 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-523"
+          className="MuiButton-label-595"
         >
           Cancel
         </span>
         <span
-          className="MuiTouchRipple-root-539"
+          className="MuiTouchRipple-root-611"
         />
       </button>
     </span>
   </div>
   <div
     aria-describedby={undefined}
-    className="MuiFormControl-root-547 MuiFormControl-marginNormal-548 EditableTextField-textField-546"
+    className="MuiFormControl-root-619 MuiFormControl-marginNormal-620 EditableTextField-textField-618"
     onBlur={[Function]}
     onFocus={[Function]}
   >
     <label
-      className="MuiFormLabel-root-557 MuiInputLabel-root-551 MuiInputLabel-formControl-552 MuiInputLabel-animated-555 MuiInputLabel-shrink-554"
+      className="MuiFormLabel-root-629 MuiInputLabel-root-623 MuiInputLabel-formControl-624 MuiInputLabel-animated-627 MuiInputLabel-shrink-626"
       data-shrink={true}
       htmlFor="name"
     >
       Name
     </label>
     <div
-      className="MuiInput-root-561 MuiInput-formControl-562 MuiInput-inkbar-563 MuiInput-underline-567"
+      className="MuiInput-root-633 MuiInput-formControl-634 MuiInput-inkbar-635 MuiInput-underline-639"
       onBlur={[Function]}
       onFocus={[Function]}
     >
@@ -758,7 +779,7 @@ exports[`Storyshots Product Editor when editing 1`] = `
         aria-required={false}
         autoComplete={undefined}
         autoFocus={undefined}
-        className="MuiInput-input-570"
+        className="MuiInput-input-642"
         defaultValue={undefined}
         disabled={false}
         id="name"
@@ -781,7 +802,7 @@ exports[`Storyshots Product Editor when editing 1`] = `
 exports[`Storyshots Product Editor when updating 1`] = `
 <form>
   <h1
-    className="MuiTypography-root-577 MuiTypography-display3-579 MuiTypography-gutterBottom-594"
+    className="MuiTypography-root-649 MuiTypography-display3-651 MuiTypography-gutterBottom-666"
   >
     Some Product
   </h1>
@@ -790,7 +811,7 @@ exports[`Storyshots Product Editor when updating 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-raisedPrimary-608 MuiButton-disabled-610 ProductEditor-button-576"
+        className="MuiButtonBase-root-688 MuiButtonBase-disabled-689 MuiButton-root-673 MuiButton-raised-678 MuiButton-raisedPrimary-680 MuiButton-disabled-682 ProductEditor-button-648"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -807,13 +828,13 @@ exports[`Storyshots Product Editor when updating 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-602"
+          className="MuiButton-label-674"
         >
           Update
         </span>
       </button>
       <button
-        className="MuiButtonBase-root-616 MuiButtonBase-disabled-617 MuiButton-root-601 MuiButton-raised-606 MuiButton-disabled-610 ProductEditor-button-576"
+        className="MuiButtonBase-root-688 MuiButtonBase-disabled-689 MuiButton-root-673 MuiButton-raised-678 MuiButton-disabled-682 ProductEditor-button-648"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -830,7 +851,7 @@ exports[`Storyshots Product Editor when updating 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-602"
+          className="MuiButton-label-674"
         >
           Cancel
         </span>
@@ -839,19 +860,19 @@ exports[`Storyshots Product Editor when updating 1`] = `
   </div>
   <div
     aria-describedby={undefined}
-    className="MuiFormControl-root-619 MuiFormControl-marginNormal-620 EditableTextField-textField-618"
+    className="MuiFormControl-root-691 MuiFormControl-marginNormal-692 EditableTextField-textField-690"
     onBlur={[Function]}
     onFocus={[Function]}
   >
     <label
-      className="MuiFormLabel-root-629 MuiInputLabel-root-623 MuiInputLabel-formControl-624 MuiInputLabel-animated-627 MuiInputLabel-shrink-626"
+      className="MuiFormLabel-root-701 MuiInputLabel-root-695 MuiInputLabel-formControl-696 MuiInputLabel-animated-699 MuiInputLabel-shrink-698"
       data-shrink={true}
       htmlFor="name"
     >
       Name
     </label>
     <div
-      className="MuiInput-root-633 MuiInput-disabled-638 MuiInput-formControl-634 MuiInput-inkbar-635 MuiInput-underline-639"
+      className="MuiInput-root-705 MuiInput-disabled-710 MuiInput-formControl-706 MuiInput-inkbar-707 MuiInput-underline-711"
       onBlur={[Function]}
       onFocus={[Function]}
     >
@@ -860,7 +881,7 @@ exports[`Storyshots Product Editor when updating 1`] = `
         aria-required={false}
         autoComplete={undefined}
         autoFocus={undefined}
-        className="MuiInput-input-642 MuiInput-inputDisabled-644"
+        className="MuiInput-input-714 MuiInput-inputDisabled-716"
         defaultValue={undefined}
         disabled={true}
         id="name"
@@ -883,7 +904,7 @@ exports[`Storyshots Product Editor when updating 1`] = `
 exports[`Storyshots Product Editor with a product 1`] = `
 <form>
   <h1
-    className="MuiTypography-root-419 MuiTypography-display3-421 MuiTypography-gutterBottom-436"
+    className="MuiTypography-root-491 MuiTypography-display3-493 MuiTypography-gutterBottom-508"
   >
     Some Product
   </h1>
@@ -892,7 +913,7 @@ exports[`Storyshots Product Editor with a product 1`] = `
   <div>
     <span>
       <button
-        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 ProductEditor-button-418"
+        className="MuiButtonBase-root-530 MuiButton-root-515 MuiButton-raised-520 ProductEditor-button-490"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -909,16 +930,16 @@ exports[`Storyshots Product Editor with a product 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-444"
+          className="MuiButton-label-516"
         >
           Edit
         </span>
         <span
-          className="MuiTouchRipple-root-460"
+          className="MuiTouchRipple-root-532"
         />
       </button>
       <button
-        className="MuiButtonBase-root-458 MuiButton-root-443 MuiButton-raised-448 MuiButton-raisedSecondary-451 ProductEditor-button-418"
+        className="MuiButtonBase-root-530 MuiButton-root-515 MuiButton-raised-520 MuiButton-raisedSecondary-523 ProductEditor-button-490"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -935,31 +956,31 @@ exports[`Storyshots Product Editor with a product 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-444"
+          className="MuiButton-label-516"
         >
           Remove
         </span>
         <span
-          className="MuiTouchRipple-root-460"
+          className="MuiTouchRipple-root-532"
         />
       </button>
     </span>
   </div>
   <div
     aria-describedby={undefined}
-    className="MuiFormControl-root-468 MuiFormControl-marginNormal-469 EditableTextField-textField-467"
+    className="MuiFormControl-root-540 MuiFormControl-marginNormal-541 EditableTextField-textField-539"
     onBlur={[Function]}
     onFocus={[Function]}
   >
     <label
-      className="MuiFormLabel-root-478 MuiInputLabel-root-472 MuiInputLabel-formControl-473 MuiInputLabel-animated-476 MuiInputLabel-shrink-475"
+      className="MuiFormLabel-root-550 MuiInputLabel-root-544 MuiInputLabel-formControl-545 MuiInputLabel-animated-548 MuiInputLabel-shrink-547"
       data-shrink={true}
       htmlFor="name"
     >
       Name
     </label>
     <div
-      className="MuiInput-root-482 MuiInput-formControl-483 MuiInput-inkbar-484 MuiInput-underline-488"
+      className="MuiInput-root-554 MuiInput-formControl-555 MuiInput-inkbar-556 MuiInput-underline-560"
       onBlur={[Function]}
       onFocus={[Function]}
     >
@@ -968,7 +989,7 @@ exports[`Storyshots Product Editor with a product 1`] = `
         aria-required={false}
         autoComplete={undefined}
         autoFocus={undefined}
-        className="MuiInput-input-491"
+        className="MuiInput-input-563"
         defaultValue={undefined}
         disabled={false}
         id="name"
