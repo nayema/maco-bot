@@ -2,7 +2,7 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
-import { productRepository } from '../maco'
+import { productRepository, apiRepository } from '../maco'
 import * as routing from '../routing'
 
 function * getDetails (action) {
@@ -22,6 +22,11 @@ function * removeProduct (action) {
   yield put(routing.actionCreators.goToHome())
 }
 
+function * addApi (action) {
+  const api = yield call(apiRepository.getDetails, action.payload)
+  yield put(actionCreators.addApiSucceeded(api))
+}
+
 function * watchGoToProductDetails () {
   yield takeEvery(routing.actionTypes.GO_TO_PRODUCT_DETAILS, getDetails)
 }
@@ -34,11 +39,16 @@ function * watchRemove () {
   yield takeEvery(actionTypes.REMOVE_PRODUCT_STARTED, removeProduct)
 }
 
+function * watchAddApi () {
+  yield takeEvery(actionTypes.ADD_API_STARTED, addApi)
+}
+
 function * sagas () {
   yield all([
     fork(watchGoToProductDetails),
     fork(watchUpdate),
-    fork(watchRemove)
+    fork(watchRemove),
+    fork(watchAddApi)
   ])
 }
 
