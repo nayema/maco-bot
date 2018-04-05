@@ -1,6 +1,5 @@
 import React from 'react'
 import LinkContainer from 'redux-first-router-link'
-import keyPress from 'react-keypress'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
@@ -35,7 +34,6 @@ const AddClientRow = ({ classes, newClient, clientAddingInProgress, addClientSta
         disabled={clientAddingInProgress}
         placeholder="New Client Name"
         onChange={(e) => changeNewClient('name', e.target.value)}
-        onKeyPress={keyPress('enter', (e) => addClientStarted({ ...newClient, 'name': e.target.value }))}
         value={newClient['name']}
       />
     </TableCell>

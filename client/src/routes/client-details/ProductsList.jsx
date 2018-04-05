@@ -1,6 +1,5 @@
 import React from 'react'
 import LinkContainer from 'redux-first-router-link'
-import keyPress from 'react-keypress'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
@@ -34,11 +33,6 @@ const AddProductRow = ({ classes, clientId, newProduct, productAddingInProgress,
         disabled={productAddingInProgress}
         placeholder="New Product Name"
         onChange={(e) => changeNewProduct('name', e.target.value)}
-        onKeyPress={keyPress('enter', (e) => addProductStarted({
-          ...newProduct,
-          'clientId': clientId,
-          'name': e.target.value
-        }))}
         value={newProduct['name']}
       />
     </TableCell>
