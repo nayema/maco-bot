@@ -15,6 +15,7 @@ router.delete('/clients', ClientsController.remove)
 router.get('/products', ProductsController.getAll)
 router.get('/products/:id', ProductsController.getDetails)
 router.post('/products', ProductsController.add)
+router.post('/products/:id/add_api', ProductsController.addApi)
 router.put('/products', ProductsController.update)
 router.delete('/products', ProductsController.remove)
 
