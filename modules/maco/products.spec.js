@@ -176,8 +176,4 @@ describe('products', () => {
   async function createClient (attrs) {
     return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
   }
-
-  async function createApi (attrs) {
-    return await Api.query().insert({ 'name': 'XXXXX', ...attrs })
-  }
 })
