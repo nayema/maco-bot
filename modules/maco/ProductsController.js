@@ -26,7 +26,7 @@ class ProductsController {
 
   static async addApi (req, res) {
     const product = await Product.query().findById(req.params['id'])
-    const api = await product.$relatedQuery('apis').insert(req.body)
+    const api = await product.$relatedQuery('apis').relate({ 'id': req.body['id'] })
     return res.send(api)
   }
 

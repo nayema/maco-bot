@@ -8,8 +8,8 @@ import * as routing from '../routing'
 function * getDetails (action) {
   yield put(actionCreators.loadProductStarted())
   const product = yield call(productRepository.getDetails, action.payload)
-  const apis = yield call(apiRepository.getAll)
-  yield put(actionCreators.loadProductSucceeded(product, apis))
+  const apiList = yield call(apiRepository.getAll)
+  yield put(actionCreators.loadProductSucceeded(product, apiList))
 }
 
 function * updateProduct (action) {
@@ -24,8 +24,8 @@ function * removeProduct (action) {
 }
 
 function * addApi (action) {
-  const api = yield call(productRepository.addApi, ...action.payload)
-  yield put(actionCreators.addApiSucceeded(api))
+  const { apiId } = yield call(productRepository.addApi, action.payload.product, action.payload.api)
+  yield put(actionCreators.addApiSucceeded({ 'id': apiId }))
 }
 
 function * watchGoToProductDetails () {

@@ -13,8 +13,8 @@ class Api extends Model {
         join: {
           from: 'apis.id',
           through: {
-            from: 'products_apis.product_id',
-            to: 'products_apis.api_id',
+            from: 'products_apis.api_id',
+            to: 'products_apis.product_id',
           },
           to: 'products.id'
         }

@@ -4,9 +4,10 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   product: null,
+  apiList: [],
   loadingProduct: false,
   productUpdatingInProgress: false,
-  newSelectApi: { apiId: null },
+  newSelectApi: { apiId: '' },
   apiAddingInProgress: false
 }
 
@@ -17,7 +18,8 @@ const reducer = handleActions({
   }),
   [actionTypes.LOAD_PRODUCT_SUCCEEDED]: (state, action) => ({
     ...state,
-    product: action.payload,
+    product: action.payload.product,
+    apiList: action.payload.apiList,
     loadingProduct: false
   }),
   [actionTypes.EDIT_PRODUCT]: (state) => ({
@@ -51,7 +53,11 @@ const reducer = handleActions({
   }),
   [actionTypes.ADD_API_SUCCEEDED]: (state, action) => ({
     ...state,
-    product: { ...state.product, apis: state.product.apis.concat([action.payload]) },
+    product: {
+      ...state.product, apis: state.product.apis.concat(
+        state.apiList.filter((api) => api.id === action.payload.id)
+      )
+    },
     newSelectApi: initialState.newSelectApi,
     apiAddingInProgress: false
   })

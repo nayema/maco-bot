@@ -21,8 +21,8 @@ class Product extends Model {
         join: {
           from: 'products.id',
           through: {
-            from: 'products_apis.api_id',
-            to: 'products_apis.product_id'
+            from: 'products_apis.product_id',
+            to: 'products_apis.api_id'
           },
           to: 'apis.id'
         }

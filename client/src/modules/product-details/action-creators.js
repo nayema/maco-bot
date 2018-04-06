@@ -8,7 +8,7 @@ export const loadProductStarted = createAction(
 
 export const loadProductSucceeded = createAction(
   actionTypes.LOAD_PRODUCT_SUCCEEDED,
-  (product) => (product)
+  (product, apiList) => ({ product, apiList })
 )
 
 export const editProduct = createAction(
@@ -45,7 +45,7 @@ export const changeNewApi = createAction(
 
 export const addApiStarted = createAction(
   actionTypes.ADD_API_STARTED,
-  (api) => (api)
+  (product, api) => ({ product, api })
 )
 
 export const addApiSucceeded = createAction(

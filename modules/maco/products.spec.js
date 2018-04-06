@@ -94,22 +94,18 @@ describe('products', () => {
         'name': 'Some Product',
         'client_id': client.id
       })
-      const api = { 'id': 1, 'name': 'Some API', 'adi': 0.0 }
+      await createApi({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })
 
       const response = await request(app)
         .post('/maco/products/1/add_api')
         .set('Content-Type', 'application/json')
         .set('Authorization', 'Bearer ' + testJwt)
-        .send(api)
+        .send({ 'id': 1 })
 
       expect(response.statusCode).toBe(200)
       const products = await Product.query().eager('apis')
-      expect(products[0]).toHaveProperty('id')
       expect(products[0]).toEqual(expect.objectContaining({
-        'id': 1,
-        'name': 'Some Product',
-        'client_id': client.id,
-        'apis': [expect.objectContaining(api)]
+        'apis': [expect.objectContaining({ 'id': 1 })]
       }))
     })
   })
@@ -175,5 +171,9 @@ describe('products', () => {
 
   async function createClient (attrs) {
     return await Client.query().insert({ 'name': 'XXXXX', ...attrs })
+  }
+
+  async function createApi (attrs) {
+    return await Api.query().insert({ 'name': 'XXXXX', 'adi': 9.9, ...attrs })
   }
 })

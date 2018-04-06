@@ -9,9 +9,10 @@ describe('reducer', () => {
 
     expect(nextState).toEqual(expect.objectContaining({
       product: null,
+      apiList: [],
       loadingProduct: false,
       productUpdatingInProgress: false,
-      newSelectApi: { apiId: null },
+      newSelectApi: { apiId: '' },
       apiAddingInProgress: false
     }))
   })
@@ -28,14 +29,16 @@ describe('reducer', () => {
     })
 
     it('succeeds', () => {
-      const previousState = { product: null, loadingProduct: true }
+      const previousState = { product: '', loadingProduct: true }
       const product = { name: 'Some Product', clientId: 999 }
-      const loadProductSucceededAction = actionCreators.loadProductSucceeded(product)
+      const apiList = [{ name: 'Some API' }]
+      const loadProductSucceededAction = actionCreators.loadProductSucceeded(product, apiList)
 
       const nextState = reducer(previousState, loadProductSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         product: product,
+        apiList: apiList,
         loadingProduct: false
       }))
     })
@@ -135,15 +138,15 @@ describe('reducer', () => {
     })
 
     it('succeeds', () => {
-      const previousState = { product: { apis: [] }, apiAddingInProgress: true }
-      const api = { apiId: 999 }
+      const previousState = { product: { apis: [] }, apiAddingInProgress: true, apiList: [{ 'id': 999 }]}
+      const api = { id: 999 }
       const addApiSucceededAction = actionCreators.addApiSucceeded(api)
 
       const nextState = reducer(previousState, addApiSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         product: { apis: [api] },
-        newSelectApi: { apiId: null },
+        newSelectApi: { apiId: '' },
         apiAddingInProgress: false
       }))
     })
