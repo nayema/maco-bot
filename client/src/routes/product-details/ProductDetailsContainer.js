@@ -4,6 +4,7 @@ import Typography from 'material-ui/Typography'
 import { connect } from 'react-redux'
 
 import ProductEditor from './ProductEditorContainer'
+import ApiSelectList from './ApiSelectListContainer'
 
 const LoadingProductProgress = () => <LinearProgress mode="query"/>
 
@@ -13,6 +14,7 @@ const ProductDetails = ({ product, loadingProduct }) =>
     {loadingProduct && <LoadingProductProgress loadingProduct={loadingProduct}/>}
     {product && <div>
       <ProductEditor/>
+      <ApiSelectList/>
     </div>}
   </div>
 

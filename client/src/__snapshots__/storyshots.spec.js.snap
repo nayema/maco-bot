@@ -317,7 +317,7 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
   <h2
     className="MuiTypography-root-413 MuiTypography-title-419 MuiTypography-gutterBottom-430"
   >
-    Clients List
+    Client List
   </h2>
   <table
     className="MuiTable-root-437 ClientsList-root-409"
@@ -348,7 +348,6 @@ exports[`Storyshots Clients List with adding a new client 1`] = `
             className="MuiInput-root-451 MuiInput-disabled-456 MuiInput-inkbar-453 MuiInput-underline-457"
             onBlur={[Function]}
             onFocus={[Function]}
-            onKeyPress={[Function]}
           >
             <input
               aria-invalid={undefined}
@@ -454,7 +453,7 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
   <h2
     className="MuiTypography-root-316 MuiTypography-title-322 MuiTypography-gutterBottom-333"
   >
-    Clients List
+    Client List
   </h2>
   <table
     className="MuiTable-root-340 ClientsList-root-312"
@@ -485,7 +484,6 @@ exports[`Storyshots Clients List with loading all clients 1`] = `
             className="MuiInput-root-354 MuiInput-inkbar-356 MuiInput-underline-360"
             onBlur={[Function]}
             onFocus={[Function]}
-            onKeyPress={[Function]}
           >
             <input
               aria-invalid={undefined}
@@ -594,7 +592,7 @@ exports[`Storyshots Clients List with no clients 1`] = `
   <h2
     className="MuiTypography-root-235 MuiTypography-title-241 MuiTypography-gutterBottom-252"
   >
-    Clients List
+    Client List
   </h2>
   <table
     className="MuiTable-root-259 ClientsList-root-231"
@@ -625,7 +623,6 @@ exports[`Storyshots Clients List with no clients 1`] = `
             className="MuiInput-root-273 MuiInput-inkbar-275 MuiInput-underline-279"
             onBlur={[Function]}
             onFocus={[Function]}
-            onKeyPress={[Function]}
           >
             <input
               aria-invalid={undefined}

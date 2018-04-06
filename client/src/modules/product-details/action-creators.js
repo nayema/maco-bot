@@ -8,7 +8,7 @@ export const loadProductStarted = createAction(
 
 export const loadProductSucceeded = createAction(
   actionTypes.LOAD_PRODUCT_SUCCEEDED,
-  (product) => (product)
+  (product, apiList) => ({ product, apiList })
 )
 
 export const editProduct = createAction(
@@ -36,4 +36,19 @@ export const removeProductStarted = createAction(
 
 export const removeProductSucceeded = createAction(
   actionTypes.REMOVE_PRODUCT_SUCCEEDED
+)
+
+export const changeNewApi = createAction(
+  actionTypes.CHANGE_NEW_API,
+  (attribute, value) => ({ [attribute]: value })
+)
+
+export const addApiStarted = createAction(
+  actionTypes.ADD_API_STARTED,
+  (product, api) => ({ product, api })
+)
+
+export const addApiSucceeded = createAction(
+  actionTypes.ADD_API_SUCCEEDED,
+  (api) => (api)
 )

@@ -2,13 +2,14 @@ import { put, call, takeEvery, fork, all } from 'redux-saga/effects'
 
 import * as actionCreators from './action-creators'
 import * as actionTypes from './action-types'
-import { productRepository } from '../maco'
+import { productRepository, apiRepository } from '../maco'
 import * as routing from '../routing'
 
 function * getDetails (action) {
   yield put(actionCreators.loadProductStarted())
   const product = yield call(productRepository.getDetails, action.payload)
-  yield put(actionCreators.loadProductSucceeded(product))
+  const apiList = yield call(apiRepository.getAll)
+  yield put(actionCreators.loadProductSucceeded(product, apiList))
 }
 
 function * updateProduct (action) {
@@ -20,6 +21,11 @@ function * removeProduct (action) {
   yield call(productRepository.remove, action.payload)
   yield put(actionCreators.removeProductSucceeded())
   yield put(routing.actionCreators.goToHome())
+}
+
+function * addApi (action) {
+  const { apiId } = yield call(productRepository.addApi, action.payload.product, action.payload.api)
+  yield put(actionCreators.addApiSucceeded({ 'id': apiId }))
 }
 
 function * watchGoToProductDetails () {
@@ -34,11 +40,16 @@ function * watchRemove () {
   yield takeEvery(actionTypes.REMOVE_PRODUCT_STARTED, removeProduct)
 }
 
+function * watchAddApi () {
+  yield takeEvery(actionTypes.ADD_API_STARTED, addApi)
+}
+
 function * sagas () {
   yield all([
     fork(watchGoToProductDetails),
     fork(watchUpdate),
-    fork(watchRemove)
+    fork(watchRemove),
+    fork(watchAddApi)
   ])
 }
 
