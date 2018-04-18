@@ -7,7 +7,7 @@ const initialState = {
   apiList: [],
   loadingProduct: false,
   productUpdatingInProgress: false,
-  newSelectApi: { apiId: '' },
+  newSelectApi: { id: '' },
   apiAddingInProgress: false
 }
 

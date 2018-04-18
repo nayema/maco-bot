@@ -12,7 +12,7 @@ describe('reducer', () => {
       apiList: [],
       loadingProduct: false,
       productUpdatingInProgress: false,
-      newSelectApi: { apiId: '' },
+      newSelectApi: { id: '' },
       apiAddingInProgress: false
     }))
   })
@@ -118,12 +118,12 @@ describe('reducer', () => {
 
   describe('when adding an existing api', () => {
     it('changes new api name', () => {
-      const changeNewApiAction = actionCreators.changeNewApi('apiId', 999)
+      const changeNewApiAction = actionCreators.changeNewApi('id', 999)
 
       const nextState = reducer(undefined, changeNewApiAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        newSelectApi: expect.objectContaining({ apiId: 999 })
+        newSelectApi: expect.objectContaining({ id: 999 })
       }))
     })
 
@@ -146,7 +146,7 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         product: { apis: [api] },
-        newSelectApi: { apiId: '' },
+        newSelectApi: { id: '' },
         apiAddingInProgress: false
       }))
     })
