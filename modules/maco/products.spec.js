@@ -86,52 +86,6 @@ describe('products', () => {
     })
   })
 
-  describe('when adding an api to product', () => {
-    it('adds', async () => {
-      const client = await createClient()
-      await createProduct({
-        'id': 1,
-        'name': 'Some Product',
-        'client_id': client.id
-      })
-      await createApi({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })
-
-      const response = await request(app)
-        .post('/maco/products/1/add_api')
-        .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
-        .send({ 'id': 1 })
-
-      expect(response.statusCode).toBe(200)
-      const products = await Product.query().eager('apis')
-      expect(products[0]).toEqual(expect.objectContaining({
-        'apis': [expect.objectContaining({ 'id': 1 })]
-      }))
-    })
-  })
-
-  describe('when deleting an api from product', () => {
-    it('removes', async () => {
-      const client = await createClient()
-      await createProduct({
-        'id': 1,
-        'name': 'Some Product',
-        'client_id': client.id
-      })
-      await createApi({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })
-
-      const response = await request(app)
-        .delete('/maco/products/1/remove_api')
-        .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + testJwt)
-        .send({ 'id': 1 })
-
-      expect(response.statusCode).toBe(200)
-      const products = await Product.query().eager('apis').where('id', 1)
-      expect(products[0].apis.length).toEqual(0)
-    })
-  })
-
   describe('when updating an existing product', () => {
     it('updates', async () => {
       const client = await createClient()
@@ -182,6 +136,68 @@ describe('products', () => {
       expect(response.statusCode).toBe(200)
       const products = await Product.query()
       expect(products.length).toEqual(0)
+    })
+  })
+
+  describe('when adding an api to product', () => {
+    it('adds', async () => {
+      const client = await createClient()
+      await createProduct({
+        'id': 1,
+        'name': 'Some Product',
+        'client_id': client.id
+      })
+      await createApi({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })
+      const api = { 'id': 1 }
+
+      const response = await request(app)
+        .post('/maco/products/1/add_api')
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + testJwt)
+        .send(api)
+
+      expect(response.statusCode).toBe(200)
+      const products = await Product.query().eager('apis')
+      expect(products[0]).toEqual(expect.objectContaining({
+        'apis': [expect.objectContaining({ 'id': 1 })]
+      }))
+    })
+  })
+
+  describe('when removing an api from product', () => {
+    it('removes', async () => {
+      const client = await createClient()
+      await createProduct({
+        'id': 1,
+        'name': 'Some Product',
+        'client_id': client.id
+      })
+      await createApi({ 'id': 1, 'name': 'Some API', 'adi': 0.0 })
+      await createApi({ 'id': 2, 'name': 'Some API', 'adi': 0.0 })
+      const api1 = { 'id': 1 }
+      const api2 = { 'id': 2 }
+      await request(app)
+        .post('/maco/products/1/add_api')
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + testJwt)
+        .send(api1)
+      await request(app)
+        .post('/maco/products/1/add_api')
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + testJwt)
+        .send(api2)
+
+      const response = await request(app)
+        .delete('/maco/products/1/remove_api')
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + testJwt)
+        .send(api1)
+
+      expect(response.statusCode).toBe(200)
+      const products = await Product.query().eager('apis').where('id', 1)
+      expect(products[0]).toEqual(expect.objectContaining({
+        'apis': [expect.objectContaining({ 'id': 2 })]
+      }))
     })
   })
 
