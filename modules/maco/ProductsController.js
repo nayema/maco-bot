@@ -30,6 +30,12 @@ class ProductsController {
     return res.send(api)
   }
 
+  static async removeApi (req, res) {
+    const product = await Product.query().findById(req.params['id'])
+    await product.$relatedQuery('apis').delete()
+    return res.end()
+  }
+
   static async update (req, res) {
     await Product
       .query()
