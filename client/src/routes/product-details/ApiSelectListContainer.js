@@ -13,7 +13,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   addApiStarted: productDetails.actionCreators.addApiStarted,
-  changeNewApi: productDetails.actionCreators.changeNewApi
+  changeNewApi: productDetails.actionCreators.changeNewApi,
+  removeApiStarted: productDetails.actionCreators.removeApiStarted
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApiSelectList)

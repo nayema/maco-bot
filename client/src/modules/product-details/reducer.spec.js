@@ -12,7 +12,7 @@ describe('reducer', () => {
       apiList: [],
       loadingProduct: false,
       productUpdatingInProgress: false,
-      newSelectApi: { apiId: '' },
+      newSelectApi: { id: '' },
       apiAddingInProgress: false
     }))
   })
@@ -30,7 +30,7 @@ describe('reducer', () => {
 
     it('succeeds', () => {
       const previousState = { product: '', loadingProduct: true }
-      const product = { name: 'Some Product', clientId: 999 }
+      const product = { name: 'Some Product', clientId: 1 }
       const apiList = [{ name: 'Some API' }]
       const loadProductSucceededAction = actionCreators.loadProductSucceeded(product, apiList)
 
@@ -48,7 +48,7 @@ describe('reducer', () => {
     it('starts editing', () => {
       const previousState = {
         product: {
-          id: 999,
+          id: 1,
           name: 'Some Product',
           clientId: 777,
           isEditing: false
@@ -60,7 +60,7 @@ describe('reducer', () => {
 
       expect(nextState).toEqual(expect.objectContaining({
         product: {
-          id: 999,
+          id: 1,
           name: 'Some Product',
           clientId: 777,
           isEditing: true
@@ -69,13 +69,13 @@ describe('reducer', () => {
     })
 
     it('cancels editing', () => {
-      const previousState = { product: { id: 999, isEditing: true } }
+      const previousState = { product: { id: 1, isEditing: true } }
       const cancelEditProductAction = actionCreators.cancelEditProduct()
 
       const nextState = reducer(previousState, cancelEditProductAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        product: { id: 999, isEditing: false }
+        product: { id: 1, isEditing: false }
       }))
     })
 
@@ -105,7 +105,7 @@ describe('reducer', () => {
 
   describe('when removing a product', () => {
     it('succeeds', () => {
-      const previousState = { product: { id: 999 } }
+      const previousState = { product: { id: 1 } }
       const removeProductSuceededAction = actionCreators.removeProductSucceeded()
 
       const nextState = reducer(previousState, removeProductSuceededAction)
@@ -118,12 +118,12 @@ describe('reducer', () => {
 
   describe('when adding an existing api', () => {
     it('changes new api name', () => {
-      const changeNewApiAction = actionCreators.changeNewApi('apiId', 999)
+      const changeNewApiAction = actionCreators.changeNewApi('id', 1)
 
       const nextState = reducer(undefined, changeNewApiAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        newSelectApi: expect.objectContaining({ apiId: 999 })
+        newSelectApi: expect.objectContaining({ id: 1 })
       }))
     })
 
@@ -138,16 +138,30 @@ describe('reducer', () => {
     })
 
     it('succeeds', () => {
-      const previousState = { product: { apis: [] }, apiAddingInProgress: true, apiList: [{ 'id': 999 }]}
-      const api = { id: 999 }
+      const previousState = { product: { apis: [] }, apiAddingInProgress: true, apiList: [{ 'id': 1 }] }
+      const api = { id: 1 }
       const addApiSucceededAction = actionCreators.addApiSucceeded(api)
 
       const nextState = reducer(previousState, addApiSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         product: { apis: [api] },
-        newSelectApi: { apiId: '' },
+        newSelectApi: { id: '' },
         apiAddingInProgress: false
+      }))
+    })
+  })
+
+  describe('when removing an api from the api list', () => {
+    it('succeeds', () => {
+      const previousState = { apiList: [{ 'id': 1 }, { 'id': 2 }] }
+      const api = { 'id': 1 }
+      const removeApiSucceededAction = actionCreators.removeApiSucceeded(api)
+
+      const nextState = reducer(previousState, removeApiSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        apiList: [{ 'id': 2 }]
       }))
     })
   })

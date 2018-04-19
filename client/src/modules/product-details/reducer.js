@@ -7,7 +7,7 @@ const initialState = {
   apiList: [],
   loadingProduct: false,
   productUpdatingInProgress: false,
-  newSelectApi: { apiId: '' },
+  newSelectApi: { id: '' },
   apiAddingInProgress: false
 }
 
@@ -60,6 +60,10 @@ const reducer = handleActions({
     },
     newSelectApi: initialState.newSelectApi,
     apiAddingInProgress: false
+  }),
+  [actionTypes.REMOVE_API_SUCCEEDED]: (state, action) => ({
+    ...state,
+    apiList: state.apiList.filter((api) => api.id !== action.payload.id)
   })
 }, initialState)
 

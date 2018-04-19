@@ -21,18 +21,6 @@ export async function add (product) {
   return camelizeKeys(await response.json())
 }
 
-export async function addApi (product, api) {
-  const response = await fetch(`/maco/products/${product['id']}/add_api`, {
-    headers: new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
-    }),
-    body: JSON.stringify(decamelizeKeys(api)),
-    method: 'post'
-  })
-  return camelizeKeys(await response.json())
-}
-
 export async function update (product) {
   await fetch('/maco/products/', {
     headers: new Headers({
@@ -51,6 +39,29 @@ export async function remove (product) {
       'Authorization': `Bearer ${localStorage.getItem('idToken')}`
     }),
     body: JSON.stringify(decamelizeKeys(product)),
+    method: 'delete'
+  })
+}
+
+export async function addApi (product, api) {
+  const response = await fetch(`/maco/products/${product['id']}/add_api`, {
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
+    }),
+    body: JSON.stringify(decamelizeKeys(api)),
+    method: 'post'
+  })
+  return camelizeKeys(await response.json())
+}
+
+export async function removeApi (product, api) {
+  await fetch(`/maco/products/${product['id']}/remove_api`, {
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('idToken')}`
+    }),
+    body: JSON.stringify(decamelizeKeys(api)),
     method: 'delete'
   })
 }
