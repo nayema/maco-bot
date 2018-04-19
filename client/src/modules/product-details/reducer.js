@@ -61,9 +61,9 @@ const reducer = handleActions({
     newSelectApi: initialState.newSelectApi,
     apiAddingInProgress: false
   }),
-  [actionTypes.REMOVE_API_SUCCEEDED]: (state) => ({
+  [actionTypes.REMOVE_API_SUCCEEDED]: (state, action) => ({
     ...state,
-    apiList: initialState.apiList
+    apiList: state.apiList.filter((api) => api.id !== action.payload.id)
   })
 }, initialState)
 

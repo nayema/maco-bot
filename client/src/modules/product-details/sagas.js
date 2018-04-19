@@ -24,8 +24,13 @@ function * removeProduct (action) {
 }
 
 function * addApi (action) {
-  const { apiId } = yield call(productRepository.addApi, action.payload.product, action.payload.api)
-  yield put(actionCreators.addApiSucceeded({ 'id': apiId }))
+  const { id } = yield call(productRepository.addApi, action.payload.product, action.payload.api)
+  yield put(actionCreators.addApiSucceeded({ 'id': id }))
+}
+
+function * removeApi (action) {
+  yield call(productRepository.removeApi, action.payload.product, action.payload.api)
+  yield put(actionCreators.removeApiSucceeded(action.payload.api))
 }
 
 function * watchGoToProductDetails () {
@@ -44,12 +49,17 @@ function * watchAddApi () {
   yield takeEvery(actionTypes.ADD_API_STARTED, addApi)
 }
 
+function * watchRemoveApi () {
+  yield takeEvery(actionTypes.REMOVE_API_STARTED, removeApi)
+}
+
 function * sagas () {
   yield all([
     fork(watchGoToProductDetails),
     fork(watchUpdate),
     fork(watchRemove),
-    fork(watchAddApi)
+    fork(watchAddApi),
+    fork(watchRemoveApi)
   ])
 }
 
