@@ -26,8 +26,8 @@ function * removeProduct (action) {
 // TODO: Add routing to refresh current page
 
 function * addApi (action) {
-  const { id } = yield call(productRepository.addApi, action.payload.product, action.payload.api)
-  yield put(actionCreators.addApiSucceeded({ 'id': id }))
+  yield call(productRepository.addApi, action.payload.product, action.payload.api)
+  yield put(actionCreators.addApiSucceeded(action.payload.api))
 }
 
 // TODO: Add routing to refresh current page
