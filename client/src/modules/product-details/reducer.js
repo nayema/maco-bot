@@ -54,7 +54,8 @@ const reducer = handleActions({
   [actionTypes.ADD_API_SUCCEEDED]: (state, action) => ({
     ...state,
     product: {
-      ...state.product, apis: state.product.apis.concat(
+      ...state.product,
+      apis: state.product.apis.concat(
         state.apiList.filter((api) => api.id === action.payload.id)
       )
     },
@@ -63,7 +64,10 @@ const reducer = handleActions({
   }),
   [actionTypes.REMOVE_API_SUCCEEDED]: (state, action) => ({
     ...state,
-    apiList: state.apiList.filter((api) => api.id !== action.payload.id)
+    product: {
+      ...state.product,
+      apis: state.product.apis.filter((api) => api.id !== action.payload.id)
+    }
   })
 }, initialState)
 

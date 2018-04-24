@@ -138,7 +138,12 @@ describe('reducer', () => {
     })
 
     it('succeeds', () => {
-      const previousState = { product: { apis: [] }, apiAddingInProgress: true, apiList: [{ 'id': 1 }] }
+      const previousState = {
+        product: { apis: [] },
+        apiAddingInProgress: true,
+        newSelectApi: { id: 1 },
+        apiList: [{ 'id': 1 }]
+      }
       const api = { id: 1 }
       const addApiSucceededAction = actionCreators.addApiSucceeded(api)
 
@@ -154,14 +159,14 @@ describe('reducer', () => {
 
   describe('when removing an api from the api list', () => {
     it('succeeds', () => {
-      const previousState = { apiList: [{ 'id': 1 }, { 'id': 2 }] }
+      const previousState = { product: { apis: [{ 'id': 1 }] } }
       const api = { 'id': 1 }
       const removeApiSucceededAction = actionCreators.removeApiSucceeded(api)
 
       const nextState = reducer(previousState, removeApiSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
-        apiList: [{ 'id': 2 }]
+        product: { apis: [] }
       }))
     })
   })
