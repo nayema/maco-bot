@@ -4,10 +4,10 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   product: null,
-  apiList: [],
   loadingProduct: false,
   productUpdatingInProgress: false,
   newSelectApi: { id: '' },
+  apiList: [],
   apiAddingInProgress: false
 }
 
