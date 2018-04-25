@@ -28,11 +28,6 @@ function * addApi (action) {
   yield put(actionCreators.addApiSucceeded(action.payload.api))
 }
 
-function * removeApi (action) {
-  yield call(productRepository.removeApi, action.payload.product, action.payload.api)
-  yield put(actionCreators.removeApiSucceeded(action.payload.api))
-}
-
 function * watchGoToProductDetails () {
   yield takeEvery(routing.actionTypes.GO_TO_PRODUCT_DETAILS, getDetails)
 }
@@ -49,17 +44,12 @@ function * watchAddApi () {
   yield takeEvery(actionTypes.ADD_API_STARTED, addApi)
 }
 
-function * watchRemoveApi () {
-  yield takeEvery(actionTypes.REMOVE_API_STARTED, removeApi)
-}
-
 function * sagas () {
   yield all([
     fork(watchGoToProductDetails),
     fork(watchUpdate),
     fork(watchRemove),
-    fork(watchAddApi),
-    fork(watchRemoveApi)
+    fork(watchAddApi)
   ])
 }
 

@@ -52,13 +52,10 @@ const AddApiRow = ({ classes, apiList, product, newSelectApi, apiAddingInProgres
   </TableRow>
 )
 
-const ProductRow = ({ classes, product, api, removeApiStarted, Link }) => (
+const ProductRow = ({ classes, api, removeApiStarted, Link }) => (
   <TableRow>
     <TableCell>
       <Link to={`/apis/${api['id']}`}>{api['name']}</Link>
-    </TableCell>
-    <TableCell>
-      <Button color="secondary" onClick={() => removeApiStarted(product, api)}>Remove</Button>
     </TableCell>
   </TableRow>
 )
@@ -84,9 +81,7 @@ const ApiSelectList = ({ classes, product, apiList, newSelectApi, apiAddingInPro
         <ProductRow
           key={api.id}
           classes={classes}
-          product={product}
           api={api}
-          removeApiStarted={removeApiStarted}
           Link={Link}
         />
       )}

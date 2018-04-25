@@ -52,13 +52,3 @@ export const addApiSucceeded = createAction(
   actionTypes.ADD_API_SUCCEEDED,
   (api) => (api)
 )
-
-export const removeApiStarted = createAction(
-  actionTypes.REMOVE_API_STARTED,
-  (product, api) => ({ product, api })
-)
-
-export const removeApiSucceeded = createAction(
-  actionTypes.REMOVE_API_SUCCEEDED,
-  (api) => (api)
-)
