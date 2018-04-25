@@ -10,6 +10,7 @@ const routesMap = {
   [actionTypes.GO_TO_PRODUCT_DETAILS]: '/products/:id',
   [actionTypes.GO_TO_EQUIPMENT_LIST]: '/equipment',
   [actionTypes.GO_TO_APIS_LIST]: '/apis',
+  [actionTypes.GO_TO_API_DETAILS]: '/apis/:id'
 }
 
 function routes (history) {

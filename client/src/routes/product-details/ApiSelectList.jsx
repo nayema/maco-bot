@@ -84,8 +84,8 @@ const ApiSelectList = ({ classes, product, apiList, newSelectApi, apiAddingInPro
         <ProductRow
           key={api.id}
           classes={classes}
-          product={product}
           api={api}
+          product={product}
           removeApiStarted={removeApiStarted}
           Link={Link}
         />

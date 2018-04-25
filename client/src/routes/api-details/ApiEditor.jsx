@@ -12,30 +12,29 @@ const styles = theme => ({
   }
 })
 
-const ProductEditor = ({ product, updateProductStarted, classes, productUpdatingInProgress, cancelEditProduct, editProduct, removeProductStarted }) =>
+const ApiEditor = ({ classes, api, updateApiStarted, apiUpdatingInProgress, editApi, cancelEditApi, removeApiStarted }) =>
   <Formik
-    initialValues={product}
-    onSubmit={(values) => updateProductStarted({ ...product, ...values })}
-    onReset={() => cancelEditProduct()}
+    initialValues={api}
+    onSubmit={(values) => updateApiStarted({ ...api, ...values })}
+    onReset={() => cancelEditApi()}
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-        Client: {product.client['name']}
         <div>
           {
-            product.isEditing ? <span>
+            api.isEditing ? <span>
           <Button
             variant="raised"
             className={classes.button}
             color="primary"
-            disabled={productUpdatingInProgress}
+            disabled={apiUpdatingInProgress}
             onClick={props.handleSubmit}>
             Update
           </Button>
           <Button
             variant="raised"
             className={classes.button}
-            disabled={productUpdatingInProgress}
+            disabled={apiUpdatingInProgress}
             onClick={props.handleReset}>
             Cancel
           </Button>
@@ -43,14 +42,14 @@ const ProductEditor = ({ product, updateProductStarted, classes, productUpdating
           <Button
             variant="raised"
             className={classes.button}
-            onClick={editProduct}>
+            onClick={editApi}>
             Edit
           </Button>
           <Button
             variant="raised"
             className={classes.button}
             color="secondary"
-            onClick={() => removeProductStarted(product.id)}>
+            onClick={() => removeApiStarted(api.id)}>
             Remove
           </Button>
         </span>
@@ -60,11 +59,18 @@ const ProductEditor = ({ product, updateProductStarted, classes, productUpdating
           props={props}
           fieldName="name"
           label="Name"
-          model={product}
-          modelUpdateInProgress={productUpdatingInProgress}
+          model={api}
+          modelUpdateInProgress={apiUpdatingInProgress}
+        />
+        <EditableTextField
+          props={props}
+          fieldName="adi"
+          label="ADI"
+          model={api}
+          modelUpdateInProgress={apiUpdatingInProgress}
         />
       </form>
     )}
   />
 
-export default withStyles(styles)(ProductEditor)
+export default withStyles(styles)(ApiEditor)
