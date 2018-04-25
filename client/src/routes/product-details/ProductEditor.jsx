@@ -20,7 +20,7 @@ const ProductEditor = ({ product, updateProductStarted, classes, productUpdating
     render={props => (
       <form>
         <Typography variant="display3" gutterBottom>{props.values['name']}</Typography>
-        Client: {product.client.name}
+        Client: {product.client['name']}
         <div>
           {
             product.isEditing ? <span>

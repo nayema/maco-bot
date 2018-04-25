@@ -7,6 +7,7 @@ import ClientDetails from './routes/client-details/ClientDetailsContainer'
 import ProductDetails from './routes/product-details/ProductDetailsContainer'
 import EquipmentList from './routes/equipment-list/EquipmentListContainer'
 import ApiList from './routes/api-list/ApiListContainer'
+import ApiDetails from './routes/api-details/ApiDetailsContainer'
 
 const NotFound = () =>
   <div>404 Page not found</div>
@@ -23,7 +24,8 @@ const pages = {
   clientDetails: ClientDetails,
   productDetails: ProductDetails,
   equipmentList: EquipmentList,
-  apiList: ApiList
+  apiList: ApiList,
+  apiDetails: ApiDetails
 }
 
 const mapStateToProps = (state) => ({
