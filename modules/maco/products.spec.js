@@ -50,6 +50,7 @@ describe('products', () => {
         'client_id': client.id,
         'apis': [{ 'id': 1, 'name': 'Some API', 'adi': 0.0 }]
       })
+
       const response = await request(app)
         .get('/maco/products/1')
         .set('Authorization', 'Bearer ' + testJwt)

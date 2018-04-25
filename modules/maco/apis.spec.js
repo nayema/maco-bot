@@ -43,6 +43,7 @@ describe('apis', () => {
         'name': 'Some API',
         'adi': 9.9
       })
+
       const response = await request(app)
         .get('/maco/apis/1')
         .set('Authorization', 'Bearer ' + testJwt)
