@@ -3,7 +3,7 @@ import { LinearProgress } from 'material-ui/Progress'
 import Typography from 'material-ui/Typography'
 import { connect } from 'react-redux'
 
-import ApiHeader from './ApiHeaderContainer'
+import ApiEditor from './ApiEditorContainer'
 
 const LoadingProductProgress = () => <LinearProgress mode="query"/>
 
@@ -12,7 +12,7 @@ const ApiDetails = ({ api, loadingApi }) =>
     <Typography variant="title" gutterBottom>API Details</Typography>
     {loadingApi && <LoadingProductProgress loadingProduct={loadingApi}/>}
     {api && <div>
-      <ApiHeader/>
+      <ApiEditor/>
     </div>}
   </div>
 

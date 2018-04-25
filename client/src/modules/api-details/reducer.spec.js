@@ -28,14 +28,75 @@ describe('reducer', () => {
     it('succeeds', () => {
       const previousState = { api: '', loadingApi: true }
       const api = { name: 'Some Api', clientId: 1 }
-      const apiList = [{ name: 'Some API' }]
-      const loadApiSucceededAction = actionCreators.loadApiSucceeded(api, apiList)
+      const loadApiSucceededAction = actionCreators.loadApiSucceeded(api)
 
       const nextState = reducer(previousState, loadApiSucceededAction)
 
       expect(nextState).toEqual(expect.objectContaining({
         api: api,
         loadingApi: false
+      }))
+    })
+  })
+
+  describe('when updating an existing api', () => {
+    it('starts editing', () => {
+      const previousState = {
+        api: { id: 1, name: 'Some Api', isEditing: false }
+      }
+      const editApiAction = actionCreators.editApi()
+
+      const nextState = reducer(previousState, editApiAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        api: { id: 1, name: 'Some Api', isEditing: true }
+      }))
+    })
+
+    it('cancels editing', () => {
+      const previousState = { api: { id: 1, isEditing: true } }
+      const cancelEditApiAction = actionCreators.cancelEditApi()
+
+      const nextState = reducer(previousState, cancelEditApiAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        api: { id: 1, isEditing: false }
+      }))
+    })
+
+    it('starts updating', () => {
+      const updateApiStartedAction = actionCreators.updateApiStarted('Some Edited Api')
+
+      const nextState = reducer(undefined, updateApiStartedAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        apiUpdatingInProgress: true
+      }))
+    })
+
+    it('succeeds updating', () => {
+      const previousState = {
+        apiUpdatingInProgress: true
+      }
+      const updateApiSucceededAction = actionCreators.updateApiSucceeded()
+
+      const nextState = reducer(previousState, updateApiSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        apiUpdatingInProgress: false
+      }))
+    })
+  })
+
+  describe('when removing a api', () => {
+    it('succeeds', () => {
+      const previousState = { api: { id: 1 } }
+      const removeApiSuceededAction = actionCreators.removeApiSucceeded()
+
+      const nextState = reducer(previousState, removeApiSuceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        api: null
       }))
     })
   })

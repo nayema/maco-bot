@@ -1,2 +1,8 @@
 export const LOAD_API_STARTED = 'api-details/LOAD_API_STARTED'
 export const LOAD_API_SUCCEEDED = 'api-details/LOAD_API_SUCCEEDED'
+export const EDIT_API = 'api-details/EDIT_API'
+export const UPDATE_API_STARTED = 'api-details/UPDATE_API_STARTED'
+export const UPDATE_API_SUCCEEDED = 'api-details/UPDATE_API_SUCCEEDED'
+export const CANCEL_EDIT_API = 'api-details/CANCEL_EDIT_API'
+export const REMOVE_API_STARTED = 'api-details/REMOVE_API_STARTED'
+export const REMOVE_API_SUCCEEDED = 'api-details/REMOVE_API_SUCCEEDED'
