@@ -156,4 +156,18 @@ describe('reducer', () => {
       }))
     })
   })
+
+  describe('when removing an api from the api list', () => {
+    it('succeeds', () => {
+      const previousState = { product: { apis: [{ 'id': 1 }] } }
+      const api = { 'id': 1 }
+      const removeApiSucceededAction = actionCreators.removeApiSucceeded(api)
+
+      const nextState = reducer(previousState, removeApiSucceededAction)
+
+      expect(nextState).toEqual(expect.objectContaining({
+        product: { apis: [] }
+      }))
+    })
+  })
 })
