@@ -1,4 +1,5 @@
 import React from 'react'
+import LinkContainer from 'redux-first-router-link'
 import Input from 'material-ui/Input'
 import Button from 'material-ui/Button'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
@@ -26,7 +27,7 @@ const styles = theme => ({
   }
 })
 
-const AddApiRow = ({ classes, apiList, newApi, apiAddingInProgress, addApiStarted, changeNewApi }) => (
+const AddApiRow = ({ classes, newApi, apiAddingInProgress, addApiStarted, changeNewApi }) => (
   <TableRow>
     <TableCell>
       <Input
@@ -59,38 +60,12 @@ const AddApiRow = ({ classes, apiList, newApi, apiAddingInProgress, addApiStarte
   </TableRow>
 )
 
-const EditableField = ({ isEditing, displayValue, children }) =>
-  isEditing ? children : <span>{displayValue}</span>
-
-const ApiRow = ({ classes, api, updateApiStarted, apiUpdatingInProgress, editApi, changeEditApi, cancelEditApi, removeApiStarted }) => (
+const ApiRow = ({ classes, api, Link }) => (
   <TableRow>
     <TableCell>
-      <EditableField isEditing={api.isEditing} displayValue={api['name']}>
-        <Input
-          onChange={(e) => changeEditApi({ id: api.id, 'name': e.target.value })}
-          value={api.edit && api.edit['name']}
-        />
-      </EditableField>
+      <Link to={`/apis/${api['id']}`}>{api['name']}</Link>
     </TableCell>
-    <TableCell>
-      <EditableField isEditing={api.isEditing} displayValue={api['adi']}>
-        <Input
-          onChange={(e) => changeEditApi({ id: api.id, 'adi': e.target.value })}
-          value={api.edit && api.edit['adi']}
-        />
-      </EditableField>
-    </TableCell>
-    <TableCell className={classes.actionCell}>
-      {
-        api.isEditing ? <span>
-          <Button color="primary" onClick={() => updateApiStarted(api.edit)}>Update</Button>
-          <Button onClick={() => cancelEditApi(api.id)}>Cancel</Button>
-        </span> : <span>
-          <Button onClick={() => editApi(api.id)}>Edit</Button>
-          <Button color="secondary" onClick={() => removeApiStarted(api.id)}>Remove</Button>
-        </span>
-      }
-    </TableCell>
+    <TableCell>{api['adi']}</TableCell>
   </TableRow>
 )
 
@@ -102,7 +77,7 @@ const LoadingApiProgress = () => (
   </TableRow>
 )
 
-const ApiList = ({ classes, apiList, newApi, loadingApiList, apiAddingInProgress, apiUpdatingInProgress, changeNewApi, addApiStarted, editApi, changeEditApi, cancelEditApi, updateApiStarted, removeApiStarted }) => (
+const ApiList = ({ classes, apiList, newApi, loadingApiList, apiAddingInProgress, apiUpdatingInProgress, changeNewApi, addApiStarted, Link = LinkContainer }) => (
   <div>
     <Typography variant="title" gutterBottom>API List</Typography>
     <Table className={classes.root}>
@@ -116,7 +91,6 @@ const ApiList = ({ classes, apiList, newApi, loadingApiList, apiAddingInProgress
       <TableBody>
         <AddApiRow
           classes={classes}
-          apiList={apiList}
           newApi={newApi}
           apiAddingInProgress={apiAddingInProgress}
           addApiStarted={addApiStarted}
@@ -128,11 +102,7 @@ const ApiList = ({ classes, apiList, newApi, loadingApiList, apiAddingInProgress
             key={api.id}
             classes={classes}
             api={api}
-            changeEditApi={changeEditApi}
-            editApi={editApi}
-            cancelEditApi={cancelEditApi}
-            updateApiStarted={updateApiStarted}
-            removeApiStarted={removeApiStarted}
+            Link={Link}
           />
         )}
       </TableBody>

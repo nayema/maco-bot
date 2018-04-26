@@ -14,8 +14,7 @@ describe('reducer', () => {
         adi: ''
       },
       loadingApiList: false,
-      apiAddingInProgress: false,
-      apiUpdatingInProgress: false
+      apiAddingInProgress: false
     })
   })
 
@@ -82,110 +81,6 @@ describe('reducer', () => {
           adi: ''
         },
         apiAddingInProgress: false
-      }))
-    })
-  })
-
-  describe('when updating an existing api', () => {
-    it('starts editing', () => {
-      const previousState = {
-        apiList: [{
-          id: 999,
-          name: 'Some API'
-        }]
-      }
-      const api = { id: 999 }
-      const editApiAction = actionCreators.editApi(api)
-
-      const nextState = reducer(previousState, editApiAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiList: [{
-          id: 999,
-          name: 'Some API',
-          isEditing: true,
-          edit: {
-            id: 999,
-            name: 'Some API'
-          }
-        }]
-      }))
-    })
-
-    it('changes editing', () => {
-      const previousState = {
-        apiList: [{
-          id: 999,
-          name: 'Some API',
-          edit: { unrelatedAttr: 'Unrelated', name: 'Some API' }
-        }]
-      }
-      const api = { id: 999, name: 'Some Edited Api' }
-      const changeEditApiAction = actionCreators.changeEditApi(api)
-
-      const nextState = reducer(previousState, changeEditApiAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiList: [{
-          id: 999,
-          name: 'Some API',
-          edit: {
-            id: 999,
-            unrelatedAttr: 'Unrelated',
-            name: 'Some Edited Api'
-          }
-        }]
-      }))
-    })
-
-    it('cancels editing', () => {
-      const previousState = { apiList: [{ id: 999, isEditing: true }] }
-      const api = { id: 999 }
-      const cancelEditApiAction = actionCreators.cancelEditApi(api)
-
-      const nextState = reducer(previousState, cancelEditApiAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiList: [{ id: 999, isEditing: false }]
-      }))
-    })
-
-    it('starts updating', () => {
-      const updateApiStartedAction = actionCreators.updateApiStarted('Some Edited Api')
-
-      const nextState = reducer(undefined, updateApiStartedAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiUpdatingInProgress: true
-      }))
-    })
-
-    it('succeeds updating', () => {
-      const previousState = {
-        apiList: [{ id: 999, name: 'Some API' }],
-        apiUpdatingInProgress: true
-      }
-      const api = { id: 999, name: 'Some  Updated Api' }
-      const updateApiSucceededAction = actionCreators.updateApiSucceeded(api)
-
-      const nextState = reducer(previousState, updateApiSucceededAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiList: [{ id: 999, name: 'Some  Updated Api' }],
-        apiUpdatingInProgress: false
-      }))
-    })
-  })
-
-  describe('when removing an api', () => {
-    it('succeeds', () => {
-      const previousState = { apiList: [{ id: 999 }] }
-      const removeApiSuceededAction = actionCreators.removeApiSucceeded()
-
-      const nextState = reducer(previousState, removeApiSuceededAction)
-
-      expect(nextState).toEqual(expect.objectContaining({
-        apiList: []
       }))
     })
   })

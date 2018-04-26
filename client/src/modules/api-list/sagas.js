@@ -19,17 +19,6 @@ function * add (action) {
   yield put(actionCreators.addApiSucceeded(api))
 }
 
-function * update (action) {
-  yield call(apiRepository.update, action.payload)
-  yield put(actionCreators.updateApiSucceeded(action.payload))
-}
-
-function * remove (action) {
-  yield call(apiRepository.remove, action.payload)
-  yield put(actionCreators.removeApiSucceeded())
-  yield put(routing.actionCreators.goToApisList())
-}
-
 function * watchLoginRequestSucceeded () {
   yield takeEvery(auth.actionTypes.LOGIN_REQUEST_SUCCEEDED, getAll)
 }
@@ -42,21 +31,11 @@ function * watchAdd () {
   yield takeEvery(actionTypes.ADD_API_STARTED, add)
 }
 
-function * watchUpdate () {
-  yield takeEvery(actionTypes.UPDATE_API_STARTED, update)
-}
-
-function * watchRemove () {
-  yield takeEvery(actionTypes.REMOVE_API_STARTED, remove)
-}
-
 function * sagas () {
   yield all([
     fork(watchLoginRequestSucceeded),
     fork(watchGoToApiList),
-    fork(watchAdd),
-    fork(watchUpdate),
-    fork(watchRemove)
+    fork(watchAdd)
   ])
 }
 

@@ -8,18 +8,12 @@ const mapStateToProps = (state) => ({
   apiList: state.pages.apiList.apiList,
   newApi: state.pages.apiList.newApi,
   loadingApiList: state.pages.apiList.loadingApiList,
-  apiAddingInProgress: state.pages.apiList.apiAddingInProgress,
-  apiUpdatingInProgress: state.pages.apiList.apiUpdatingInProgress
+  apiAddingInProgress: state.pages.apiList.apiAddingInProgress
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  changeNewApi: apiList.actionCreators.changeNewApi,
   addApiStarted: apiList.actionCreators.addApiStarted,
-  editApi: (id) => apiList.actionCreators.editApi({ id }),
-  changeEditApi: apiList.actionCreators.changeEditApi,
-  cancelEditApi: (id) => apiList.actionCreators.cancelEditApi({ id }),
-  updateApiStarted: apiList.actionCreators.updateApiStarted,
-  removeApiStarted: (id) => apiList.actionCreators.removeApiStarted({ id })
+  changeNewApi: apiList.actionCreators.changeNewApi
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApiList)
