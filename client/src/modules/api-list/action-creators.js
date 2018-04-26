@@ -25,37 +25,3 @@ export const addApiSucceeded = createAction(
   actionTypes.ADD_API_SUCCEEDED,
   (api) => (api)
 )
-
-export const editApi = createAction(
-  actionTypes.EDIT_API,
-  (transaction) => (transaction)
-)
-
-export const changeEditApi = createAction(
-  actionTypes.CHANGE_EDIT_API,
-  (api) => (api)
-)
-
-export const cancelEditApi = createAction(
-  actionTypes.CANCEL_EDIT_API,
-  (api) => (api)
-)
-
-export const updateApiStarted = createAction(
-  actionTypes.UPDATE_API_STARTED,
-  (api) => (api)
-)
-
-export const updateApiSucceeded = createAction(
-  actionTypes.UPDATE_API_SUCCEEDED,
-  (api) => (api)
-)
-
-export const removeApiStarted = createAction(
-  actionTypes.REMOVE_API_STARTED,
-  (api) => (api)
-)
-
-export const removeApiSucceeded = createAction(
-  actionTypes.REMOVE_API_SUCCEEDED
-)
