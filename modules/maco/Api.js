@@ -14,9 +14,21 @@ class Api extends Model {
           from: 'apis.id',
           through: {
             from: 'products_apis.api_id',
-            to: 'products_apis.product_id',
+            to: 'products_apis.product_id'
           },
           to: 'products.id'
+        }
+      },
+      equipment: {
+        relation: Model.ManyToManyRelation,
+        modelClass: require('./Equipment'),
+        join: {
+          from: 'apis.id',
+          through: {
+            from: 'process_train.api_id',
+            to: 'process_train.equipment_id'
+          },
+          to: 'equipment.id'
         }
       }
     }
