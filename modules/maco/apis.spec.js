@@ -104,7 +104,7 @@ describe('apis', () => {
     })
   })
 
-  describe('when removing a api', () => {
+  describe('when removing an api', () => {
     it('removes', async () => {
       await createApi({
         'id': 999,
