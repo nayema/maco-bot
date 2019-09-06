@@ -57,7 +57,7 @@
     "postcss-sass": "^0.2.0",
     "standard": "^10.0.3",
     "stylelint": "^8.3.1",
-    "stylelint-config-standard": "^18.0.0",
+    "stylelint-config-standard": "^18.3.0",
     "supertest": "^3.0.0"
   },
   "babel": {
