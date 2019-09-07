@@ -52,7 +52,7 @@
     "keypair": "^1.0.1",
     "nock": "^9.1.6",
     "node-pg-migrate": "^2.17.0",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.19.2",
     "pem-jwk": "^1.5.1",
     "postcss-sass": "^0.2.0",
     "standard": "^10.0.3",
